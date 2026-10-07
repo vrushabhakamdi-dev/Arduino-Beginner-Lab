@@ -1,0 +1,23 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LDR + 10K OHM VOLTAGE DIVIDER
+LDR leg 1        → Arduino 5V
+LDR leg 2        → Arduino A0
+10k leg 1        → Arduino A0   (same junction as LDR leg 2)
+10k leg 2        → Arduino GND
+
+MICRO SERVO (SG90)
+signal (orange)  → Arduino D6
++ (red)          → Arduino 5V
+- (brown)        → Arduino GND
+
+PUSH BUTTON
+leg 1            → Arduino D2
+leg 2            → Arduino GND
+
+NOTES
+- Mount the LDR where it sees real room light, away from the servo and power LEDs.
+- Power the servo from 5V with a common GND. If the servo jitters or resets the board, run it from a separate 5V supply (still common GND).
+- Button uses INPUT_PULLUP: no external resistor needed.

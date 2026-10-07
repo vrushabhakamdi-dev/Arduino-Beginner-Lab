@@ -1,0 +1,41 @@
+PROJECT NAME: 070 - Temperature Controlled Fan
+PROJECT IDEA: Let a TMP36 sensor decide the fan speed for you, switching a DC fan off below 27 degrees, to low speed from 27 to 32 degrees, and to full speed above 32 degrees.
+HOW IT WORKS: The TMP36 on analogue pin A0 outputs 500 mV at 25 degrees and changes by 10 mV per degree, so the code converts the reading into degrees Celsius with volts = counts times 5/1024 and tempC = (volts minus 0.5) times 100. Ten samples are averaged first to steady the value, which is then compared against the two thresholds to choose OFF, LOW or HIGH. That choice sets the PWM duty cycle on the L298N enable pin 5 while IN1 on pin 6 and IN2 on pin 7 fix the direction, and a red LED on pin 6 lights up as soon as the room enters the hot zone. The temperature and fan state are printed together every 500 ms at 9600 baud.
+ADVANTAGES:
+- Fully automatic cooling with no user input required once it is running.
+- Three speed steps use less power than always running at full speed.
+- A dedicated hysteresis note explains how to stop rapid on/off chatter.
+- Serial logging of temperature and fan state makes the system easy to tune.
+- Shares the LED and driver input on pin 6, so no extra pin is wasted.
+REAL-WORLD USES:
+- Automatic cooling for hot electronics enclosures and 3D printers.
+- Ventilation fans in cupboards, lofts and greenhouses.
+- Computer case fans that react to component temperature.
+- Incubators and server rooms that must hold a safe temperature.
+- Fume extractors that start when equipment warms up.
+WHAT YOU LEARN:
+- How to convert TMP36 analogue readings into real degrees Celsius.
+- How threshold logic selects between several output states.
+- Why hysteresis prevents a switch from chattering at its limit.
+- How PWM on ENA gives two different fan speeds on an L298N.
+- How to print sensor values and states together in a tidy Serial format.
+FUTURE SCOPE: Replacing the fixed thresholds with values typed over Serial, or adding an LCD, would turn the sketch into a programmable thermostat controller.
+POSSIBLE UPGRADES:
+- Implement the hysteresis band so the fan cannot flicker at 27 degrees.
+- Add a second red LED that lights only above 32 degrees for an alarm.
+- Log the temperature history in the Serial Monitor as a small graph.
+- Add a manual override button that forces the fan on or off.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- TMP36 analogue temperature sensor
+- L298N motor driver module
+- Small 5V DC fan (or 6-12V fan with external supply)
+- External DC power supply if the fan is not 5V
+- Red LED
+- 220 ohm resistor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

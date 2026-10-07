@@ -1,0 +1,23 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+SW-420 VIBRATION SENSOR MODULE
+VCC → Arduino 5V
+GND → Arduino GND
+DO  → Arduino D2
+  DO = digital output, HIGH while a knock or vibration is felt
+
+PIEZO BUZZER
++   → Arduino D8   (through a 220 ohm resistor)
+-   → Arduino GND
+
+BUILT-IN LED (on the Arduino Uno)
+LED → Arduino D13
+  on-board indicator LED, lights up on each detected vibration
+
+NOTES
+- Only one 220 ohm resistor is needed, in series with the buzzer (+). The indicator is the Uno's built-in LED on D13, so no external LED or resistor is required.
+- Turn the module's on-board potentiometer to set how hard a knock must be; the module drives DO HIGH on vibration.
+- A 300 ms debounce in the code stops one physical knock being counted many times.
+- Built on a breadboard with jumper wires; upload with the USB cable and watch the Serial Monitor at 9600 baud.

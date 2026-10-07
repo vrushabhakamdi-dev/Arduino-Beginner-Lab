@@ -1,0 +1,38 @@
+PROJECT NAME: 018 - Random Number Generator
+PROJECT IDEA: Press a button to generate a new random number between 1 and 1000, with an LED flickering while the number is being picked.
+HOW IT WORKS: The unused analog pin A0 is left floating so it collects electrical noise, which is used once in setup() to seed the random number generator. Each debounced button press flickers the LED a few times and then prints a fresh random value from 1 to 1000 on the Serial Monitor. Without the seed, the Arduino would repeat exactly the same sequence of numbers after every reset.
+ADVANTAGES:
+- Only two parts are needed: one button and one LED.
+- Clearly demonstrates why random seeding matters.
+- Numbers are printed one per line, ready to reuse in other sketches.
+- The LED flicker gives feedback before the result appears.
+- The range is changed by editing two constants at the top.
+REAL-WORLD USES:
+- Picking lottery numbers, raffle winners or team order.
+- Random spawn points and events in game projects.
+- Shuffling quiz questions or flash cards.
+- Creating random test data while debugging other code.
+- Dice rollers and party games built on Arduino.
+WHAT YOU LEARN:
+- How random() and randomSeed() work together.
+- Why a floating analog pin produces usable noise for seeding.
+- How to detect a clean button press with debouncing.
+- How to show a short "working" animation with a for loop.
+- How constants make it trivial to change the number range.
+FUTURE SCOPE: The generator could ask for a minimum and maximum over the Serial Monitor, or draw several different numbers for a lottery-style selection.
+POSSIBLE UPGRADES:
+- Ask for a minimum and maximum value over the Serial Monitor.
+- Add a second button that redraws the previous number.
+- Show the result in binary on eight LEDs.
+- Keep a history of the last ten numbers and print it on demand.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- LED (any color)
+- 220 ohm resistor
+- Push button
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

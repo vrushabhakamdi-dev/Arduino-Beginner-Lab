@@ -1,0 +1,38 @@
+PROJECT NAME: 049 - Joystick Servo Controller
+PROJECT IDEA: Steer two hobby servo motors with a joystick, where the X axis controls one servo and the Y axis controls the other, with a button that centres them both.
+HOW IT WORKS: The joystick's two potentiometers are read on A0 and A1 and each reading is averaged over eight samples so electrical noise does not make the servos twitch. map() converts the 0-1023 input into a 0-180 degree angle, and a small dead zone holds both servos still when the stick is near the middle. The built-in Servo library generates the correct PWM signal on pins 9 and 10, and a servo only moves when its angle actually changes. Pressing the joystick button instantly writes 90 degrees to both servos, and the current angles are printed to the Serial Monitor.
+ADVANTAGES:
+- The Servo library is built into the Arduino IDE, so nothing has to be installed.
+- Averaging and a dead zone make the movement smooth and stable.
+- Two independent axes show how one sensor can control two outputs.
+- The re-centre button demonstrates a safe "home" position for mechanisms.
+- Serial printing of the angles makes calibration and debugging easy.
+REAL-WORLD USES:
+- Remote pan and tilt camera or sensor mounts.
+- Robot arm joints controlled by a hand controller.
+- Model steering for boats, cars and RC vehicles.
+- Interactive art installations and motorised props.
+- Test jig for checking servo travel and centre calibration.
+WHAT YOU LEARN:
+- Attaching and driving servos with the built-in Servo library.
+- Smoothing noisy analogue readings by averaging multiple samples.
+- Mapping a sensor range onto a physical angle range.
+- Using a dead zone to prevent jitter around the centre position.
+- Updating an actuator only when the value changes.
+FUTURE SCOPE: Add more servos and buttons to build a small robot arm with several joints, or read the angles back onto an LCD display.
+POSSIBLE UPGRADES:
+- Add a second button that sweeps both servos through a self-test.
+- Show the angles on a 16x2 I2C LCD.
+- Use the joystick button as a "grab" signal for a servo-driven gripper.
+- Add soft limits so the servos never move past a safe angle.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Analog joystick module (with push button)
+- 2 hobby servo motors (SG90 or similar)
+- External 5V power supply for the servos (recommended)
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built in)
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: Servo

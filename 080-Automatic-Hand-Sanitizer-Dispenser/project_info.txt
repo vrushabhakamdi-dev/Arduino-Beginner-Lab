@@ -1,0 +1,44 @@
+PROJECT NAME: 080 - Automatic Hand Sanitizer Dispenser
+PROJECT IDEA: Dispense one measured dose of hand sanitizer automatically when a hand is placed in front of an IR obstacle sensor, using a small DC pump.
+HOW IT WORKS: The FC-51 IR sensor on pin 2 reports when a hand is close, and an 80 ms confirmation window filters out noise readings. Once a hand is confirmed and the previous dose has been finished, the transistor on pin 6 switches a DC pump on for exactly 1200 ms, which gives one dose from the reservoir, while the LED on pin 13 lights up as the dispense indicator. The pump then stops until the hand is removed and placed in front of the sensor again, and the Serial Monitor keeps a running count of the doses given.
+ADVANTAGES:
+- Touch free dispensing improves hygiene and avoids shared pump handles.
+- A fixed 1200 ms run time gives a consistent dose every time.
+- The transistor lets a small Arduino pin switch a motor that needs far more current.
+- A hand-removal re-arm step stops the pump from running continuously.
+- The dose counter makes it easy to measure the reservoir usage in a demo.
+REAL-WORLD USES:
+- Automatic sanitizer stations in shops, schools and offices.
+- Soap or shampoo dispensers in model bathroom displays.
+- Touch free dispensing of other liquids such as ink, glue or fertilizer solution in workshops.
+- Science fair projects about hygiene and automation.
+- A building block for contact free door or tap controls.
+WHAT YOU LEARN:
+- Driving a DC motor through a transistor instead of from the pin directly.
+- Why a flyback diode is needed across a motor and how to fit it.
+- Using millis() to run a pump for an exact time without blocking the loop.
+- Adding a sensor confirmation delay and a re-arm rule for reliable behaviour.
+- Counting repeated events and reporting them over Serial.
+FUTURE SCOPE: Adding an ultrasonic sensor to warn when the reservoir is almost empty, or an LCD showing the dose count, would make the station more practical.
+POSSIBLE UPGRADES:
+- Add a buzzer beep at the start and end of each dose.
+- Vary the dose length with a potentiometer (for example 500-2000 ms).
+- Show the number of doses left before the reservoir needs a refill.
+- Add a "low sanitizer" LED driven by a second sensor.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- FC-51 IR obstacle sensor module
+- Small 5 V DC motor pump (peristaltic or diaphragm type)
+- NPN transistor (2N2222 or TIP120) or logic-level NMOS
+- 1k ohm base resistor
+- 1N4007 flyback diode
+- LED (any colour)
+- 220 ohm resistor
+- Sanitizer reservoir with tubing
+- External pump power supply (4 x AA or 5 V adapter)
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

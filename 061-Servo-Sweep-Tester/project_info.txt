@@ -1,0 +1,36 @@
+PROJECT NAME: 061 - Servo Sweep Tester
+PROJECT IDEA: Move an SG90 servo smoothly from 0 to 180 degrees and back while printing every angle to the Serial Monitor, so a beginner can confirm the servo works and see exactly how positions are commanded.
+HOW IT WORKS: The sketch attaches the Servo library to digital pin 9 and drives the horn through a full range of motion. Two for-loops step the angle up from 0 to 180 and then down from 180 to 0 in single degree increments, pausing 15 ms after each step. Every angle is printed over Serial at 9600 baud, so you can watch the numbers match the physical movement. The whole cycle repeats endlessly inside loop().
+ADVANTAGES:
+- Simple, safe first test that proves a servo and its wiring are working.
+- Single degree steps show the full resolution the servo can hold.
+- Serial feedback makes it obvious if the servo stutters or skips steps.
+- No extra hardware beyond the servo, so it runs on a bare Arduino Uno.
+- Uses the built-in Servo library, so no downloads are needed.
+REAL-WORLD USES:
+- Checking new servos before fitting them into a bigger build.
+- A quick rig for aiming small sensors or cameras during prototyping.
+- Demonstrating angular motion in school and college electronics classes.
+- Calibrating the real end stops of a mechanism before final assembly.
+- Driving simple display pointers, dials or decorative moving parts.
+WHAT YOU LEARN:
+- How to include and use the built-in Servo library.
+- How servo signal wires connect to a PWM-capable Arduino pin.
+- How for-loops, loop() and delay() work together to make a sequence.
+- How to print live variable values with Serial.print() and Serial.println().
+- How angle ranges and step timing control the speed of movement.
+FUTURE SCOPE: The same sweep routine can become a test harness that verifies several servos in turn or drives a mechanism through a calibration cycle.
+POSSIBLE UPGRADES:
+- Replace delay() with millis() so Serial messages never block the motion.
+- Add a push button that starts and stops the sweep on demand.
+- Sweep only a custom range, for example 45 to 135 degrees.
+- Drive two servos at once and compare how closely they stay in sync.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- SG90 micro servo motor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built-in)
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: Servo (built-in)

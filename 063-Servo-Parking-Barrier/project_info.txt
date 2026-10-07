@@ -1,0 +1,39 @@
+PROJECT NAME: 063 - Servo Parking Barrier
+PROJECT IDEA: Use an FC-51 infrared obstacle sensor to detect a car at a boom gate, lift the servo-driven barrier arm, hold it open for five seconds, then close it again.
+HOW IT WORKS: The FC-51 module shines infrared light and reports an obstacle by pulling its output pin LOW. The Arduino polls digital pin 2 every 50 ms and, as soon as it sees that LOW signal, it commands the servo on pin 6 to rotate from 0 to 90 degrees, swinging the arm clear of the lane. The built-in LED on pin 13 turns on as a warning lamp while the gate is open, and the code waits five seconds to give the vehicle time to pass. After that the servo returns to 0 degrees, the LED switches off, and every event is reported over Serial at 9600 baud.
+ADVANTAGES:
+- Fully automatic gate that needs no switch, card reader or operator.
+- The warning LED makes the open gate clearly visible to anyone nearby.
+- Adjustable open time suits short cars or long delivery vehicles.
+- Infrared detection is cheap and needs no moving contact parts.
+- Every state change is logged on Serial for easy troubleshooting.
+REAL-WORLD USES:
+- Entrance barriers for car parks and private driveways.
+- Toll booths and controlled lane access on small roads.
+- Automatic gates for garages, warehouses and factory yards.
+- Queue management at ticket barriers or delivery bays.
+- A working model of a level crossing or security checkpoint.
+WHAT YOU LEARN:
+- How reflective infrared obstacle sensors such as the FC-51 behave.
+- How to read digital inputs with digitalRead() and active-LOW logic.
+- How to sequence a servo through a multi-step open and close cycle.
+- How to use delay() to build timed events like a five second hold.
+- How LEDs can act as status indicators in an embedded system.
+FUTURE SCOPE: Adding a second sensor on the far side would let the gate close only after the car has fully cleared the lane, making it behave like a real boom barrier.
+POSSIBLE UPGRADES:
+- Add a passive buzzer that beeps while the arm is moving.
+- Replace delay() with millis() so the sensor keeps being checked.
+- Use an LDR to switch the warning LED on automatically at night.
+- Count the vehicles that passed and print the total on Serial.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- SG90 micro servo motor
+- FC-51 IR obstacle sensor module
+- 5mm LED (or use the built-in LED on pin 13)
+- 220 ohm resistor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built-in)
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Servo (built-in)

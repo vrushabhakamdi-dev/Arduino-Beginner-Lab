@@ -1,0 +1,40 @@
+PROJECT NAME: 081 - Line Following Robot
+PROJECT IDEA: A two-wheel robot that follows a black line drawn on the floor by reading three TCRT5000 reflectance sensors and steering an L298N driven motor pair.
+HOW IT WORKS: The left, centre and right sensors on pins 2, 3 and 4 report LOW whenever they pass over the dark line. While the centre sensor sees the line the robot drives straight, when only a side sensor sees it the robot pivots towards the line, and if the line disappears completely it spins in the last direction it was seen until a sensor picks it up again. The Serial Monitor prints the raw L/C/R pattern together with the chosen action, so every decision can be checked on the real track.
+ADVANTAGES:
+- Only three simple digital sensors are needed, so the wiring stays easy to follow.
+- The search spin recovers the line after sharp corners instead of driving away blindly.
+- All speeds, pin numbers and the line polarity are named constants at the top of the sketch.
+- The Serial sensor pattern makes tuning the sensor height and threshold straightforward.
+- The same code works for any dark line on a light surface with no library required.
+REAL-WORLD USES:
+- Factory AGVs that follow painted guidance lines between work stations.
+- Automated guided vehicles in warehouses moving shelves and trolleys.
+- Educational robots used to teach control loops and sensor feedback.
+- Model "mail delivery" robots that run a route in a school or office.
+- Playground for learning line maze solving with more sensors later.
+WHAT YOU LEARN:
+- Reading digital reflectance sensors and turning their output into a decision.
+- Differential drive steering with signed motor speeds on an L298N driver.
+- Using PWM with analogWrite() to control how fast each wheel turns.
+- Writing a priority based decision structure with several sensor cases.
+- Printing structured debug output over the Serial Monitor for tuning.
+FUTURE SCOPE: Adding two more sensors and a PID controller would let the robot take curves smoothly at much higher speed without leaving the line.
+POSSIBLE UPGRADES:
+- Use five or seven sensors for finer position sensing.
+- Add a proportional-integral-derivative (PID) controller for smoother steering.
+- Fit an OLED or LCD showing the live sensor pattern.
+- Add a start/stop button and a lap counter reported over Serial.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- L298N motor driver module
+- 2x DC gear motor with wheels
+- Robot chassis with caster wheel
+- 3x TCRT5000 reflectance sensor module
+- 6-12V battery pack for the motors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

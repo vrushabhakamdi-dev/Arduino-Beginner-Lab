@@ -1,0 +1,36 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+HC-SR04 ULTRASONIC SENSOR
+VCC  → Arduino 5V
+GND  → Arduino GND
+TRIG → Arduino D9     output - trigger pulse
+ECHO → Arduino D10    input - echo pulse length
+
+LED 1 (FAR)
++ → Arduino D4     lit when the object is within 50 cm
+- → 220 ohm resistor → Arduino GND
+
+LED 2 (MEDIUM)
++ → Arduino D5     lit when the object is within 35 cm
+- → 220 ohm resistor → Arduino GND
+
+LED 3 (CLOSE)
++ → Arduino D6     lit when the object is within 20 cm
+- → 220 ohm resistor → Arduino GND
+
+LED 4 (VERY CLOSE)
++ → Arduino D7     lit when the object is within 10 cm
+- → 220 ohm resistor → Arduino GND
+
+PIEZO BUZZER
++ → Arduino D8
+- → Arduino GND
+
+NOTES
+- Each LED needs its own 220 ohm resistor. Never wire an LED straight to 5V or a pin without one.
+- LED polarity matters: the long leg (+) goes to the Arduino pin, the short leg (-) through the resistor to GND.
+- Buzzer polarity matters too: + to D8, - to GND.
+- No object in range → all four LEDs off, buzzer silent, "No object in range" in the Serial Monitor.
+- Beep speed: 800 ms period when far, 100 ms period at 10 cm or closer.

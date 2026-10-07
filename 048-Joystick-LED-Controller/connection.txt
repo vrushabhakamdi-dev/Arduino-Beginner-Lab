@@ -1,0 +1,32 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+JOYSTICK MODULE
+VCC → Arduino 5V
+GND → Arduino GND
+VRx → Arduino A0     horizontal (left/right) position, 0..1023
+VRy → Arduino A1     vertical (up/down) position, 0..1023
+SW  → Arduino D2     push button, press shorts D2 to GND
+
+LED 1 → Arduino D3     220R + LED, cathode to GND
+LED 2 → Arduino D4     220R + LED, cathode to GND
+LED 3 → Arduino D5     220R + LED, cathode to GND
+LED 4 → Arduino D6     220R + LED, cathode to GND
+LED 5 → Arduino D7     220R + LED, cathode to GND
+LED 6 → Arduino D8     220R + LED, cathode to GND
+LED 7 → Arduino D9     220R + LED, cathode to GND
+LED 8 → Arduino D10    220R + LED, cathode to GND
+
+LED LEGS (same for all eight)
+Arduino pin → 220R → LED + (anode, long leg)
+LED - (cathode, short leg) → Arduino GND
+
+NOTES
+- SW uses the internal pull-up (INPUT_PULLUP): wire SW to D2 and the other
+  side of the switch to GND. No external resistor needed. LOW = pressed.
+- The VRx/VRy pins are analogue outputs; do not move them off A0/A1.
+- Each LED needs its own 220 ohm resistor. Reversing an LED (cathode to the
+  pin) simply leaves it dark.
+- All of D2..D10 are used; D11..D13 and A2..A5 stay free.
+- Breadboard, jumper wires and the USB cable complete the build.

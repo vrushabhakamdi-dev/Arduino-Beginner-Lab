@@ -1,0 +1,45 @@
+PROJECT NAME: 100 - Arduino Floor Cleaner Robot
+PROJECT IDEA: A two-wheel robot that cleans the floor by driving around randomly - it runs a brush/fan motor while moving, avoids obstacles with an ultrasonic sensor and turns in a random direction when it gets close to something.
+HOW IT WORKS: Pressing the button on pin 2 starts a cleaning run: the brush/fan motor on pin 3 switches on through a transistor and the L298N driver powers both drive motors forward. The HC-SR04 sensor (Trig pin 11, Echo pin 12) measures the distance about ten times a second, and as soon as an obstacle is closer than 20 cm the robot stops, uses random(2) to pick a left or right direction, spins on the spot for 500 ms and then drives forward again. Pressing the button once more stops the motors and the brush. A navigation log is printed to the Serial Monitor with the measured distance, the chosen turn and the obstacle counter.
+ADVANTAGES:
+- Random-bounce navigation covers an area without maps or extra sensors.
+- The ultrasonic sensor prevents the robot from ramming into walls.
+- A transistor lets the Arduino switch the brush motor safely.
+- Start/stop button makes demos easy without re-uploading the sketch.
+- Serial log of distances and turns makes debugging straightforward.
+REAL-WORLD USES:
+- Concept model of an automatic vacuum or sweeping robot.
+- Obstacle-avoiding platform for school robotics competitions.
+- Test bed for motor drivers, PWM speed control and sensor ranging.
+- Base chassis for adding line following or object pickup later.
+- Demonstrating random search algorithms in a physical system.
+WHAT YOU LEARN:
+- Driving two DC motors with an L298N H-bridge and PWM speed control.
+- Why motors need a separate power supply and a common ground.
+- Switching a motor through a transistor with a flyback diode.
+- Reading distance from an HC-SR04 with pulseIn() and converting to cm.
+- Using random() with randomSeed() for unpredictable behaviour.
+FUTURE SCOPE: Adding a second cleaning stage, a battery voltage monitor or a coverage counter (areas visited) would turn the prototype into a more complete cleaning robot.
+POSSIBLE UPGRADES:
+- Add PWM speed control so the robot slows down near obstacles.
+- Add a "stuck" watchdog that reverses the robot if no progress is made.
+- Drive a vacuum fan instead of the brush and sense when it is full.
+- Add a bump switch as a backup if the ultrasonic sensor misses an object.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- L298N dual H-bridge motor driver module
+- 2x DC gear motors with wheels
+- HC-SR04 ultrasonic distance sensor
+- Push button
+- Brush or fan DC motor (small)
+- NPN transistor (2N2222 or TIP120) or logic-level NMOS
+- 1k ohm base resistor
+- 1N4007 flyback diode for the brush motor
+- Battery pack for the motors (e.g. 6-12 V)
+- Chassis with caster wheel
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Advanced Beginner
+LIBRARY REQUIRED: None

@@ -1,0 +1,20 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+RED LED
+A (+) → 220 ohm resistor → Arduino D2
+K (-) → Arduino GND
+
+YELLOW LED
+A (+) → 220 ohm resistor → Arduino D3
+K (-) → Arduino GND
+
+GREEN LED
+A (+) → 220 ohm resistor → Arduino D4
+K (-) → Arduino GND
+
+NOTES
+- One 220 ohm resistor per LED; cathode (short leg) goes to GND.
+- Only one light is lit at a time, so current draw stays low.
+- Serial Monitor at 9600 baud prints the active light state.

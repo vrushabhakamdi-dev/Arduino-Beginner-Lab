@@ -1,0 +1,38 @@
+PROJECT NAME: 028 - Sound Level Meter
+PROJECT IDEA: Measure ambient sound level with an analog sound sensor and display a 0-100 level with a peak-hold bar, lighting an LED when loud sounds are detected.
+HOW IT WORKS: The sound sensor's amplifier converts microphone pressure variations into an analogue voltage on the AO pin, which the Arduino reads as a value between 0 and 1023. The sketch maps that onto a 0-100 level, prints it with a bar, and remembers the loudest value for 1.5 seconds so brief peaks stay visible before decaying away. Whenever the level reaches 70 or more, the LED on pin 13 switches on as a loud-sound indicator.
+ADVANTAGES:
+- Analogue output gives a smooth, continuous reading instead of a simple yes/no.
+- Peak hold makes short spikes, such as a clap, readable instead of missed.
+- Built-in LED on pin 13 means the circuit works even with no extra parts.
+- Map-based 0-100 scale makes results easy to compare and explain.
+- Serial bar graph gives immediate visual feedback while testing sounds.
+REAL-WORLD USES:
+- Classroom or workshop noise-level awareness displays.
+- Simple audio monitoring for unusual machinery knocking or rattling.
+- Triggering a recording or alarm when a loud event happens.
+- Checking how effective a soundproofing panel or enclosure is.
+- Demonstrating sound waves and amplitude in physics lessons.
+WHAT YOU LEARN:
+- Reading a continuously varying analogue signal rather than a static one.
+- Mapping ADC values to a useful display range with map().
+- Implementing a peak-hold and decay algorithm with millis().
+- Combining serial text, numbers and ASCII graphics in one output.
+- Using the built-in LED for quick status indication.
+FUTURE SCOPE: Adding a real dB calculation with a calibrated microphone would turn the sketch into a usable sound pressure level meter for room measurements.
+POSSIBLE UPGRADES:
+- Use the sensor's digital output as a simple clap or sound trigger.
+- Average several samples per reading to smooth out jitter.
+- Log the peak level of every event with a timestamp for later review.
+- Add several LEDs as a coloured level ladder for instant reading.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Analog sound sensor module (with microphone)
+- 220 ohm resistor (only if using an external LED instead of the built-in one)
+- LED (optional, pin 13 built-in LED can be used)
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

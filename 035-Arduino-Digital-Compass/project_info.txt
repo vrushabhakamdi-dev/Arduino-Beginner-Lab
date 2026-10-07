@@ -1,0 +1,37 @@
+PROJECT NAME: 035 - Arduino Digital Compass
+PROJECT IDEA: Connect an HMC5883L magnetometer to the Arduino and turn its magnetic field readings into a compass heading in degrees with a direction name such as N, NE or SW.
+HOW IT WORKS: The HMC5883L measures the strength of Earth's magnetic field along three axes and sends that data to the Arduino over the I2C bus on pins A4 and A5. The code takes the horizontal X and Y components, feeds them into atan2() to get an angle, and then shifts that angle into the standard 0 to 360 degree range. The angle is finally converted into one of 16 compass labels and printed to the Serial Monitor together with the magnetic field strength.
+ADVANTAGES:
+- Gives a true heading with no moving parts or mechanical wear.
+- Uses only two signal wires because I2C carries everything on SDA and SCL.
+- Well supported Adafruit library handles calibration and scaling for you.
+- Prints both an angle and a friendly direction name for easy reading.
+- Works indoors where a GPS compass would be useless.
+REAL-WORLD USES:
+- Navigation aids for small robots and RC vehicles.
+- Heading locks for camera gimbals and model aircraft.
+- Orientation tags for data logging experiments.
+- Backup compass in vehicles, drones and boats.
+- Teaching tool for magnetism and vector mathematics.
+WHAT YOU LEARN:
+- How the I2C protocol uses SDA and SCL with Wire.h.
+- How a magnetometer measures Earth's magnetic field in three axes.
+- Using atan2() to convert X and Y components into an angle.
+- Normalising an angle into the 0-360 degree range.
+- Installing and using third-party libraries from the Library Manager.
+FUTURE SCOPE: Combining this compass with a gyroscope or accelerometer would give a tilt-compensated heading that stays accurate when the board is not level.
+POSSIBLE UPGRADES:
+- Draw a simple ASCII compass rose in the Serial Monitor.
+- Add hard-iron calibration offsets gathered from a sweep of the board.
+- Show a bar graph of heading changes over time.
+- Combine the compass with motors to build a self-navigating robot.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- HMC5883L magnetometer module (GY-271)
+- Jumper wires
+- USB cable
+- Library: Adafruit HMC5883 Unified
+- Library: Adafruit Unified Sensor
+- Library: Adafruit BusIO
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Adafruit HMC5883 Unified, Adafruit Unified Sensor, Adafruit BusIO

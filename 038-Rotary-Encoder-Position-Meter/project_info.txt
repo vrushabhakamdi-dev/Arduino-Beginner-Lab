@@ -1,0 +1,36 @@
+PROJECT NAME: 038 - Rotary Encoder Position Meter
+PROJECT IDEA: Turn a KY-040 rotary encoder into a digital counter that increases or decreases as the knob is rotated and resets to zero at the push of a button.
+HOW IT WORKS: A rotary encoder produces two square waves, CLK and DT, that are slightly out of phase with each other. The Arduino compares the current CLK level with the previous one, and when it changes it looks at DT to work out whether the knob was turned clockwise or counter-clockwise, then increments or decrements the position. The push button on pin 4 is read with an internal pull-up, and pressing it sets the position back to zero.
+ADVANTAGES:
+- Gives unlimited rotation with no end stops, unlike a standard potentiometer.
+- Push button on the same module provides a convenient reset.
+- Needs only three digital pins and no external library at all.
+- Polling keeps the code simple and avoids interrupt conflicts with other sensors.
+- Position is reported instantly, which gives satisfying hands-on feedback.
+REAL-WORLD USES:
+- Volume and brightness controls on audio and lighting equipment.
+- Menu navigation dials on 3D printers and CNC machines.
+- Setting a target value on ovens, washers and industrial panels.
+- Stepper motor speed or position control in hobby robotics.
+- Counting turns in scientific and workshop instruments.
+WHAT YOU LEARN:
+- How quadrature encoder signals encode direction as well as movement.
+- Reading and debouncing mechanical inputs with polling.
+- Using INPUT_PULLUP so no external resistors are needed.
+- Handling button presses with edge detection instead of repeated triggers.
+- Working with signed integers that count below zero.
+FUTURE SCOPE: The count could drive a servo or stepper motor so the knob directly controls a physical output.
+POSSIBLE UPGRADES:
+- Show the position as a bar graph in the Serial Monitor.
+- Add a long-press mode that changes the counting step size.
+- Store the last position in EEPROM so it survives a power cycle.
+- Drive a servo motor to mirror the knob position.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- KY-040 rotary encoder module
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

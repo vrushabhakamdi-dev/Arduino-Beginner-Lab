@@ -1,0 +1,23 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+SW-520D TILT BALL SWITCH MODULE
+VCC → Arduino 5V
+GND → Arduino GND
+DO  → Arduino D2
+  DO = tilt flag, HIGH when the module is tipped off level
+
+PIEZO BUZZER
++   → Arduino D8   (through a 220 ohm resistor)
+-   → Arduino GND
+
+BUILT-IN LED (on the Arduino Uno)
+LED → Arduino D13
+  on-board indicator LED, ON while tilted
+
+NOTES
+- One 220 ohm resistor only, in series with the buzzer (+). The indicator is the Uno's built-in LED on D13.
+- Mount the module in the orientation you call "level": the ball rattles when it moves, so the code ignores any change shorter than 50 ms.
+- While DO stays HIGH the buzzer sounds a steady 800 Hz tone; when the board is level the tone stops.
+- Built on a breadboard with jumper wires; upload with the USB cable and watch the Serial Monitor at 9600 baud.

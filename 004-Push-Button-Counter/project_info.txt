@@ -1,0 +1,36 @@
+PROJECT NAME: 004 - Push Button Counter
+PROJECT IDEA: A push button connected to pin 2 counts every press and shows the running total in the Serial Monitor, with debouncing so each press counts exactly once.
+HOW IT WORKS: The button is wired between pin 2 and GND and the pin is set to INPUT_PULLUP, which makes it read HIGH when released and LOW when pressed. Mechanical buttons briefly chatter when they make contact, so the code only accepts a new state after it has stayed unchanged for 25 milliseconds. When the settled state changes from HIGH to LOW, the counter increments and the new total is printed.
+ADVANTAGES:
+- The internal pull-up removes the need for an external resistor.
+- Debouncing prevents one press from being counted two or three times.
+- millis()-based timing does not freeze the rest of the program like delay() would.
+- The count is printed immediately, so feedback is instant.
+- The same pattern works for any menu, mode, or trigger button.
+REAL-WORLD USES:
+- Tally counters, lap counters, and people-entry counters.
+- Menu "next" buttons on appliances and control panels.
+- Score keepers for games and quizzes.
+- Service and reset buttons on test equipment.
+- Trigger inputs for alarms, lights, and simple robots.
+WHAT YOU LEARN:
+- Reading digital inputs with digitalRead().
+- Why INPUT_PULLUP changes the logic level of a button.
+- What contact bounce is and how a 25 ms debounce timer filters it.
+- Tracking state over time with millis() instead of blocking delays.
+- Storing and displaying a persistent counter variable.
+FUTURE SCOPE: The counter can drive an LCD, an LED that blinks per press, or a reset button that clears the tally.
+POSSIBLE UPGRADES:
+- Add a second button that resets the count back to zero.
+- Show the count on a 16x2 LCD instead of the Serial Monitor.
+- Light an LED briefly on every registered press.
+- Store the count in EEPROM so it survives a power cycle.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- Push button (tactile)
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

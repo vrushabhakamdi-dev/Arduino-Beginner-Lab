@@ -1,0 +1,38 @@
+PROJECT NAME: 007 - RGB LED Color Mixer
+PROJECT IDEA: Three potentiometers act as red, green, and blue sliders that mix any colour on a common-cathode RGB LED while the Serial Monitor prints the channel values.
+HOW IT WORKS: Each potentiometer feeds an analogue pin (A0, A1, A2) with a voltage between 0 and 5V, giving a reading from 0 to 1023. A helper function maps each reading to 0-255 and analogWrite() sends that PWM level to pins 9, 10, and 11. Because the three channels add their light together inside the LED, changing any one knob blends a new colour.
+ADVANTAGES:
+- Millions of colours are possible from just three simple knobs.
+- The common-cathode design needs only one ground connection for the LED.
+- A small readChannel() helper keeps the code short and avoids repetition.
+- Serial printing of R, G, B values makes colour tuning precise and repeatable.
+- The same PWM idea scales directly to LED strips and lighting rigs.
+REAL-WORLD USES:
+- Colour-changing decorative and mood lighting.
+- Stage and event lighting consoles.
+- Backlighting for displays, signs, and hobby dashboards.
+- Status colours on machines (for example green = OK, red = fault).
+- Photography and video fill lights with adjustable colour temperature.
+WHAT YOU LEARN:
+- How an RGB LED combines three primary colours to make any colour.
+- Mapping multiple analogue sensors to separate outputs.
+- Using a parameterised helper function.
+- Consistent use of named pin constants for a three-channel system.
+- Conditional Serial printing to keep monitor output readable.
+FUTURE SCOPE: Colour presets, automatic cycling, or sensor-driven colour can all be added while keeping the same three-channel structure.
+POSSIBLE UPGRADES:
+- Add a button that cycles through preset colours.
+- Make the LED fade smoothly between colours when idle.
+- Read a colour from a sensor and match it with the RGB LED.
+- Extend the three channels to control an addressable LED strip.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- Common-cathode RGB LED
+- 3x 220 ohm resistors
+- 3x 10k ohm potentiometers
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

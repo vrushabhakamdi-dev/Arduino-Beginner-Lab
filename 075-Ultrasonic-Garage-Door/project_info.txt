@@ -1,0 +1,39 @@
+PROJECT NAME: 075 - Ultrasonic Garage Door
+PROJECT IDEA: Detect a car approaching with an HC-SR04 ultrasonic sensor and raise a model garage door with a servo, while four LEDs show how close the car is.
+HOW IT WORKS: The sensor on pins 9 and 10 measures the distance to the nearest object in centimetres. Anything closer than 100 cm counts as an arriving car, so the servo on pin 6 rotates to 90 degrees and raises the door; the last-seen timer keeps refreshing while the car stays there, and the door closes 3 seconds after the car moves away. The LED bar lights up one lamp per distance threshold at 100, 60, 30 and 10 cm, and the Serial Monitor prints the live distance and the door state twice a second.
+ADVANTAGES:
+- Hands free opening, which is exactly what a real garage door needs.
+- The door only closes after a delay, so a slowly moving car is never trapped.
+- Four threshold LEDs give an early visual warning as the car gets closer.
+- A timeout in pulseIn() keeps the sketch running when nothing is in range.
+- No moving sensor parts: only the small servo moves.
+REAL-WORLD USES:
+- Automatic garage doors and barrier gates for model car layouts.
+- Vehicle presence detection at a parking barrier or toll booth.
+- Reversing distance indicators for small robots or model vehicles.
+- Touch free entry systems for a room, shed or display cabinet.
+- A base for traffic control demonstrations in the classroom.
+WHAT YOU LEARN:
+- How the HC-SR04 works with a trigger pulse and a measured echo pulse.
+- Converting echo duration in microseconds into centimetres.
+- Using pulseIn() timeouts so a missing echo does not freeze the program.
+- Driving a servo with the built-in Servo library.
+- Building a multi-threshold LED bar from an analog distance value.
+FUTURE SCOPE: Adding a buzzer that beeps faster as the car gets closer, or a second sensor that confirms the car has fully entered, would make the system more realistic.
+POSSIBLE UPGRADES:
+- Add a piezo buzzer that beeps faster under 30 cm as a proximity warning.
+- Use millis() for the servo movement so the door opens gradually instead of instantly.
+- Log every door opening with a timestamp on the Serial Monitor.
+- Add a button that forces the door to stay open regardless of the sensor.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- HC-SR04 ultrasonic sensor
+- Micro servo motor (SG90 or similar)
+- 4 LEDs (any colour)
+- 4 x 220 ohm resistors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built-in)
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Servo (built-in)

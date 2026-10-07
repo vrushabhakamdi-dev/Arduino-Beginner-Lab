@@ -1,0 +1,37 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+POTENTIOMETER (10K)
+outer leg 1  → Arduino 5V
+outer leg 2  → Arduino GND
+wiper        → Arduino A0
+
+PUSH BUTTON
+leg 1        → Arduino D2
+leg 2        → Arduino GND
+
+PROGRESS LEDS
+LED 1 anode  → Arduino D4
+LED 2 anode  → Arduino D5
+LED 3 anode  → Arduino D6
+LED 4 anode  → Arduino D7
+LED cathodes → Arduino GND
+  (220 ohm resistor in series with each anode)
+
+RELAY MODULE (1 CHANNEL)
+VCC          → Arduino 5V
+GND          → Arduino GND
+IN           → Arduino D9
+COM          → demo appliance supply (+)
+NO           → appliance (+)
+
+PASSIVE BUZZER
++            → Arduino D8
+-            → Arduino GND
+
+NOTES
+- Relay switches low-voltage demo loads only. Never connect mains electricity to a breadboard prototype.
+- Pot sets 1-60 minutes while idle; the button starts and cancels the countdown.
+- Relay IN is D9 and the buzzer is D8 - do not swap them.
+- No LED current path other than the four 220 ohm resistors is needed.

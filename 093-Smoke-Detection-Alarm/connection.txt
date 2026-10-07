@@ -1,0 +1,38 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+MQ-2 SMOKE / GAS SENSOR MODULE
+VCC → Arduino 5V
+GND → Arduino GND
+DO  → Arduino D2    comparator output (active-low)
+AO  → Arduino A0    raw analog level
+
+PUSH BUTTON - RESET
+leg 1 → Arduino D3
+leg 2 → Arduino GND
+
+GREEN LED (power / armed)
+anode (+)   → Arduino D4   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+RED LED (alarm)
+anode (+)   → Arduino D6   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+PASSIVE BUZZER
++ → Arduino D8   (100 ohm resistor in series)
+- → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- Warm a new MQ-2 sensor up for 24-48 hours, then set the tiny potentiometer
+  on the module so DO stays HIGH in clean air before trusting the alarm.
+- The alarm LATCHES ON: only the button on D3 clears it.
+- Code assumes DO is active-low (SMOKE_ACTIVE_LOW = true); test with
+  lighter gas near the sensor and flip the constant if yours is inverted.
+- Parts list has 3x 220 ohm resistors; the sketch lights 2 LEDs (D4, D6).
+- Educational prototype only - never rely on it instead of a certified
+  smoke alarm.

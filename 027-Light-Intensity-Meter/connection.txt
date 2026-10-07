@@ -1,0 +1,40 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LDR (VOLTAGE DIVIDER)
+one leg → Arduino 5V
+other leg → Arduino A0     midpoint of the divider
+10 kohm resistor → Arduino A0 to Arduino GND
+
+   5V --- LDR ---+--- A0
+                 |
+              10 kohm
+                 |
+   GND ----------+
+
+LED 1 (BAR LOW)
++ → Arduino D9
+- → 220 ohm resistor → Arduino GND
+
+LED 2
++ → Arduino D10
+- → 220 ohm resistor → Arduino GND
+
+LED 3
++ → Arduino D11
+- → 220 ohm resistor → Arduino GND
+
+LED 4
++ → Arduino D12
+- → 220 ohm resistor → Arduino GND
+
+LED 5 (BAR HIGH)
++ → Arduino D13
+- → 220 ohm resistor → Arduino GND
+
+NOTES
+- More light = lower LDR resistance = higher voltage at A0 = higher reading (0 = dark, 1023 = brightest).
+- The 10 kohm resistor must sit between A0 and GND; putting it between 5V and A0 inverts the scale.
+- D13 also drives the Uno's built-in LED, so LED 5 and the on-board LED light together.
+- The bar refreshes every 200 ms and shows 0 to 5 LEDs lit.

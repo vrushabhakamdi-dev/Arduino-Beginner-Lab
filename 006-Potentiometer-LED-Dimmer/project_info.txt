@@ -1,0 +1,38 @@
+PROJECT NAME: 006 - Potentiometer LED Dimmer
+PROJECT IDEA: Turning a potentiometer knob dims and brightens an LED while the Serial Monitor reports the brightness as a percentage from 0% to 100%.
+HOW IT WORKS: The potentiometer forms a variable voltage divider, so pin A0 reads a value between 0 and 1023 as the knob turns. The map() function converts that reading to a 0-255 PWM duty cycle, and analogWrite() on pin 9 applies it to the LED. Because PWM switches the pin on and off thousands of times per second, the LED looks smoothly dim or bright instead of flickering.
+ADVANTAGES:
+- Gives smooth, step-free analogue-style control with digital electronics.
+- Requires only three wires for the potentiometer plus one LED.
+- map() makes the range conversion clear and easy to adjust.
+- Serial output in percent makes calibration and testing simple.
+- The technique works unchanged for motors, fans, and lamp brightness.
+REAL-WORLD USES:
+- Dimmer switches for lamps and LED lighting.
+- Volume controls on radios and audio equipment.
+- Brightness sliders on phone and monitor backlights.
+- Speed dials for fans, conveyors, and small motors.
+- Sensor-style knobs on test instruments and synthesizers.
+WHAT YOU LEARN:
+- Reading analogue voltages with analogRead() and the 0-1023 range.
+- Generating PWM output with analogWrite() and the 0-255 range.
+- Converting ranges with map().
+- Understanding duty cycle and how it creates apparent brightness.
+- Printing changing sensor values to the Serial Monitor.
+FUTURE SCOPE: The same dimmer can control several channels, remember the last setting, or drive a MOSFET for high-power LED strips.
+POSSIBLE UPGRADES:
+- Add a second potentiometer to control a second LED.
+- Store the brightness in EEPROM so it is kept after power off.
+- Show a bar graph of brightness in the Serial Monitor.
+- Use the potentiometer to control a DC motor speed instead of an LED.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 10k ohm potentiometer
+- LED (any color)
+- 220 ohm resistor
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

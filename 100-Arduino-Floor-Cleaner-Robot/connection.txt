@@ -1,0 +1,70 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+L298N DUAL H-BRIDGE MOTOR DRIVER
+ENA  → Arduino D5     PWM speed, left motor (remove the ENA jumper cap)
+IN1  → Arduino D6     left motor direction
+IN2  → Arduino D7     left motor direction
+IN3  → Arduino D8     right motor direction
+IN4  → Arduino D9     right motor direction
+ENB  → Arduino D10    PWM speed, right motor (remove the ENB jumper cap)
++12V → battery pack (+)  6-12 V motor supply
+GND  → battery pack (-) AND Arduino GND   grounds MUST be common
+OUT1 → left DC gear motor terminal A
+OUT2 → left DC gear motor terminal B
+OUT3 → right DC gear motor terminal A
+OUT4 → right DC gear motor terminal B
+5V   → leave unconnected - the on-board regulator feeds it
+
+HC-SR04 ULTRASONIC SENSOR
+VCC  → Arduino 5V
+GND  → Arduino GND
+TRIG → Arduino D11
+ECHO → Arduino D12
+
+PUSH BUTTON (start / stop)
+leg 1 → Arduino D2
+leg 2 → Arduino GND
+
+BRUSH / FAN MOTOR DRIVER (NPN 2N2222 / TIP120 or logic-level NMOS)
+base/gate → Arduino D3   (1k ohm resistor in series)
+emitter   → Arduino GND
+collector → brush motor (-)
+
+BRUSH / FAN DC MOTOR
+motor (+) → battery pack (+)
+motor (-) → transistor collector
+
+FLYBACK DIODE (1N4007) across the brush motor
+anode    → brush motor (-)
+cathode  → brush motor (+)     stripe/band toward +
+
+BATTERY PACK (motors, e.g. 6-12 V)
++ → L298N +12V and brush motor (+)
+- → L298N GND and Arduino GND     never feed motors from the 5V pin
+
+L298N WIRING OVERVIEW
+
+  ARDUINO UNO     L298N                 MOTORS
+  ----------     -----                 -----
+  D5  ---------> ENA
+  D6  ---------> IN1    OUT1/OUT2 -----> left DC gear motor
+  D7  ---------> IN2    OUT3/OUT4 -----> right DC gear motor
+  D8  ---------> IN3
+  D9  ---------> IN4
+  D10 --------> ENB
+  GND --------> GND  <--- battery (-)
+                 +12V <--- battery (+)
+
+BREADBOARD / JUMPER WIRES / USB CABLE / CHASSIS WITH CASTER WHEEL
+no pin mapping - used for prototyping, power and mounting
+
+NOTES
+- Remove the ENA and ENB jumper caps, otherwise the L298N runs at full
+  speed and the PWM on D5/D10 does nothing.
+- Never run the drive or brush motors from the Arduino 5V pin; join the
+  battery (-) to Arduino GND or the logic pins will not respond.
+- A0 is deliberately left unconnected: the sketch reads its floating noise
+  with randomSeed(analogRead(A0)) to pick random left/right turns.
+- The HC-SR04 ECHO output is a 5 V signal, so it needs no divider.

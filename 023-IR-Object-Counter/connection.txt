@@ -1,0 +1,15 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+FC-51 IR OBSTACLE SENSOR
+VCC  → Arduino 5V
+GND  → Arduino GND
+DOUT → Arduino D2    input - changes level when an object reflects the IR beam
+
+NOTES
+- Most FC-51 boards are ACTIVE-LOW: DOUT goes LOW while an object is detected. The code uses DETECTED_LEVEL = LOW - if counting never happens, change that constant to HIGH.
+- Only DOUT is wired; some boards also expose an onboard LED/pins that need no connection.
+- The on-board trimmer sets the detection range; hold the object a few centimetres from the sensor.
+- Edges closer than 150 ms together are ignored (debounce), so pass objects one at a time with a short gap.
+- Type 'r' in the Serial Monitor (9600 baud) to reset the count.

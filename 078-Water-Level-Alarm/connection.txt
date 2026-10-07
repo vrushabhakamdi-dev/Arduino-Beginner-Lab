@@ -1,0 +1,25 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+WATER LEVEL SENSOR MODULE (bare trace)
+VCC          → Arduino 5V
+GND          → Arduino GND
+SIG          → Arduino A0
+
+LED BAR (fill level)
+LED 25%      → Arduino D4
+LED 50%      → Arduino D5
+LED 75%      → Arduino D6
+LED 95%      → Arduino D7
+LED cathodes → Arduino GND
+  (220 ohm resistor in series with each anode)
+
+PIEZO BUZZER
++            → Arduino D8
+-            → Arduino GND
+
+NOTES
+- Calibrate: dunk the sensor to the maximum depth, read the Serial value and enter it as RAW_WET for a real 0-100 % scale.
+- Measurement demo only - there is no pump or valve here, and no mains switching anywhere.
+- Keep the wet sensor leads away from the breadboard and USB cable.

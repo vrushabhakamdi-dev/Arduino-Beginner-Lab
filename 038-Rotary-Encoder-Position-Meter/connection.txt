@@ -1,0 +1,19 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+KY-040 ROTARY ENCODER MODULE
+CLK → Arduino D2
+  CLK = quadrature channel A, a change on it marks one click of the knob
+DT  → Arduino D3
+  DT  = quadrature channel B, its level compared with CLK gives the direction
+SW  → Arduino D4
+  SW  = push button on top of the knob, active LOW, internal pull-up
++   → Arduino 5V
+GND → Arduino GND
+
+NOTES
+- All three signal pins use the internal pull-up resistors (INPUT_PULLUP), so no external resistors are needed.
+- Press the knob to reset the position to 0: SW reads LOW while pressed, HIGH when released.
+- If the count runs the wrong way, swap the CLK and DT wires (or swap the two branches in the code).
+- No library is required; build on a breadboard with jumper wires, upload with the USB cable and watch the Serial Monitor at 9600 baud.

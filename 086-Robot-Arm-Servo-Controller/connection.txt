@@ -1,0 +1,51 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+SG90 MICRO SERVO - BASE
+SIGNAL (orange) → Arduino D9
++5V (red) → 5V supply +
+GND (brown) → GND (join supply - to Arduino GND)
+
+SG90 MICRO SERVO - SHOULDER
+SIGNAL (orange) → Arduino D10
++5V (red) → 5V supply +
+GND (brown) → GND
+
+SG90 MICRO SERVO - ELBOW
+SIGNAL (orange) → Arduino D11
++5V (red) → 5V supply +
+GND (brown) → GND
+
+SG90 MICRO SERVO - GRIPPER
+SIGNAL (orange) → Arduino D12
++5V (red) → 5V supply +
+GND (brown) → GND
+
+POTENTIOMETER 10k - BASE
+WIPER (middle leg) → Arduino A0
+OUTER leg → Arduino 5V
+OUTER leg → Arduino GND
+
+POTENTIOMETER 10k - SHOULDER
+WIPER (middle leg) → Arduino A1
+OUTER leg → Arduino 5V
+OUTER leg → Arduino GND
+
+POTENTIOMETER 10k - ELBOW
+WIPER (middle leg) → Arduino A2
+OUTER leg → Arduino 5V
+OUTER leg → Arduino GND
+
+POTENTIOMETER 10k - GRIPPER
+WIPER (middle leg) → Arduino A3
+OUTER leg → Arduino 5V
+OUTER leg → Arduino GND
+
+NOTES
+- Four servos can stall the USB port: feed the servo 5V rail from a separate
+  5V supply and join that supply's ground to the Arduino ground.
+- Never power the servos from the Arduino VIN pin.
+- Joystick alternative: two joystick modules can replace the four pots
+  (joystick 1 X → A0, Y → A1; joystick 2 → A2, A3) - no code change needed.
+- No signal wiring: robot arm bracket set, breadboard, jumper wires, USB cable.

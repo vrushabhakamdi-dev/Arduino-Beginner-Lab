@@ -1,0 +1,25 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LED
+Anode (+) → Arduino D13     (through 220 ohm resistor)
+Cathode (−) → GND
+
+PUSH BUTTON
+Leg 1 → Arduino D2
+Leg 2 → GND
+  Internal pull-up is used: HIGH at rest, LOW while pressed.
+
+PASSIVE BUZZER
++ → Arduino D8
+− → GND
+
+RANDOM SEED PIN
+A0 → not connected (leave floating)
+  Read once at start-up so random() gets a fresh seed on every reset.
+
+NOTES
+- One 220 ohm resistor in series with the LED.
+- No external supply: the USB cable powers the Uno.
+- Breadboard and jumper wires make up the rest of the circuit.

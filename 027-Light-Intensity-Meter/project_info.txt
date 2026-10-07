@@ -1,0 +1,39 @@
+PROJECT NAME: 027 - Light Intensity Meter
+PROJECT IDEA: Measure how bright the surroundings are with an LDR and show the value as a numeric percentage plus a five-LED bar graph.
+HOW IT WORKS: The LDR and a 10 kohm resistor form a voltage divider whose midpoint is connected to analogue pin A0, so more light makes the LDR resistance fall and the voltage rise. The sketch reads that 0-1023 value, converts it into a percentage with map(), and maps it onto zero to five LEDs so the bar grows as the light level increases. The raw count, the percentage and a simple ASCII bar are printed every 200 milliseconds.
+ADVANTAGES:
+- Only one LDR and one resistor are needed for the sensing part.
+- Both numeric and visual readouts show the same measurement two ways.
+- No library required, so the sketch works immediately after upload.
+- Teaches voltage dividers, which underpin many analogue sensors.
+- Adjustable simply by moving the sensor or changing the LED thresholds.
+REAL-WORLD USES:
+- Automatic night lights and street lighting controls.
+- Screen brightness adjusters on phones, tablets and monitors.
+- Greenhouse and grow-light monitoring for plants.
+- Solar tracker systems that follow the brightest direction.
+- Indoor lighting comfort checks in offices and classrooms.
+WHAT YOU LEARN:
+- Wiring and reading an LDR voltage divider on an analogue pin.
+- Using analogRead() and understanding the 0-1023 ADC range.
+- Converting sensor counts to a percentage with map().
+- Driving several outputs from an array of pins in a loop.
+- Presenting the same data as numbers, text and a bar graph.
+FUTURE SCOPE: The measured light percentage can become the input to a closed loop that switches a lamp on when it gets dark or aims a solar panel at the brightest point.
+POSSIBLE UPGRADES:
+- Switch a relay-controlled lamp on below a chosen darkness threshold.
+- Draw a wider bar graph with many more steps in the Serial Monitor.
+- Log light levels through the day to find the brightest hours.
+- Add a push button to switch between percentage and raw display modes.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- LDR (light dependent resistor)
+- 10 kohm resistor
+- 5 x LEDs (any colors)
+- 5 x 220 ohm resistors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

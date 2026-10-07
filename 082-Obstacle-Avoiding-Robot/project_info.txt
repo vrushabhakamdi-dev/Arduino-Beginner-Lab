@@ -1,0 +1,40 @@
+PROJECT NAME: 082 - Obstacle Avoiding Robot
+PROJECT IDEA: An autonomous robot that drives around on its own and uses an HC-SR04 ultrasonic sensor to stop, back away and turn whenever a wall or object appears ahead.
+HOW IT WORKS: While in the FORWARD phase the robot drives at a fixed speed and measures the distance with the HC-SR04 on pins 11 and 12, converting the echo pulse length into centimetres. Anything closer than 25 cm switches it into a short full stop, then a 500 ms reverse, then a 600 ms turn whose direction alternates between left and right so the robot never gets trapped bouncing between two walls. After the turn it returns to FORWARD and keeps driving. Every phase change is logged on the Serial Monitor as FORWARD, OBSTACLE, REVERSE or TURN together with the last distance reading.
+ADVANTAGES:
+- The four phase state machine is small, readable and easy to extend.
+- Alternating the escape direction stops the robot getting stuck in a corner.
+- A 30 ms pulseIn() timeout keeps the sketch responsive when nothing is in range.
+- All distances, speeds and timings are named constants at the top of the sketch.
+- Needs no library, so it runs on a plain Arduino IDE installation.
+REAL-WORLD USES:
+- Small indoor delivery rovers that move between rooms on their own.
+- Warehouse robots that stop and reroute around parked carts.
+- Educational robots for teaching state machines and distance sensing.
+- Obstacle warning demo on a model car or train layout.
+- Starting platform for later wall-following or mapping experiments.
+WHAT YOU LEARN:
+- Triggering an HC-SR04 and converting its echo pulse into centimetres.
+- Building a timed state machine with millis() instead of blocking delay() calls.
+- Driving, reversing and spinning a differential drive robot on an L298N.
+- Handling "no echo" readings safely with a pulseIn() timeout.
+- Logging a decision sequence over Serial for troubleshooting.
+FUTURE SCOPE: Mounting the sensor on a servo that sweeps left and right would let the robot choose the widest free direction instead of alternating its escape turns.
+POSSIBLE UPGRADES:
+- Sweep the sensor with a servo to pick the clearest direction.
+- Add a buzzer beep whenever an obstacle is detected.
+- Show the live distance on a 16x2 LCD or OLED.
+- Ramp the motor speed up and down instead of starting and stopping abruptly.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- L298N motor driver module
+- 2x DC gear motor with wheels
+- Robot chassis with caster wheel
+- HC-SR04 ultrasonic sensor
+- 6-12V battery pack for the motors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

@@ -1,0 +1,20 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+HC-SR501 PIR MOTION SENSOR MODULE
+VCC → Arduino 5V
+GND → Arduino GND
+OUT → Arduino D2
+  OUT = motion flag, HIGH while movement is detected
+
+BUILT-IN LED (on the Arduino Uno)
+LED → Arduino D13
+  on-board indicator LED, ON while motion is detected
+
+NOTES
+- Warm-up: leave the sensor still for 30-60 seconds after power-up before judging results - the sketch prints a notice after 45 s.
+- Left potentiometer = sensitivity (turn clockwise for longer detection distance); right potentiometer = how long OUT stays HIGH after motion stops.
+- Set the jumper on the back to L (re-triggering) so OUT stays HIGH while movement continues; H is non-retriggering.
+- No external LED or resistor is required - the indicator is the built-in LED on D13.
+- Use jumper wires; upload with the USB cable and watch the Serial Monitor at 9600 baud.

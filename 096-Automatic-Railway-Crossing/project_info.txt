@@ -1,0 +1,42 @@
+PROJECT NAME: 096 - Automatic Railway Crossing
+PROJECT IDEA: Model an automatic level crossing where two IR sensors detect a train arriving and leaving, lowering a servo barrier with blinking lights and a ringing bell while the train passes.
+HOW IT WORKS: The sketch runs a four-state machine - OPEN, CLOSING, CLOSED and OPENING - and prints every transition to the Serial Monitor. When the approach IR sensor on pin 2 confirms (150 ms of stable detection) that a train is coming, the servo on pin 6 starts lowering the barrier one degree every 20 ms while the LEDs on pins 4 and 5 flash alternately and the buzzer on pin 8 rings a periodic bell. As soon as the leave sensor on pin 3 sees the tail of the train, the state changes to OPENING, the alarms stop and the barrier rises back to its raised position. Because the barrier moves in small non-blocking steps, the lights and bell keep working during the whole travel.
+ADVANTAGES:
+- A clear state machine makes the crossing logic easy to read and extend.
+- A 150 ms confirmation window stops sunlight flicker closing the barrier.
+- Non-blocking barrier travel keeps lights and bell running while it moves.
+- Two sensors give proper "train in / train out" detection like real crossings.
+- Every state change is logged, so the behaviour can be studied live.
+REAL-WORLD USES:
+- Model railway layouts with working automatic crossings.
+- Classroom demo of finite state machines in control systems.
+- Barrier control prototype for a car park or private road gate.
+- Robot or logistics demos that need a controlled "closed" period.
+- Teaching aid for sensor-confirmed sequence control.
+WHAT YOU LEARN:
+- Designing and implementing a finite state machine with an enum.
+- Debouncing sensors with a time-based confirmation window.
+- Moving a servo smoothly in small non-blocking steps.
+- Synchronising LEDs and a bell with millis() phases.
+- Reading and interpreting Serial state-transition logs.
+FUTURE SCOPE: Adding a train counter, a "seconds until opening" display or a third sensor that proves the crossing is clear before raising would make the model more realistic.
+POSSIBLE UPGRADES:
+- Add an LCD that shows the current state and the number of trains.
+- Sound a different bell rhythm while the barrier is travelling.
+- Flash the LEDs only while the barrier is down, and hold them solid after.
+- Add a manual override button that closes the crossing on demand.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 2x FC-51 IR obstacle sensor modules
+- Micro servo (SG90) for the barrier
+- 2x LEDs (red recommended for crossing lights)
+- Passive buzzer
+- 2x 220 ohm resistors for the LEDs
+- 100 ohm resistor for the buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built-in)
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Servo (built-in)
+SAFETY NOTE: This is an educational prototype only. It is not a certified safety-critical system and must not be relied upon for real-world safety.

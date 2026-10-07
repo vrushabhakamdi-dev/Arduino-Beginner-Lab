@@ -1,0 +1,37 @@
+PROJECT NAME: 040 - Color Sensor Detector
+PROJECT IDEA: Read red, green and blue light levels with a TCS3200 colour sensor and print the raw frequencies together with the dominant colour it sees.
+HOW IT WORKS: The TCS3200 contains red, green, blue and clear photodiodes, and pins S2 and S3 choose which filter is active. The chosen filter sends a square wave out of pin 8 whose frequency rises with the amount of that colour reflected from the object. The Arduino measures each frequency with pulseIn(), converts them into percentages using a white-card calibration taken at start-up, and then names the strongest channel as RED, GREEN, BLUE or WHITE.
+ADVANTAGES:
+- Produces a repeatable digital signal that is not affected by ADC noise.
+- One module covers the full red, green and blue spectrum.
+- White-card calibration adapts the sketch to any lamp or daylight condition.
+- Raw frequencies and percentages are both printed for easy troubleshooting.
+- No third-party library is needed; pulseIn() is built into the Arduino core.
+REAL-WORLD USES:
+- Sorting coloured items on a small conveyor.
+- Paint, fabric and thread colour matching tools.
+- Educational kits that teach primary and secondary colours.
+- Quality checks that confirm a product has the right colour.
+- Colour picking for hobby robotics and interactive art.
+WHAT YOU LEARN:
+- How a filtered photodiode array converts colour into frequency.
+- Using pulseIn() to measure an external square wave.
+- Why white-balance calibration matters for sensor accuracy.
+- Separating measurement, calibration and decision logic into functions.
+- Comparing three normalised values to find a dominant one.
+FUTURE SCOPE: The detected colour could drive a servo that drops items into the correct bin, forming a simple automatic sorter.
+POSSIBLE UPGRADES:
+- Remember the calibration in EEPROM so it survives a reboot.
+- Add a live RGB bar graph to the Serial Monitor.
+- Trigger a buzzer or LED when a specific colour is seen.
+- Store a palette of previously seen colours and match against it.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- TCS3200 colour sensor module (with its illuminating LED)
+- Breadboard
+- Jumper wires
+- Plain white card for calibration
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

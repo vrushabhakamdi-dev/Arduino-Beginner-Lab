@@ -1,0 +1,23 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+ULN2003 STEPPER DRIVER
+IN1  → Arduino D8     28BYJ-48 coil sequence
+IN2  → Arduino D9     28BYJ-48 coil sequence
+IN3  → Arduino D10    28BYJ-48 coil sequence
+IN4  → Arduino D11    28BYJ-48 coil sequence
+VCC  → Arduino 5V
+GND  → Arduino GND
+
+28BYJ-48 STEPPER MOTOR
+5-pin plug → ULN2003 board motor connector ( plugs straight in )
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- IN1..IN4 order is fixed by the code: D8=IN1, D9=IN2, D10=IN3, D11=IN4.
+- The ULN2003 board is powered from the Arduino 5V pin; no external
+  supply is needed for a 28BYJ-48.
+- No buttons or sensors in this build - timing comes from millis().

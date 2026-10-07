@@ -1,0 +1,64 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LED 1 (target 1)
+Anode (+)   → 220 ohm resistor → Arduino D4
+Cathode (-) → GND
+  Lights when target 1 is active.
+
+LED 2 (target 2)
+Anode (+)   → 220 ohm resistor → Arduino D5
+Cathode (-) → GND
+  Lights when target 2 is active.
+
+LED 3 (target 3)
+Anode (+)   → 220 ohm resistor → Arduino D6
+Cathode (-) → GND
+  Lights when target 3 is active.
+
+LED 4 (target 4)
+Anode (+)   → 220 ohm resistor → Arduino D7
+Cathode (-) → GND
+  Lights when target 4 is active.
+
+PUSH BUTTON 1
+One leg   → Arduino D8
+Other leg → GND
+  Whack key for LED 1.
+
+PUSH BUTTON 2
+One leg   → Arduino D9
+Other leg → GND
+  Whack key for LED 2.
+
+PUSH BUTTON 3
+One leg   → Arduino D10
+Other leg → GND
+  Whack key for LED 3.
+
+PUSH BUTTON 4
+One leg   → Arduino D11
+Other leg → GND
+  Whack key for LED 4.
+
+PASSIVE BUZZER
++ → Arduino D12
+- → GND
+  Hit, miss and game-over sounds.
+
+A0 - RANDOM NOISE SEED
+Nothing connected → leave Arduino A0 open
+  The floating pin gives random noise for randomSeed().
+
+NOTES
+- Button N must stay paired with LED N (button on D8 hits the LED on D4, etc.),
+  because the code matches them by index.
+- Buttons: internal pull-ups are enabled, so each button only shorts its pin
+  to GND. No external resistors.
+- tone() needs a PASSIVE buzzer; an active buzzer cannot play the hit and
+  miss pitches.
+- A0 must stay unconnected (do NOT wire it to 5V or GND) so targets are
+  random every run.
+- LED long leg = anode (+), always in series with a 220 ohm resistor.
+- Score, level and misses are printed in the Serial Monitor at 9600 baud.

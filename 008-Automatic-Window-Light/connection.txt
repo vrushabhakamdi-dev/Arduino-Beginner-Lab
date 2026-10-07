@@ -1,0 +1,24 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LDR + 10k RESISTOR (voltage divider)
+5V → LDR → Arduino A0
+Arduino A0 → 10k ohm resistor → Arduino GND
+
+        5V ---[ LDR ]+--- A0
+                     |
+                  [ 10k ]
+                     |
+                   GND
+
+LED
+A (+) → 220 ohm resistor → Arduino D9
+K (-) → Arduino GND
+
+NOTES
+- LDR must be on the 5V side and the 10k on the GND side: this way the A0
+  reading rises with light (bright = high value, dark = low value).
+- Swap them and the logic inverts, so the LED would switch on in daylight.
+- Thresholds in the code: below 400 = dark (LED ON), above 600 = bright (LED OFF).
+  Re-tune DARK_THRESHOLD / BRIGHT_THRESHOLD if your room lighting differs.

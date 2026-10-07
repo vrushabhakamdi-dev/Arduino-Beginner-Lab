@@ -1,0 +1,32 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON (driver tap)
+leg 1 → Arduino D2
+leg 2 → Arduino GND
+
+POTENTIOMETER (10k) - alertness window
+left leg  → Arduino GND
+wiper     → Arduino A0     timeout setpoint (3-10 minutes)
+right leg → Arduino 5V
+
+LED (alarm flash)
+anode (+)   → Arduino D13   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+PASSIVE BUZZER
++ → Arduino D8   (100 ohm resistor in series)
+- → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- The button uses INPUT_PULLUP, so it only needs to short D2 to GND.
+- Pot fully counter-clockwise = 3 minutes, fully clockwise = 10 minutes.
+  If yours reads the other way round, swap the two outer pot legs.
+- Bench tip: set MIN_TIMEOUT_MIN and MAX_TIMEOUT_MIN to 1 and 2 while
+  testing so you do not have to wait ten minutes for an alert.
+- Educational prototype only - it must never be installed in a vehicle or
+  relied upon to prevent an accident.

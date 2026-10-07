@@ -1,0 +1,39 @@
+PROJECT NAME: 086 - Robot Arm Servo Controller
+PROJECT IDEA: A four joint robot arm whose base, shoulder, elbow and gripper are positioned by four potentiometers, with every joint gliding smoothly to its target instead of jumping.
+HOW IT WORKS: Each potentiometer wired as a voltage divider feeds one analog input (A0 to A3), and its 0-1023 reading is filtered with a small low pass filter before being mapped onto the 0-180 degree servo range. Every 20 ms each joint moves at most one degree towards its target, so the arm always travels in a controlled glide and can be stopped mid motion by holding a knob still. The four SG90 servos on pins 9 to 12 hold the pose while the Serial Monitor prints the current and target angle of every joint twice a second.
+ADVANTAGES:
+- Direct manual control of all four joints with nothing but four knobs.
+- One degree per update stepping removes jumps and makes the arm easy to pose.
+- Filtering the potentiometer readings stops jitter from noisy wiring.
+- The same sketch works with joysticks instead of pots without any code change.
+- Uses only the built-in Servo library, so no downloads are needed.
+REAL-WORLD USES:
+- Bench top pick and place arms for small parts and electronics.
+- Laboratory sample handling and teaching rigs.
+- Classroom demonstration of servo angles and kinematics.
+- Prosthetic hand or gripper control prototypes.
+- Base platform for adding automated pick and place sequences.
+WHAT YOU LEARN:
+- Driving multiple servos from one Arduino with the Servo library.
+- Mapping an analog potentiometer reading onto a servo angle.
+- Incremental motion control instead of jumping straight to a target.
+- Filtering sensor readings with a simple low pass filter.
+- Managing several joints with parallel arrays instead of repeated code.
+FUTURE SCOPE: Recording a sequence of angles and replaying it would turn the manual arm into a programmable robot that repeats a pick and place routine.
+POSSIBLE UPGRADES:
+- Add a RECORD button that stores poses and a PLAY button that repeats them.
+- Show the four angles on a 16x2 LCD.
+- Replace two pots with joystick modules for more natural control.
+- Add a fifth servo for a wrist rotation joint.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 4x SG90 micro servo
+- Robot arm bracket set or DIY arm frame
+- 4x 10k ohm potentiometer
+- Separate 5V supply for the servos (recommended)
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built-in)
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Servo (built-in)

@@ -1,0 +1,39 @@
+PROJECT NAME: 076 - Automatic Trash Can
+PROJECT IDEA: Open the lid of a model trash can automatically when a hand is waved in front of an IR obstacle sensor, so the bin can be used without touching it.
+HOW IT WORKS: The FC-51 IR sensor on pin 2 detects anything held close in front of it, and a short 80 ms confirmation filter ignores brief noise readings. Once a hand is confirmed, the servo on pin 6 rotates to 90 degrees to lift the lid, an LED on pin 13 lights up as the open indicator, and the Serial Monitor prints how many times the lid has opened. The lid stays open while the hand remains in range and closes 3 seconds after the hand moves away.
+ADVANTAGES:
+- Touch free operation keeps hands clean and helps hygiene.
+- Only three components plus wires are needed for the whole effect.
+- The confirmation delay prevents the lid from shaking open on sensor noise.
+- The open counter on the Serial Monitor is handy for testing and demos.
+- The lid only closes after a delay, so a hand or bag is never caught.
+REAL-WORLD USES:
+- Sensor operated bins in kitchens, hospitals and public buildings.
+- Touch free lids for hobby projects, model kitchens and science fairs.
+- Hands free access for workshops where hands are dirty or full.
+- Automatic pet food or feed bin lids in model builds.
+- A first step toward sorting bins that react to a gesture.
+WHAT YOU LEARN:
+- Reading a digital IR obstacle sensor and understanding active-low outputs.
+- Debouncing a sensor with a time window instead of a mechanical contact.
+- Using the Servo library to move a lid between two angles.
+- Keeping a state (open/closed) with millis() timing instead of delay().
+- Counting events and reporting them over the Serial Monitor.
+FUTURE SCOPE: Adding a second sensor to detect how full the bin is, or a colour sensor to sort waste, would turn the prototype into a smarter waste station.
+POSSIBLE UPGRADES:
+- Add a buzzer beep each time the lid opens.
+- Keep the lid closed unless a special double-wave gesture is detected.
+- Show the open counter on an LCD display instead of the Serial Monitor.
+- Add a "bin full" LED driven by an ultrasonic sensor measuring the depth.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- FC-51 IR obstacle sensor module
+- Micro servo motor (SG90 or similar)
+- LED (any colour)
+- 220 ohm resistor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built-in)
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Servo (built-in)

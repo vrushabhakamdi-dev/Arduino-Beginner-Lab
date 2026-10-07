@@ -1,0 +1,40 @@
+PROJECT NAME: 077 - Electronic Pill Reminder
+PROJECT IDEA: Show the next medicine dose on an I2C LCD and sound a buzzer with a flashing LED at the dose time until the patient presses an acknowledge button.
+HOW IT WORKS: Three dose times (08:00, 13:30 and 20:00) are written as compile-time constants, and the running clock is built from the start time plus millis(). The 16x2 LCD always shows the next dose and a live countdown of hours, minutes and seconds until it. When the clock passes a dose time that has not been taken, the buzzer on pin 8 and the LED on pin 13 start flashing and stay active until the button on pin 2 is pressed; each event is written to the Serial Monitor and the dose is remembered for the rest of the day.
+ADVANTAGES:
+- Three dose times can be edited in seconds without touching any other code.
+- The countdown display tells the patient exactly how long is left.
+- The alarm cannot be ignored silently because it needs a real button press.
+- Doses already taken are remembered until midnight, so the alarm does not repeat.
+- EEPROM is not needed, which keeps the circuit and the sketch simple.
+REAL-WORLD USES:
+- Reminder boxes for elderly or forgetful patients with several daily medicines.
+- Stand-alone timer for any repeated daily task, not only pills.
+- Classroom demonstration of clocks, millis() and LCD output.
+- Prototype for a bedside medication reminder device.
+- Scheduled alerts for vitamins, eye drops or other timed treatments.
+WHAT YOU LEARN:
+- Driving a 16x2 LCD through the LiquidCrystal I2C library (SDA on A4, SCL on A5).
+- Building a time of day clock from compile-time constants plus millis().
+- Searching a small array to find the next event and the time remaining.
+- Managing an alarm state that runs until a button acknowledges it.
+- Debouncing a button while other timing work continues in the same loop.
+FUTURE SCOPE: Storing each patient's own schedule in EEPROM, or adding a buzzer melody per medicine, would make the device usable by more than one person.
+POSSIBLE UPGRADES:
+- Store the three dose times in EEPROM with the EEPROM library (built-in).
+- Add a second button to snooze the alarm for five minutes.
+- Show an arrow pointing to the dose that is due right now.
+- Add a buzzer volume setting or a mute window during the night.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 1602 LCD display with I2C backpack (PCF8574, address 0x27)
+- Piezo buzzer
+- LED (any colour)
+- 220 ohm resistor
+- Push button
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: LiquidCrystal I2C
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: LiquidCrystal I2C

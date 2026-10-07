@@ -1,0 +1,20 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+POTENTIOMETER (10k)
++ (outer leg) → Arduino 5V
+S (wiper, middle leg) → Arduino A0
+- (outer leg) → Arduino GND
+
+        5V ---[  10k POT  ]--- GND
+                  |
+                 A0
+
+LED
+A (+) → 220 ohm resistor → Arduino D9
+K (-) → Arduino GND
+
+NOTES
+- D9 is a PWM pin (marked with ~), which is what makes smooth dimming possible.
+- If the LED only shows two brightness levels, check that the wiper really goes to A0.

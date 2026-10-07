@@ -1,0 +1,22 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+POTENTIOMETER (10 kOhm) - test voltage
+Outer pin 1 → 5V
+Outer pin 2 → GND
+Wiper (middle pin) → Arduino A0     (voltage being measured, 0-5 V)
+
+THRESHOLD LEDs (5 LEDs, 220 ohm resistor each)
+Anode (+) → Arduino D4     (lights at 1 V)
+Anode (+) → Arduino D5     (lights at 2 V)
+Anode (+) → Arduino D6     (lights at 3 V)
+Anode (+) → Arduino D7     (lights at 4 V)
+Anode (+) → Arduino D8     (lights at 5 V)
+Cathode (−) → GND          (all five cathodes on the GND rail)
+
+NOTES
+- A0 must never see more than 5 V - keep the potentiometer between 5V and GND only.
+- The two outer potentiometer pins can be swapped, the scale just reverses.
+- One 220 ohm resistor per LED. USB cable powers the board.
+- Breadboard and jumper wires for the rest.

@@ -1,0 +1,35 @@
+PROJECT NAME: 039 - Infrared Line Sensor Tester
+PROJECT IDEA: Hook up a TCRT5000 infrared reflectance sensor and print both its raw analog reading and its LINE / NO LINE decision so you can test and tune the module.
+HOW IT WORKS: The module shines infrared light from an LED and measures how much bounces back with a phototransistor. A dark line absorbs the light, so the reflected amount drops and the raw value on A0 falls, while a light surface reflects plenty and keeps the value high. On-board circuitry compares that value against a potentiometer setting and gives a simple HIGH or LOW on pin 2, which the code turns into LINE or NO LINE together with an LED indicator.
+ADVANTAGES:
+- Shows both the raw value and the thresholded decision, which makes tuning easy.
+- Needs only three wires plus power, and no library at all.
+- The on-board potentiometer lets the threshold be set without changing code.
+- Fast enough updates to be used as the basis for a line-following robot.
+- LED feedback means the sensor can be checked without a computer attached.
+REAL-WORLD USES:
+- Line-following robots in hobby competitions.
+- Detecting black marks on white conveyor belts in production lines.
+- Counting items as they pass under a sensor on a track.
+- Position and edge detection for small automated machines.
+- Educational demonstrations of infrared reflection and comparators.
+WHAT YOU LEARN:
+- How infrared emit-and-reflect sensing works.
+- Reading both an analog and a digital output from one module.
+- What a comparator threshold is and how a potentiometer sets it.
+- Calibrating a sensor by watching real numbers in the Serial Monitor.
+- Converting a sensor state into a simple yes/no decision in code.
+FUTURE SCOPE: Several of these sensors in a row would let the Arduino follow a line or read a bar-code-like pattern.
+POSSIBLE UPGRADES:
+- Drive two motors to build a complete line-following robot.
+- Show a simple bar graph of the raw value in the Serial Monitor.
+- Add a second sensor for edge or cross-junction detection.
+- Flash the LED faster the closer a dark line is to the centre.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- TCRT5000 infrared reflectance sensor module
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

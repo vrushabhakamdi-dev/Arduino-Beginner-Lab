@@ -1,0 +1,43 @@
+PROJECT NAME: 093 - Smoke Detection Alarm
+PROJECT IDEA: Build a latching smoke alarm with an MQ-2 sensor - when smoke is detected the buzzer and red LED stay on until a person presses the reset button.
+HOW IT WORKS: The MQ-2 module on pin 2 gives a digital signal that flips as soon as the measured smoke/gas level passes the threshold set by the module's potentiometer, while the analog output on A0 is read and printed continuously as extra information. The first detection latches the alarm: the buzzer on pin 8 sounds continuously and the red LED on pin 6 stays lit, even if the smoke clears, until the reset button on pin 3 is pressed. The green LED on pin 4 shows that the system is armed, and a status line is printed to the Serial Monitor every second with the analog value, the digital state and the alarm state. A comment in the sketch reminds the builder that a fresh MQ-2 sensor needs 24-48 hours of warm-up before its readings settle.
+ADVANTAGES:
+- Latching output means a brief smoke event cannot be missed or auto-silenced.
+- Manual reset forces a person to acknowledge the alarm before it clears.
+- Digital pin gives an instant trigger while the analog value supports tuning.
+- The sensor threshold can be adjusted with the potentiometer on the module.
+- Serial output makes threshold adjustment and testing straightforward.
+REAL-WORLD USES:
+- Learning model of how domestic smoke detectors behave.
+- Smoke or gas alert for a model kitchen or workshop board.
+- Warning stage before a ventilation or exhaust fan is switched on.
+- Bench prototype for understanding MQ-series gas sensors.
+- Foundation for a small fire-safety demonstration at school.
+WHAT YOU LEARN:
+- Using a comparator output (DO) together with an analog reading (AO).
+- Why an alarm is latched and how to implement latching state in code.
+- Debouncing a manual reset button with INPUT_PULLUP.
+- Reading analog sensor values and printing them as a live status line.
+- Sensor warm-up requirements and threshold calibration of MQ sensors.
+FUTURE SCOPE: Adding a second threshold for "pre-alarm" warning, or a relay that cuts power, would move the prototype closer to an installed system.
+POSSIBLE UPGRADES:
+- Add a pre-alarm level that only blinks the LED before full alarm.
+- Log every alarm and reset event with timestamps on an SD card.
+- Show the analog level on a 16x2 I2C LCD next to the state.
+- Drive a ventilation fan or relay through a transistor on alarm.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- MQ-2 smoke/gas sensor module
+- Reset push button
+- Green LED
+- Red LED
+- Passive buzzer
+- 3x 220 ohm resistors for the LEDs
+- 100 ohm resistor for the buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None
+SAFETY NOTE: This is an educational prototype only. It is not a certified safety-critical system and must not be relied upon for real-world safety.

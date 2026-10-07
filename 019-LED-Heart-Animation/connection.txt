@@ -1,0 +1,27 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LED HEART (10 LEDs, 220 ohm resistor each)
+Anode (+) → Arduino D2     (top row, left lobe)
+Anode (+) → Arduino D3     (top row, left lobe)
+Anode (+) → Arduino D4     (top row, right lobe)
+Anode (+) → Arduino D5     (top row, right lobe)
+Anode (+) → Arduino D6     (middle row, far left)
+Anode (+) → Arduino D7     (middle row, left centre)
+Anode (+) → Arduino D8     (middle row, centre)
+Anode (+) → Arduino D9     (middle row, right centre)
+Anode (+) → Arduino D10    (middle row, far right)
+Anode (+) → Arduino D11    (bottom tip)
+Cathode (−) → GND          (all ten cathodes on the GND rail)
+
+LAYOUT (front view)
+
+      D2   D3        D4   D5
+      D6   D7   D8   D9   D10
+                   D11
+
+NOTES
+- One 220 ohm resistor per LED; all cathodes share the GND rail.
+- Pin order matters: animation frames are stored pin 2 first ... pin 11 last.
+- USB cable powers the board; breadboard and jumper wires for the rest.

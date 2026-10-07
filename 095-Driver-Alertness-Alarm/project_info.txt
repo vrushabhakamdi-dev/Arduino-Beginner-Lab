@@ -1,0 +1,42 @@
+PROJECT NAME: 095 - Driver Alertness Alarm
+PROJECT IDEA: Simulate a drowsiness alarm where the driver must tap a button every few minutes, otherwise a buzzer and LED alarm sounds until the alert is acknowledged.
+HOW IT WORKS: A button on pin 2 is tapped periodically to prove the driver is still attentive, and every tap restarts the watch timer. A potentiometer on A0 sets the allowed idle window anywhere from 3 to 10 minutes, and the new value is announced on the Serial Monitor when it changes. If no tap arrives within that window the alarm activates: the buzzer on pin 8 runs a 300 ms beep / 200 ms silence pattern generated with millis(), the LED on pin 13 flashes with it, and both keep going until the driver taps the button again. Each alert is logged with the exact time that passed since the last input, and a progress line is printed every 15 seconds.
+ADVANTAGES:
+- Clearly demonstrates deadlines, latching alarms and user acknowledgement.
+- The timeout window is adjustable live with a potentiometer (3-10 minutes).
+- Non-blocking beep pattern keeps the button responsive at all times.
+- Serial log records every alert with the elapsed silent time for analysis.
+- Built entirely from core Arduino functions - no libraries to install.
+REAL-WORLD USES:
+- Classroom model of attention-monitoring concepts in transport.
+- "Are you still there?" reminder for a workstation or kiosk prototype.
+- Stand-alone timeout warning for long unattended processes.
+- Timing exercise for lab sessions on millis()-based state handling.
+- Starting point for a study-break reminder timer.
+WHAT YOU LEARN:
+- Implementing a millis()-based deadline that can change at runtime.
+- Reading a potentiometer and mapping it onto a useful range.
+- Creating a repeating non-blocking alarm pattern.
+- Logging events with elapsed-time information over Serial.
+- Separating an alarm trigger from the acknowledgement step in code.
+FUTURE SCOPE: Adding an SD card log of every alert, or escalating the beep rate the longer the driver stays silent, would make the simulation more informative.
+POSSIBLE UPGRADES:
+- Add an LCD showing the remaining time before the next alert.
+- Escalate the alarm (faster beeps) if it is not acknowledged quickly.
+- Count and display how many alerts were raised during a session.
+- Add a second potentiometer that sets the beep speed.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Push button
+- Potentiometer (10k ohm)
+- LED (any colour, or use the built-in LED on pin 13)
+- Passive buzzer
+- 220 ohm resistor for the LED
+- 100 ohm resistor for the buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None
+SAFETY NOTE: This is an educational prototype only. It is not a certified safety-critical system and must not be relied upon for real-world safety.

@@ -1,0 +1,16 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON - START / STOP
+Leg 1 → Arduino D2
+Leg 2 → GND
+
+PUSH BUTTON - RESET
+Leg 1 → Arduino D3
+Leg 2 → GND
+
+NOTES
+- Both buttons use the internal pull-up: no external resistors needed.
+- Pressed reads LOW, released reads HIGH.
+- Breadboard, jumper wires and USB cable; no other power is required.

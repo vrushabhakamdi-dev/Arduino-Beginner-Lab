@@ -1,0 +1,39 @@
+PROJECT NAME: 010 - Electronic Coin Toss
+PROJECT IDEA: A push button flips a virtual coin, lighting a green LED for heads or a red LED for tails and printing the result to the Serial Monitor.
+HOW IT WORKS: When the button on pin 2 is pressed, the code calls random(2) to get either 0 or 1. A value of 0 is treated as HEADS and switches on the green LED on pin 5, while 1 is treated as TAILS and switches on the red LED on pin 6. randomSeed(analogRead(A0)) reads noise from the unconnected pin A0 at start-up so the sequence of flips is different every time the board powers up.
+ADVANTAGES:
+- Settles arguments instantly with no coin needed.
+- Seeding from analogue noise makes the outcome genuinely unpredictable to the user.
+- Two coloured LEDs give an immediate visual answer even without a screen.
+- Debounce and a repeat guard mean one press equals one flip.
+- Tiny code that demonstrates randomness, conditions, and outputs together.
+REAL-WORLD USES:
+- Fair random selection for games, raffles, and classroom draws.
+- Tie-breakers in board games and sports practice.
+- Random trigger for flashing lights or relays in experiments.
+- Dice and coin solvers for accessibility tools.
+- Teaching aid for probability and statistics lessons.
+WHAT YOU LEARN:
+- Seeding random numbers with randomSeed() and why it matters.
+- Generating a binary random choice with random(2).
+- Using if/else to select between two outputs.
+- Debouncing a button and guarding against repeated triggers.
+- Mapping abstract values (0/1) to named constants (HEADS/TAILS).
+FUTURE SCOPE: Extra outcomes, an animation while the coin spins, or a history of past flips shown in Serial are easy next steps.
+POSSIBLE UPGRADES:
+- Add a buzzer that ticks while the coin is "spinning".
+- Show a spinning animation across several LEDs before settling.
+- Count heads and tails and print the statistics after ten flips.
+- Add a third LED for "best of three" rounds.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- Green LED
+- Red LED
+- 2x 220 ohm resistors
+- Push button (tactile)
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

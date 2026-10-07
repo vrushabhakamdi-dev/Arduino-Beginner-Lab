@@ -1,0 +1,22 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+REED SWITCH
+leg 1 → Arduino D2
+  input with internal pull-up (INPUT_PULLUP) - no external resistor needed
+leg 2 → Arduino GND
+  switch closes when the magnet comes near, pulling D2 down to GND
+
+SMALL MAGNET (door magnet set)
+no wires - mount it on the door or window so it sits right beside the reed switch when closed
+
+BUILT-IN LED (on the Arduino Uno)
+LED → Arduino D13
+  on-board indicator LED, ON while the door is OPEN
+
+NOTES
+- Active-LOW logic: magnet close = switch closed = D2 LOW = DOOR CLOSED; magnet away = D2 HIGH = DOOR OPEN.
+- Do not add an external pull-up resistor: pin 2 already has one inside the chip, which is why the circuit is just switch to GND.
+- A 50 ms debounce in the code waits out the reed contact bounce before accepting a new state.
+- Use jumper wires (breadboard optional); upload with the USB cable and watch the Serial Monitor at 9600 baud.

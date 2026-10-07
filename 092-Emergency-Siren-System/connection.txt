@@ -1,0 +1,34 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON - WAIL
+leg 1 → Arduino D2
+leg 2 → Arduino GND
+
+PUSH BUTTON - YELP
+leg 1 → Arduino D3
+leg 2 → Arduino GND
+
+PUSH BUTTON - HI-LO
+leg 1 → Arduino D4
+leg 2 → Arduino GND
+
+PASSIVE BUZZER
++ → Arduino D8   (100 ohm resistor in series)
+- → Arduino GND
+
+LED (flashes with the siren)
+anode (+)   → Arduino D13   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- All three buttons use INPUT_PULLUP, so the switch only shorts the pin to
+  GND - no external resistors are needed.
+- It must be a PASSIVE buzzer: tone() sweeps the frequency to make the
+  wail/yelp/hi-lo patterns. An active buzzer gives one fixed note.
+- Press the button of the running pattern again to switch the siren off.
+- D13 also lights the Uno's built-in LED; the external LED is optional.

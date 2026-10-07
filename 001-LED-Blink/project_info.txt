@@ -1,0 +1,37 @@
+PROJECT NAME: 001 - LED Blink
+PROJECT IDEA: Blink an LED on and off every second while printing the LED state to the Serial Monitor, giving a first hands-on introduction to digital outputs.
+HOW IT WORKS: The LED is wired between digital pin 13 and ground through a 220 ohm current-limiting resistor. In loop(), the code sets the pin HIGH to light the LED, waits one second, then sets it LOW to switch it off and waits another second. Because loop() repeats forever, the LED keeps blinking at a steady one-second interval.
+ADVANTAGES:
+- Uses only one LED and one resistor, so the circuit is extremely cheap and simple.
+- Proves the board, cable, and IDE are all working within minutes.
+- Teaches the two fundamental commands pinMode() and digitalWrite().
+- Serial output lets a beginner confirm the code is running without extra hardware.
+- Gives instant visual feedback, which keeps new learners motivated.
+REAL-WORLD USES:
+- Blinking status indicators on routers, appliances, and industrial panels.
+- Power-on "heartbeat" LEDs that show a device is alive.
+- Alarm and warning lamps on machinery and vehicles.
+- Simple beacon lights for models, hobby projects, and toy robots.
+- First diagnostic test used when debugging any new microcontroller board.
+WHAT YOU LEARN:
+- How to configure a pin as an OUTPUT with pinMode().
+- How to switch a pin HIGH and LOW using digitalWrite().
+- How delay() controls timing in milliseconds.
+- How to print text to the Serial Monitor with Serial.begin() and Serial.println().
+- The meaning of current-limiting resistors and why 220 ohms protects the LED.
+FUTURE SCOPE: The same idea scales to blinking many LEDs at different rates or controlling them from a button instead of a fixed timer.
+POSSIBLE UPGRADES:
+- Make the LED blink faster or slower by changing BLINK_MS.
+- Add a second LED on another pin that blinks out of phase.
+- Replace delay() with millis() so other tasks can run between blinks.
+- Drive the LED from a push button instead of a fixed timer.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- LED (any color)
+- 220 ohm resistor
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

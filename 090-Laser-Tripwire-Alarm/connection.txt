@@ -1,0 +1,39 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LASER MODULE (class 2 or lower, under 1 mW)
++ → Arduino D7      (beam stays on for the whole session)
+- → Arduino GND     (use a module with a built-in driver resistor)
+
+LDR VOLTAGE DIVIDER
+5V → LDR → Arduino A0 → 10k → GND    (A0 = mid-point; blocking the beam drops it)
+
+PIEZO BUZZER
++ → Arduino D8
+- → Arduino GND
+
+ALARM LED
+Arduino D13 → 220 ohm → LED anode (+)
+LED cathode (-) → Arduino GND    (the Uno's built-in LED on D13 works too)
+
+RESET PUSH BUTTON
+LEG → Arduino D2     (INPUT_PULLUP, no external resistor needed)
+other LEG → Arduino GND
+
+  doorway opening
+  +------------------------------------------+
+  | [LASER]  ========= beam =========> [LDR] |
+  +------------------------------------------+
+    + → D7, - → GND        A0: 5V → LDR → A0 → 10k → GND
+
+NOTES
+- LASER SAFETY: never aim the beam at anyone's eyes (human or animal), use
+  only a low power class 2 (under 1 mW) module, mount it at ankle/knee height,
+  and align it by watching the Serial readings instead of looking into it.
+- Calibration runs with the beam intact at start-up: keep the beam on the LDR
+  for the first second, then press RESET (or send 'c' over Serial) to
+  recalibrate whenever the alarm is silent.
+- The alarm latches: buzzer and LED stay on until RESET is pressed.
+- No signal wiring: breadboard, jumper wires, USB cable.
+- SAFETY: educational prototype only - not a certified security or safety system.

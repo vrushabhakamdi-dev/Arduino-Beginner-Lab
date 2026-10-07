@@ -1,0 +1,40 @@
+PROJECT NAME: 088 - Electronic Safe
+PROJECT IDEA: A model safe opened by a four digit PIN typed on a 4x4 keypad, with an I2C LCD display, a servo door and a 30 second lockout alarm after three wrong attempts.
+HOW IT WORKS: The keypad rows on pins 9 to 6 and columns on pins 5 to 2 are scanned by the Keypad library, and the digits appear as asterisks on the LCD 1602 so nobody can read the code over your shoulder. Pressing # compares the buffer with the PIN held in EEPROM using strcmp(): a match swings the servo door on pin 10 to 90 degrees for five seconds, while a mismatch increases the strike counter and the third wrong entry locks the keypad for 30 seconds, beeping every 500 ms while a live countdown runs on the LCD. The PIN defaults to 1234 on the first boot and can be replaced at any time by sending N followed by four digits from the Serial Monitor, where EEPROM.update() saves it so it survives a power cut.
+ADVANTAGES:
+- The PIN is stored in EEPROM, so it survives a power failure or battery swap.
+- Three strikes plus a 30 second alarm discourage people from guessing the code.
+- Masking the digits with asterisks keeps the entered PIN private.
+- Feedback is shown on the LCD, the buzzer and the Serial Monitor at the same time.
+- Changing the PIN needs no reprogramming, just one short Serial command.
+REAL-WORLD USES:
+- Locker, cabinet and drawer access control panels.
+- Model bank vault or jewellery box projects.
+- Keypad entry for alarm panels and gate controllers.
+- PIN protected settings menu on a machine or appliance.
+- Classroom example of non-volatile memory and access control logic.
+WHAT YOU LEARN:
+- Scanning a matrix keypad and translating a key map.
+- Storing and validating data in EEPROM with update().
+- Driving a servo as a lock bolt and timing its window with millis().
+- Managing three program states: locked, open and locked out.
+- Combining an I2C LCD, a buzzer and Serial output for clear feedback.
+FUTURE SCOPE: Adding a master PIN that only works during a short service window would let the safe be administered without revealing the everyday user code.
+POSSIBLE UPGRADES:
+- Add red and green LEDs for denied and granted status.
+- Log every attempt with a timestamp on the Serial Monitor.
+- Sound a tamper alarm when the keypad is used while locked out.
+- Allow a longer PIN, for example six digits.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 4x4 membrane keypad
+- LCD 1602 with I2C backpack (address 0x27)
+- SG90 micro servo (safe door)
+- Piezo buzzer
+- Small box or safe enclosure
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Keypad, LiquidCrystal I2C, Servo, EEPROM
+DIFFICULTY: Advanced Beginner
+LIBRARY REQUIRED: Keypad, LiquidCrystal I2C, Servo, EEPROM

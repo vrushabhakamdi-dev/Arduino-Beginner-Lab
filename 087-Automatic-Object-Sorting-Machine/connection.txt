@@ -1,0 +1,39 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+L298N MOTOR DRIVER - CHANNEL A ONLY (conveyor)
+ENA → Arduino D5     (conveyor speed, PWM - remove the ENA jumper cap)
+IN1 → Arduino D6     (conveyor motor direction)
+IN2 → Arduino D7     (conveyor motor direction)
++12V → 6-12V battery pack (+)
+GND → battery (-) AND Arduino GND (common ground)
+OUT1/OUT2 → conveyor DC motor
+IN3, IN4, ENB → NOT CONNECTED (channel B unused - remove the ENB jumper cap too)
+
+  battery (+) → L298N +12V
+  battery (-) → L298N GND → Arduino GND     (one joined ground)
+  L298N OUT1/OUT2 → conveyor DC motor
+
+HC-SR04 ULTRASONIC SENSOR (30-40 cm above the belt, looking down)
+VCC → Arduino 5V
+TRIG → Arduino D9     (10 us pulse out)
+ECHO → Arduino D10    (echo pulse time in)
+GND → Arduino GND
+
+SG90 MICRO SERVO - SORTING GATE
+SIGNAL (orange) → Arduino D11    (0 deg = open to bin B, 90 deg = bin A)
++5V (red) → 5V supply +
+GND (brown) → GND (join supply - to Arduino GND)
+
+LED - TALL/SHORT INDICATOR
+Arduino D12 → 220 ohm → LED anode (+)
+LED cathode (-) → Arduino GND
+
+NOTES
+- D9 and D10 belong to the ultrasonic sensor here, so L298N channel B
+  (IN3/IN4/ENB) stays unconnected - do not wire the usual pins 8-10.
+- A SMALL distance means a TALL object: the sensor looks down at the belt.
+- Power the conveyor and the servo from the external supply, not the Arduino
+  5V pin, and always join the grounds together.
+- No signal wiring: conveyor belt and roller set, breadboard, jumper wires, USB cable.

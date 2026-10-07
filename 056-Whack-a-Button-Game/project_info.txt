@@ -1,0 +1,39 @@
+PROJECT NAME: 056 - Whack-a-Button Game
+PROJECT IDEA: A reaction game where one of four LEDs lights up at random and you must press its matching button before the time window closes - and the window shrinks as you level up.
+HOW IT WORKS: Each round the sketch picks a random LED on pins 4 to 7, turns the others off and starts a timer for the allowed reaction window. Pressing the matching button on pins 8 to 11 scores a point and plays a happy beep, while a wrong button or a timeout costs one of your three misses with a low buzz. Every five hits the level rises and the window gets shorter (from 1.5 seconds down to a 0.6 second floor), and the score, level and misses are printed to the Serial Monitor until three misses end the game.
+ADVANTAGES:
+- Random targets and a shrinking timer make every round different.
+- Speed increases automatically, so the game stays challenging for longer.
+- Clear three-strike rule gives the game a definite start and finish.
+- Serial status line makes it easy to see the score, level and window length.
+- Uses only four LEDs, four buttons and one buzzer, all standard parts.
+REAL-WORLD USES:
+- Reaction-time training tools for sports and driving practice.
+- Arcade-style amusement machines and carnival games.
+- Hand-eye coordination exercises in therapy and rehabilitation.
+- Demonstrations of timing, levels and difficulty curves in game design.
+- Interactive exhibits in science centres and classrooms.
+WHAT YOU LEARN:
+- How to pick a random target with random() and avoid repeats.
+- How to measure a time window using millis() without blocking.
+- How to scale difficulty from a score variable.
+- How to handle scoring, strikes and a game-over reset state.
+- How to debounce several buttons for reliable single presses.
+FUTURE SCOPE: Storing the best score in EEPROM and adding a two-player alternating mode would turn this into a proper competitive tabletop game.
+POSSIBLE UPGRADES:
+- Keep a high score in EEPROM and print it at the start of each game.
+- Light all four LEDs at once as a "trap" that costs a miss if pressed.
+- Play a rising number of beeps to show the countdown in the last 300 ms.
+- Use a buzzer-only mode where you play blind, listening for the tone.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 4 push buttons
+- 4 LEDs (any colors)
+- 4 x 220 ohm resistors
+- Passive buzzer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

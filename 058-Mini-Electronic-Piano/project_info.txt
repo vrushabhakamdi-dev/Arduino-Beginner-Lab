@@ -1,0 +1,37 @@
+PROJECT NAME: 058 - Mini Electronic Piano
+PROJECT IDEA: An eight-key electronic piano where each push button plays one note of the C major scale through a passive buzzer.
+HOW IT WORKS: Eight buttons are connected to pins 2 to 9 with the internal pull-ups enabled, and each button is matched with a frequency and a note name held in two parallel arrays. The loop checks which button is held, calls tone() on the passive buzzer at pin 10 to start that note, and calls noTone() the moment every button is released. The note name and its frequency in Hertz are printed to the Serial Monitor, so you can see exactly which key you are playing.
+ADVANTAGES:
+- Eight keys give a complete musical octave for under a dollar of parts.
+- Parallel arrays make it trivial to add, remove or retune notes.
+- Debouncing stops the note from stuttering when a key is pressed.
+- Serial output teaches the link between musical notes and frequencies.
+- No libraries and no display needed - the code fits easily on an Uno.
+REAL-WORLD USES:
+- Simple toy pianos and musical greeting cards.
+- Keypad tone generators for alarms and annunciators.
+- Music education tools that show note names and frequencies.
+- Sound effect generators for hobby robots and models.
+- A starting point for sequencers, drum machines and synthesizers.
+WHAT YOU LEARN:
+- How tone() and noTone() start and stop a note on a passive buzzer.
+- How to store note names and frequencies in parallel arrays.
+- How INPUT_PULLUP wiring simplifies a multi-button keypad.
+- How to detect "note on" and "note off" events from a held button.
+- How musical notes map onto frequencies in Hertz.
+FUTURE SCOPE: Adding a record-and-playback feature would let the piano store a short melody in an array and replay it later.
+POSSIBLE UPGRADES:
+- Play a different instrument sound by changing the waveform or frequencies.
+- Shift the scale up or down with two extra "octave" buttons.
+- Record the notes you play and replay them back automatically.
+- Add a small LCD that shows the note currently being played.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 8 push buttons
+- Passive buzzer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

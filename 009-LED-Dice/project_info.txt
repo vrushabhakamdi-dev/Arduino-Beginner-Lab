@@ -1,0 +1,38 @@
+PROJECT NAME: 009 - LED Dice
+PROJECT IDEA: Seven LEDs arranged in a dice layout act as an electronic die that you roll with a push button, landing on a random number from 1 to 6.
+HOW IT WORKS: The seven LEDs are connected to pins 2 and 4 through 9 (pin 3 is used by the button), and each face of the die is stored as a bit pattern in an array. Pressing the button first flashes all the LEDs to look like a rolling die, then random(1, 7) picks a value and the matching pattern is written to the LEDs. The result is printed to the Serial Monitor and held on screen for 1.5 seconds before clearing.
+ADVANTAGES:
+- No dice to lose: the die is always available and easy to read.
+- Pattern arrays make adding or changing faces a one-line job.
+- Debounced button with a repeat guard gives one clean roll per press.
+- The rolling flash effect makes the result feel fair and fun.
+- Teaches bit masks, arrays, and random numbers in one small sketch.
+REAL-WORLD USES:
+- Electronic games, party gadgets, and board game timers.
+- Random pickers for quizzes, raffles, and classroom draws.
+- Training tools that demonstrate probability and statistics.
+- Props and toys with a random element.
+- Random trigger selection in hobby robotics projects.
+WHAT YOU LEARN:
+- Storing display patterns in arrays and reading them back.
+- Testing single bits with AND and shift operators.
+- Generating pseudo-random numbers with random() and seeding.
+- Debouncing a button and using a repeat guard flag.
+- Splitting a program into small helper functions.
+FUTURE SCOPE: Multiple dice, sound effects, or a second button for "best of three" rounds can all be layered on the same pattern system.
+POSSIBLE UPGRADES:
+- Add a piezo buzzer that ticks during the roll.
+- Show two dice together for board games.
+- Keep a score of how often each number comes up in Serial.
+- Use a 7-segment display instead of discrete LEDs.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 7x LEDs (any color)
+- 7x 220 ohm resistors
+- Push button (tactile)
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

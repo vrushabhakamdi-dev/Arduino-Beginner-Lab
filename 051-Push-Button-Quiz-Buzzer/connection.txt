@@ -1,0 +1,51 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON - PLAYER 1
+One leg   → Arduino D2
+Other leg → GND
+  Player 1 buzz-in key.
+
+PUSH BUTTON - PLAYER 2
+One leg   → Arduino D3
+Other leg → GND
+  Player 2 buzz-in key.
+
+PUSH BUTTON - PLAYER 3
+One leg   → Arduino D4
+Other leg → GND
+  Player 3 buzz-in key.
+
+PUSH BUTTON - HOST RESET
+One leg   → Arduino D5
+Other leg → GND
+  Host presses this to open the next round.
+
+LED - PLAYER 1
+Anode (+)   → 220 ohm resistor → Arduino D6
+Cathode (-) → GND
+  Lights when player 1 wins.
+
+LED - PLAYER 2
+Anode (+)   → 220 ohm resistor → Arduino D7
+Cathode (-) → GND
+  Lights when player 2 wins.
+
+LED - PLAYER 3
+Anode (+)   → 220 ohm resistor → Arduino D8
+Cathode (-) → GND
+  Lights when player 3 wins.
+
+PASSIVE BUZZER
++ → Arduino D9
+- → GND
+  Plays the 1500 Hz victory beep.
+
+NOTES
+- Buttons: the internal pull-up is enabled in code, so each button only shorts
+  its pin straight to GND. No external resistor is needed.
+- tone() can play different pitches, so a PASSIVE buzzer is required. An active
+  buzzer will only give one fixed beep.
+- LED long leg = anode (+), and it always needs the 220 ohm resistor.
+- Winner and round status are printed in the Serial Monitor at 9600 baud.

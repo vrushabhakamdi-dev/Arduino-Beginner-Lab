@@ -1,0 +1,19 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+ANALOG SOUND SENSOR MODULE
+VCC → Arduino 5V
+GND → Arduino GND
+AO  → Arduino A0    analog output - microphone level, 0 to 1023
+DO  → not connected (digital output not used by this sketch)
+
+LED (LOUD SOUND INDICATOR)
++ → Arduino D13
+- → 220 ohm resistor → Arduino GND
+
+NOTES
+- Only AO is used. Leave DO open - its trimmer sets a compare threshold this sketch never reads.
+- Turn the module's sensitivity trimmer to about the middle before testing.
+- Pin 13 already has the Uno's built-in LED, so the external LED (and its 220 ohm resistor) is optional.
+- The LED turns on at level 70 or above; the held peak decays after 1.5 seconds.

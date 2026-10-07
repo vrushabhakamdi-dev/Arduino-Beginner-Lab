@@ -1,0 +1,37 @@
+PROJECT NAME: 099 - Frequency Meter
+PROJECT IDEA: Measure the frequency and period of a square-wave signal with the Arduino's hardware interrupt pin, printing the result of every one-second gate window to the Serial Monitor.
+HOW IT WORKS: The input signal is wired to pin 2, which is the INT0 hardware interrupt of the Uno, and attachInterrupt() counts every rising edge in a small interrupt service routine. The main loop watches millis() and once per second (the gate window) it copies and clears the counter, then calculates frequency = pulses / elapsed seconds and prints it in Hz together with the period in microseconds (period = 1 / frequency). If no pulse arrived during the whole window the sketch reports "no signal" instead of dividing by zero. The exact measured elapsed time is used in the calculation, so printing time inside the window does not distort the reading.
+ADVANTAGES:
+- Hardware interrupts catch every pulse even while other code is running.
+- The one-second gate gives readings with 1 Hz resolution out of the box.
+- Both frequency (Hz) and period (microseconds) are shown for each window.
+- No libraries or extra components are needed - just a signal wire.
+- Comments explain the safe input voltage and how to generate test signals.
+REAL-WORLD USES:
+- Measuring the output of a 555 timer or a PWM generator.
+- Checking the frequency of an inverter or oscillator in the lab.
+- RPM meter front-end (count pulses from a rotating slotted disc).
+- Frequency counter for audio or control-signal experiments.
+- Verifying the tone() output of another Arduino project.
+WHAT YOU LEARN:
+- Using attachInterrupt() and writing an interrupt service routine.
+- Why shared counters must be declared volatile and read atomically.
+- Building an accurate gate timer with millis() instead of delay().
+- The relationship between frequency and period.
+- Sensor-safe interfacing and the 0-5 V input limit of the Arduino.
+FUTURE SCOPE: Adding a 16x2 LCD for standalone use, or a frequency range switch that uses a shorter gate for high frequencies, would make the meter more practical.
+POSSIBLE UPGRADES:
+- Display the frequency on an I2C LCD instead of the Serial Monitor.
+- Add an auto-range that uses 0.1 s gates above 10 kHz for faster updates.
+- Measure duty cycle by timing both the HIGH and LOW phases of the signal.
+- Store the last 20 measurements in memory for review from the Serial port.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Signal source (second Arduino using tone(), function generator, 555 timer or PWM output)
+- Jumper wire for the signal input
+- Optional: resistor voltage divider for signals above 5 V
+- Breadboard
+- USB cable
+- Library: None
+DIFFICULTY: Advanced Beginner
+LIBRARY REQUIRED: None

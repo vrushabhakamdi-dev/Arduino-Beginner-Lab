@@ -1,0 +1,38 @@
+PROJECT NAME: 048 - Joystick LED Controller
+PROJECT IDEA: Move a joystick left or right to light one of eight LEDs, and press the joystick button to switch into a running chase animation.
+HOW IT WORKS: The joystick's horizontal potentiometer is read on A0, giving a value between 0 and 1023, and map() converts that range into LED positions 0 to 7 so moving the stick selects an LED. A small dead zone in the middle stops the display from flickering when the stick is released. Pressing the joystick button toggles a second mode in which the LEDs light up one after another in a loop, timed with millis() so nothing blocks. The X and Y values and the active mode are printed to the Serial Monitor a few times per second.
+ADVANTAGES:
+- Gives immediate, playful feedback for analog input, which is great for learning.
+- Two different modes show the difference between direct control and animation.
+- Uses the internal pull-up for the button, so no extra resistor is needed.
+- Dead zone handling teaches how to deal with real-world noisy sensors.
+- Serial output makes it easy to check the joystick calibration.
+REAL-WORLD USES:
+- Level or position indicators on control panels.
+- Simple test rig for checking joysticks and analogue sticks.
+- Interactive light effects for props, costumes and model dashboards.
+- Menu navigation prototype for a device with a display.
+- Educational demo board for analogue inputs and digital outputs.
+WHAT YOU LEARN:
+- Reading an analogue joystick with analogRead() on two channels.
+- Converting a sensor range into another range with map() and constrain().
+- Using a dead zone to stabilise a noisy analogue signal.
+- Switching between program modes with one debounced button.
+- Animating LEDs with millis() instead of delay().
+FUTURE SCOPE: Combine the joystick with the OLED display from project 042 so the selected LED and mode are shown on screen as well.
+POSSIBLE UPGRADES:
+- Use the Y axis to control how fast the chase runs.
+- Show the selected LED number on an I2C LCD.
+- Make the joystick button a momentary mode switch and a long press a reset.
+- Add a PWM fade so the selected LED dims smoothly when the stick moves.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Analog joystick module (with push button)
+- 8 LEDs (any colour)
+- 8 x 220 ohm resistors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

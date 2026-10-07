@@ -1,0 +1,38 @@
+PROJECT NAME: 067 - Stepper Motor Positioner
+PROJECT IDEA: Turn a 28BYJ-48 stepper motor in precise 90 degree jumps with two push buttons while the sketch keeps track of the current angular position in degrees.
+HOW IT WORKS: The Stepper library drives the four coil control lines of the ULN2003 driver board on pins 8 to 11 in the correct sequence to step the motor. Because the 28BYJ-48 needs 2048 steps for one full revolution, a 90 degree press commands 2048 multiplied by 90 and then divided by 360, which is exactly 512 steps in the chosen direction. A positive step count rotates clockwise while a negative count rotates counter-clockwise, and a variable stores the running total so the position is known even after many presses. Each change is printed over Serial at 9600 baud.
+ADVANTAGES:
+- Stepper motors hold their position when stopped without any braking.
+- Open-loop accuracy means no position sensor is required.
+- Push button control is simple and works without any extra library downloads.
+- The cumulative position variable survives resets in one run and can be extended to memory.
+- The ULN2003 driver board is a ready-made, hard-to-wire module.
+REAL-WORLD USES:
+- Rotary index tables and camera turntables.
+- Pan and tilt heads for cameras and antennas.
+- CNC axes, plotters and 3D printer motion stages.
+- Valve actuators and dosing mechanisms in machines.
+- Retail display stands that rotate a product at set angles.
+WHAT YOU LEARN:
+- How a unipolar stepper motor and the ULN2003 driver work together.
+- How to calculate steps from a desired angle using steps per revolution.
+- How signed step counts control rotation direction.
+- How INPUT_PULLUP buttons and debounce timing give reliable presses.
+- How to track cumulative state in a global variable across loop() calls.
+FUTURE SCOPE: Reading the accumulated position from EEPROM would let the positioner remember its angle even after the Arduino loses power.
+POSSIBLE UPGRADES:
+- Add a home button that always returns the shaft to 0 degrees.
+- Accept commands typed in the Serial Monitor such as "+90" or "-45".
+- Add a limit switch so the motor can find a known reference point.
+- Print a small dial graphic in the Serial Monitor to visualise the angle.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 28BYJ-48 stepper motor
+- ULN2003 stepper driver board
+- 2 push buttons
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Stepper (built-in)
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Stepper (built-in)

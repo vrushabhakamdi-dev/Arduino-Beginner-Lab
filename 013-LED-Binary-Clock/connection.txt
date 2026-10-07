@@ -1,0 +1,27 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+HOURS LEDs (5 LEDs, 220 ohm resistor each)
+Anode (+) → Arduino D2     (bit 0, value  1)
+Anode (+) → Arduino D3     (bit 1, value  2)
+Anode (+) → Arduino D4     (bit 2, value  4)
+Anode (+) → Arduino D5     (bit 3, value  8)
+Anode (+) → Arduino D6     (bit 4, value 16)
+Cathode (−) → GND          (all five cathodes on the GND rail)
+
+MINUTES LEDs (6 LEDs, 220 ohm resistor each)
+Anode (+) → Arduino D7     (bit 0, value  1)
+Anode (+) → Arduino D8     (bit 1, value  2)
+Anode (+) → Arduino D9     (bit 2, value  4)
+Anode (+) → Arduino D10    (bit 3, value  8)
+Anode (+) → Arduino D11    (bit 4, value 16)
+Anode (+) → Arduino D12    (bit 5, value 32)
+Cathode (−) → GND          (all six cathodes on the GND rail)
+
+NOTES
+- 11 LEDs in total, each with its own 220 ohm resistor.
+- Reading the clock: add the lit values in each group (hours D2-D6, minutes D7-D12).
+- D13 is unused; the built-in LED stays off.
+- USB cable powers the board, no external supply.
+- Breadboard and jumper wires for all connections.

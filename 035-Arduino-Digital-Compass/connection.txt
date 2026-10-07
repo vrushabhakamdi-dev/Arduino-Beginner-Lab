@@ -1,0 +1,25 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+HMC5883L MAGNETOMETER MODULE (GY-271)
+VIN → Arduino 5V
+GND → Arduino GND
+SDA → Arduino A4
+  SDA = I2C data line
+SCL → Arduino A5
+  SCL = I2C clock line
+
+  ARDUINO UNO           HMC5883L (GY-271)
+  -----------           -----------------
+  5V        -----------> VIN
+  GND       -----------> GND
+  A4 (SDA)  -----------> SDA
+  A5 (SCL)  -----------> SCL
+
+NOTES
+- On the Uno SDA = A4 and SCL = A5. Swapping them is the most common wiring mistake; the sketch prints an error and stops if the sensor is not found.
+- Use 3.3V instead of 5V if your module has no on-board regulator (look for a small regulator chip next to the pins; the pin may be labelled 3V3).
+- Hold the board flat and keep it away from motors, screws and magnets; the sketch subtracts a 90 degree mounting offset from the heading.
+- Libraries to install from the Library Manager: "Adafruit HMC5883 Unified", "Adafruit Unified Sensor", "Adafruit BusIO".
+- Use jumper wires; upload with the USB cable and watch the Serial Monitor at 9600 baud.

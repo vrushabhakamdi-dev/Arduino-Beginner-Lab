@@ -1,0 +1,36 @@
+PROJECT NAME: 034 - PIR Motion Detector
+PROJECT IDEA: Build a simple occupancy alarm that notices movement with an HC-SR501 passive infrared sensor, lights an LED and logs each detection with a timestamp.
+HOW IT WORKS: The PIR sensor watches for changes in the infrared radiation given off by warm objects such as people and pets. When it sees that change it holds its OUT pin HIGH, which the Arduino reads on pin 2 and reports as MOTION DETECTED along with the number of seconds since start-up. When the pin returns LOW the code prints how long the movement lasted, and an idle heartbeat line shows that the program is still running.
+ADVANTAGES:
+- Detects people without any camera, keeping privacy intact.
+- Very low cost module with adjustable sensitivity and time delay.
+- Non-contact sensing works through thin walls, covers and casings.
+- Low current draw, so it suits battery powered builds.
+- Clear timestamped log makes it easy to study how often motion occurs.
+REAL-WORLD USES:
+- Automatic lights in hallways, stairs and bathrooms.
+- Intruder alarms for rooms, garages and sheds.
+- Energy saving switches that only run equipment when a room is occupied.
+- Convenience triggers for hobby animatronics and props.
+- Wildlife observation that logs when an animal passes by.
+WHAT YOU LEARN:
+- How a passive infrared sensor detects movement.
+- Reading a digital sensor and detecting rising and falling edges.
+- Why a sensor warm-up period matters in real hardware.
+- Using millis() to timestamp events and produce a heartbeat without delay().
+- Interpreting hardware settings like sensitivity, time delay and re-triggering.
+FUTURE SCOPE: Several PIR sensors could be arranged to cover a whole floor and report which zone detected movement.
+POSSIBLE UPGRADES:
+- Add a relay or lamp driver so the light turns on automatically.
+- Show the motion count on a 16x2 LCD display.
+- Add a "night only" mode using a light dependent resistor.
+- Play a different tone for each new motion event.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- HC-SR501 PIR motion sensor module
+- Built-in LED on pin 13 (no extra LED required)
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

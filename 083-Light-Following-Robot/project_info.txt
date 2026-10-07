@@ -1,0 +1,41 @@
+PROJECT NAME: 083 - Light Following Robot
+PROJECT IDEA: A two-wheel robot that chases the brightest light in the room by comparing two LDR voltage dividers and steering towards the stronger side.
+HOW IT WORKS: The left LDR divider on A0 and the right divider on A1 produce an analog value that rises as more light hits the sensor, and both readings are passed through a small low pass filter to remove flicker. If both readings are similar the robot drives straight, if one side is clearly brighter it pivots towards that side, and if both readings fall below the dark threshold it simply stops. The Serial Monitor prints the smoothed L and R values, their difference and the chosen action, so the deadband can be tuned for the room lighting.
+ADVANTAGES:
+- Two cheap LDRs and two resistors are all the sensing hardware required.
+- The deadband stops the robot wobbling left and right when the light is even.
+- Averaging eight samples plus a low pass filter makes the steering stable.
+- Stopping when both sides are dark saves the battery instead of driving blind.
+- All thresholds are named constants, so tuning needs no code hunting.
+REAL-WORLD USES:
+- Desktop demo robots that follow a torch beam or a lamp.
+- Model vehicles that home in on a charging dock light.
+- Science fair projects about light, sensors and feedback control.
+- Solar tracker prototypes that aim panels at the brightest direction.
+- Building block for line-free beacon navigation experiments.
+WHAT YOU LEARN:
+- Wiring and reading an LDR as a voltage divider on an analog input.
+- Turning raw analog readings into a steering decision with a deadband.
+- Filtering noisy sensor data with averaging and a low pass filter.
+- Differential drive steering towards a target using an L298N driver.
+- Tuning thresholds by watching structured Serial output.
+FUTURE SCOPE: Adding a third LDR facing forward would let the robot decide between slowing down and turning when the light source is straight ahead.
+POSSIBLE UPGRADES:
+- Add a third sensor facing forward to detect a light dead ahead.
+- Show the L and R values as a bar graph on an LCD or OLED.
+- Use PWM speed proportional to how unequal the two readings are.
+- Add a button that saves a new dark threshold to EEPROM.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- L298N motor driver module
+- 2x DC gear motor with wheels
+- Robot chassis with caster wheel
+- 2x LDR (light dependent resistor)
+- 2x 10k ohm resistor
+- 6-12V battery pack for the motors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

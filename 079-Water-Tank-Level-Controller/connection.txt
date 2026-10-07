@@ -1,0 +1,30 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+HC-SR04 ULTRASONIC SENSOR
+VCC    → Arduino 5V
+GND    → Arduino GND
+TRIG   → Arduino D9
+ECHO   → Arduino D10
+
+RELAY MODULE (1 CHANNEL)
+VCC    → Arduino 5V
+GND    → Arduino GND
+IN     → Arduino D4
+COM    → pump supply (+)
+NO     → pump (+)
+
+LED (pump running indicator)
+anode   (+) → Arduino D13   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+LOW-VOLTAGE DC DEMO PUMP (5-12 V)
+pump (+) → relay NO    (relay COM → pump supply +)
+pump (-) → pump supply (-)
+
+NOTES
+- Mount the HC-SR04 above the water looking straight down, at least 2-3 cm from the tank wall; set TANK_DEPTH_CM to the sensor-face-to-bottom distance.
+- Relay switches a low-voltage DC demo pump only - never mains electricity.
+- Code assumes an active-low relay (RELAY_ACTIVE_LOW = true); flip the constant if yours differs.
+- Never put the Arduino, breadboard or USB cable near water.

@@ -1,0 +1,21 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+TCRT5000 INFRARED REFLECTANCE SENSOR MODULE
+VCC → Arduino 5V
+GND → Arduino GND
+AO  → Arduino A0
+  AO = raw reflected-light value 0..1023, drops on a dark surface
+DO  → Arduino D2
+  DO = comparator output, LOW when a dark line is detected
+
+BUILT-IN LED (on the Arduino Uno)
+LED → Arduino D13
+  on-board indicator LED, ON while a line is detected
+
+NOTES
+- Turn the module's on-board potentiometer until the printed LINE / NO LINE matches a black and a white surface held under the sensor; watch the raw= value in the Serial Monitor while tuning.
+- Hold the sensor only a few millimetres above the surface; sunlight or other infrared sources will skew the readings.
+- No external LED or resistor is required - the indicator is the built-in LED on D13.
+- Use jumper wires; upload with the USB cable and watch the Serial Monitor at 9600 baud.

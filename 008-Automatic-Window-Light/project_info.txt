@@ -1,0 +1,39 @@
+PROJECT NAME: 008 - Automatic Window Light
+PROJECT IDEA: An LDR light sensor decides when a room is dark and automatically switches an LED on, then switches it off again when daylight returns.
+HOW IT WORKS: The LDR and a 10k ohm resistor form a voltage divider on pin A0, so more light produces a higher reading. The code turns the LED on only when the reading falls below 400 and turns it off only when it rises above 600, which creates a hysteresis gap that stops the LED chattering around one single value. Five quick samples are averaged each cycle to smooth out sensor noise.
+ADVANTAGES:
+- Fully automatic: no switch to touch, ideal for hallways and porches.
+- Hysteresis (400/600 thresholds) prevents annoying on/off flicker.
+- Averaging several readings filters out electrical noise.
+- Extremely cheap: one LDR, one resistor, and one LED.
+- Thresholds are constants, so tuning for a different room takes seconds.
+REAL-WORLD USES:
+- Street lights and garden lights that switch on at dusk.
+- Night lights in corridors, stairs, and children's rooms.
+- Backlight control on phones, dashboards, and instrument panels.
+- Energy saving by switching lights off in bright daylight.
+- Automatic night lamps for sheds, garages, and bird boxes.
+WHAT YOU LEARN:
+- Building a voltage divider with an LDR and a fixed resistor.
+- Interpreting raw analogue sensor values from 0 to 1023.
+- The concept of hysteresis and why two thresholds beat one.
+- Averaging multiple samples to reduce measurement noise.
+- Reading sensor data through the Serial Monitor.
+FUTURE SCOPE: The light can fade in gradually instead of snapping on, or a timer can prevent it from switching during sleeping hours.
+POSSIBLE UPGRADES:
+- Fade the LED smoothly with analogWrite() instead of a hard on/off.
+- Add a minimum-on timer so the light does not flicker with car headlights.
+- Display a bar graph of the light level in the Serial Monitor.
+- Drive a relay so a real mains lamp switches automatically.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- LDR (light dependent resistor)
+- 10k ohm resistor
+- LED (any color)
+- 220 ohm resistor
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

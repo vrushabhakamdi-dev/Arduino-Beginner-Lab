@@ -1,0 +1,39 @@
+PROJECT NAME: 072 - Automatic Curtain Prototype
+PROJECT IDEA: Use an LDR light sensor and a servo motor to open a model curtain in bright light and close it in darkness, with a push-button manual override.
+HOW IT WORKS: The LDR and a 10k resistor form a voltage divider on pin A0, so brighter light produces a higher analog reading. The sketch opens the curtain (servo moves 0 to 90 degrees) when the reading stays above 600 and closes it when the reading falls below 400; the gap between the two thresholds is hysteresis that stops the servo twitching. A button on pin 2 flips the system into manual mode where each press moves the curtain the other way, and the Serial Monitor continuously shows the light level, mode and curtain state.
+ADVANTAGES:
+- Fully automatic day and night curtain control with only one sensor and one servo.
+- Hysteresis thresholds prevent the servo from jittering at the switching point.
+- Manual override button keeps the user in control when automatic logic is not wanted.
+- Non-contact light sensing means no moving sensor parts to wear out.
+- Serial output of the raw light value makes calibration quick and easy.
+REAL-WORLD USES:
+- Energy saving by closing curtains in hot sunlight or opening them for daylight.
+- Model homes, dollhouses and school science fair demonstrations.
+- Automated window displays and shop window scenes.
+- Prototyping ideas for smart home curtain motors before buying commercial parts.
+- Sunshade control for small greenhouses or display cabinets.
+WHAT YOU LEARN:
+- How an LDR voltage divider produces a readable analog value with analogRead().
+- How to drive a standard RC servo motor with the built-in Servo library.
+- Why hysteresis (two thresholds) gives stable switching behaviour.
+- How to add a manual override mode on top of automatic control.
+- How to organise a sketch with named constants for pins, angles and thresholds.
+FUTURE SCOPE: Adding a real-time clock would let the curtain follow a fixed daily schedule as well as the light level.
+POSSIBLE UPGRADES:
+- Add a second button that only opens and a third that only closes the curtain in manual mode.
+- Remember the last mode in EEPROM so it survives a power cycle.
+- Show a small ASCII progress bar of the light level in the Serial Monitor.
+- Use two LDRs (inside and outside) to decide based on the difference rather than one value.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- LDR (light dependent resistor)
+- 10k ohm resistor
+- Micro servo motor (SG90 or similar)
+- Push button
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built-in)
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Servo (built-in)

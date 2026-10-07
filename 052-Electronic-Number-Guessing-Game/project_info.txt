@@ -1,0 +1,38 @@
+PROJECT NAME: 052 - Electronic Number Guessing Game
+PROJECT IDEA: Play a classic "guess the number" game where the Arduino secretly picks a number from 1 to 100 and tells you HIGHER, LOWER or GUESSED over the Serial Monitor.
+HOW IT WORKS: On startup the sketch seeds the random generator with noise from analog pin A0 and picks a hidden number between 1 and 100. Every line you type in the Serial Monitor is checked: the game prints HIGHER or LOWER and counts the attempt, until the guess matches and the LED on pin 13 flashes while the buzzer on pin 8 plays a celebration tune. Sending the letter r clears the scores and starts a fresh round.
+ADVANTAGES:
+- Needs no extra input hardware - the Serial Monitor is the whole interface.
+- Instant feedback on every guess keeps the player engaged.
+- The attempt counter adds a challenge that rewards careful, logical guessing.
+- randomSeed(analogRead(A0)) gives a different secret number on every run.
+- Teaches string handling, validation and game-state flags in a fun way.
+REAL-WORLD USES:
+- Classroom demonstrations of binary-search and guessing strategies.
+- Interactive Serial terminal demos for testing serial communication.
+- Base for other menu-driven serial games and quizzes.
+- A simple example of validating user input before using it.
+- Interactive diagnostics and test modes in larger Arduino projects.
+WHAT YOU LEARN:
+- How to read and parse text sent from the Serial Monitor.
+- How to seed and use random() for unpredictable numbers.
+- How to compare values and branch with if / else if / else.
+- How to keep score with variables and a gameOver state flag.
+- How to give a reward using tone(), delay() and a blinking LED.
+FUTURE SCOPE: The same serial interface could hold a full multi-round tournament, keeping scores and difficulty levels over many games.
+POSSIBLE UPGRADES:
+- Add difficulty levels (1-50, 1-500, 1-1000) chosen from the keyboard.
+- Draw a simple bar in the Serial Monitor that shows how close the guess is.
+- Track the best score (fewest attempts) across several games.
+- Add a limited number of tries so the player can also lose the game.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- Passive buzzer
+- LED (optional, pin 13 built-in LED is used)
+- 220 ohm resistor (only if an external LED is added)
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

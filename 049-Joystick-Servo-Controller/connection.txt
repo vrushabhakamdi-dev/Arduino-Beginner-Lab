@@ -1,0 +1,34 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+JOYSTICK MODULE
+VCC → Arduino 5V
+GND → Arduino GND
+VRx → Arduino A0     horizontal axis, controls servo 1
+VRy → Arduino A1     vertical axis, controls servo 2
+SW  → Arduino D2     push button, press recentres both servos
+
+SERVO 1 (SG90 or similar)
+signal (orange/yellow) → Arduino D9     X axis servo
++ (red) → Arduino 5V
+- (brown/black) → Arduino GND
+
+SERVO 2 (SG90 or similar)
+signal (orange/yellow) → Arduino D10    Y axis servo
++ (red) → Arduino 5V
+- (brown/black) → Arduino GND
+
+NOTES
+- Servo wires: always match colour to colour - brown/black = GND, red = 5V,
+  orange/yellow = signal. Reversing power and signal can damage the servo.
+- The joystick SW uses the internal pull-up: SW to D2, other side to GND.
+- Two servos can stall (no load or hitting a limit) at currents the USB port
+  cannot supply. The reliable setup is an external regulated 5V supply for the
+  servo "+" and "-" wires, with that supply's GND also wired to the Arduino
+  GND (common ground), and the signal wires still on D9/D10.
+- If the USB supply browns out when the servos move, the Arduino resets -
+  that is a power problem, not a code problem.
+- D9 and D10 are hardware PWM pins used by the Servo library; do not change
+  them without editing SERVO_X_PIN / SERVO_Y_PIN.
+- Breadboard, jumper wires and the USB cable complete the build.

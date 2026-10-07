@@ -1,0 +1,23 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+FC-51 IR OBSTACLE SENSOR
+VCC          → Arduino 5V
+GND          → Arduino GND
+OUT          → Arduino D2
+
+MICRO SERVO (SG90)
+signal       → Arduino D6
++            → Arduino 5V
+-            → Arduino GND
+
+LED (lid open indicator)
+anode (+)    → Arduino D13   (220 ohm resistor in series)
+cathode (-)  → Arduino GND
+
+NOTES
+- Aim the IR sensor at the spot where the hand waves and adjust the module pot for sensitivity.
+- Code assumes OUT is active-low (OBSTACLE_ACTIVE_LOW = true); flip the constant if your board is inverted.
+- Power the servo from 5V with common GND (separate 5V supply if the board resets).
+- D13 also lights the Uno's built-in LED; the external LED is optional.

@@ -1,0 +1,63 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LED 1 (step 1)
+Anode (+)   → 220 ohm resistor → Arduino D4
+Cathode (-) → GND
+  Flashes with tone 262 Hz (C4).
+
+LED 2 (step 2)
+Anode (+)   → 220 ohm resistor → Arduino D5
+Cathode (-) → GND
+  Flashes with tone 330 Hz (D4).
+
+LED 3 (step 3)
+Anode (+)   → 220 ohm resistor → Arduino D6
+Cathode (-) → GND
+  Flashes with tone 392 Hz (G4).
+
+LED 4 (step 4)
+Anode (+)   → 220 ohm resistor → Arduino D7
+Cathode (-) → GND
+  Flashes with tone 494 Hz (B4).
+
+PUSH BUTTON 1
+One leg   → Arduino D8
+Other leg → GND
+  Answer key for LED 1.
+
+PUSH BUTTON 2
+One leg   → Arduino D9
+Other leg → GND
+  Answer key for LED 2.
+
+PUSH BUTTON 3
+One leg   → Arduino D10
+Other leg → GND
+  Answer key for LED 3.
+
+PUSH BUTTON 4
+One leg   → Arduino D11
+Other leg → GND
+  Answer key for LED 4.
+
+PASSIVE BUZZER
++ → Arduino D12
+- → GND
+  Plays each step's tone and the losing jingle.
+
+A0 - RANDOM NOISE SEED
+Nothing connected → leave Arduino A0 open
+  The floating pin gives random noise for randomSeed().
+
+NOTES
+- Keep each button with its own LED: button 1 belongs to LED 1, and so on,
+  otherwise you cannot repeat the pattern correctly.
+- Buttons: internal pull-ups are enabled, so each button only shorts its pin
+  to GND. No external resistors.
+- tone() needs a PASSIVE buzzer - the game is partly played by ear, and an
+  active buzzer cannot change pitch.
+- A0 must stay unconnected (do NOT wire it to 5V or GND) so each game starts
+  with a different pattern.
+- LED long leg = anode (+), always in series with a 220 ohm resistor.

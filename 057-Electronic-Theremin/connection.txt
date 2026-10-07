@@ -1,0 +1,29 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LDR (LIGHT DEPENDENT RESISTOR) - voltage divider
+One leg       → Arduino 5V
+Other leg     → Arduino A0
+One leg of the 10k ohm resistor → Arduino A0
+Other leg of the 10k ohm resistor → Arduino GND
+
+  5V ──[ LDR ]──┬──[ 10k ohm ]── GND
+                │
+             Arduino A0
+
+  A0 senses the middle of the divider: more light = higher voltage.
+
+PASSIVE BUZZER
++ → Arduino D8
+- → GND
+  Plays the continuous 200 - 4000 Hz tone.
+
+NOTES
+- The LDR and the 10k resistor must meet at A0 - that junction is the divider
+  output. Wiring the LDR straight to A0 with no resistor gives no reading.
+- tone() needs a PASSIVE buzzer; an active buzzer plays only one fixed note
+  and cannot follow your hand.
+- Cover the LDR to lower the pitch, uncover it to raise it. Nothing else to
+  play: no buttons in this build.
+- The current frequency is printed in the Serial Monitor at 9600 baud.

@@ -1,0 +1,37 @@
+PROJECT NAME: 002 - Multiple LED Sequence
+PROJECT IDEA: Six LEDs wired to pins 2 through 7 light up one after another in a chasing wave, then the wave runs backwards.
+HOW IT WORKS: Each LED connects to its own digital pin through a 220 ohm resistor. Two for-loops drive the pattern: the first loop walks forward from pin 2 to pin 7 switching each LED on and off, and the second loop walks backwards from pin 7 to pin 2. A short delay after every step makes the movement visible to the eye.
+ADVANTAGES:
+- Shows how a simple loop can control many outputs with very little code.
+- Changing the LED count or speed takes only one small edit.
+- No extra hardware beyond LEDs, resistors, and wires.
+- The forward/reverse motion makes the concept easy to see and explain.
+- Teaches pin arithmetic such as FIRST_LED_PIN + i.
+REAL-WORLD USES:
+- Scrolling status displays and progress bars on equipment.
+- Marquee and decorative lighting on signs, cars, and stage props.
+- Sequential indicator lights on control panels and machine tools.
+- Animations on hobby robots, props, and light-up costumes.
+- Toy gadgets that cycle through a light show.
+WHAT YOU LEARN:
+- Using for-loops to repeat an action across a range of pins.
+- Driving multiple outputs from one small block of code.
+- Looping forwards and backwards with the loop variable.
+- Calculating pin numbers from a base constant plus an index.
+- Controlling animation speed with delay().
+FUTURE SCOPE: The same chasing pattern can be extended with more LEDs, variable speed, or a button that chooses the direction.
+POSSIBLE UPGRADES:
+- Add a potentiometer to control the chase speed in real time.
+- Use 10 or 12 LEDs for a longer, smoother animation.
+- Let a push button switch between forward, reverse, and all-blink modes.
+- Replace delay() with millis() so other tasks can run during the chase.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 6x LEDs (any color)
+- 6x 220 ohm resistors
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

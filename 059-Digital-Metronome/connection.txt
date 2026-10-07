@@ -1,0 +1,36 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON - TEMPO UP (+5 BPM)
+One leg   → Arduino D2
+Other leg → GND
+  Each press adds 5 BPM (40 - 220 BPM).
+
+PUSH BUTTON - TEMPO DOWN (-5 BPM)
+One leg   → Arduino D3
+Other leg → GND
+  Each press removes 5 BPM.
+
+PUSH BUTTON - START / STOP
+One leg   → Arduino D4
+Other leg → GND
+  Starts or stops the beat.
+
+PASSIVE BUZZER
++ → Arduino D8
+- → GND
+  Tick on every beat; higher pitch on beat 4 (accent).
+
+BUILT-IN LED
+Anode → Arduino D13 (already on the board)
+  Flashes for 50 ms on every beat.
+
+NOTES
+- Buttons: internal pull-ups are enabled, so each button only shorts its pin
+  to GND. No external resistors.
+- tone() needs a PASSIVE buzzer - the metronome uses two pitches (1000 Hz and
+  1800 Hz accent), which an active buzzer cannot produce.
+- D8 is used for the buzzer because D2, D3 and D4 are taken by the buttons;
+  the flash LED is the built-in one on D13, so no external LED is needed.
+- Tempo and beat lines are printed in the Serial Monitor at 9600 baud.

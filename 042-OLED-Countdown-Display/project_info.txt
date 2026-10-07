@@ -1,0 +1,37 @@
+PROJECT NAME: 042 - OLED Countdown Display
+PROJECT IDEA: A push-button countdown timer that shows huge mm:ss digits and a progress bar that shrinks as the remaining time runs out on a 128x64 SSD1306 OLED display.
+HOW IT WORKS: Three buttons let you add or subtract minutes and start or pause the timer, and every press is cleaned up by a debounce routine so one press counts exactly once. While the timer runs, loop() watches millis() and subtracts one second every 1000 ms without using delay(), so the display stays responsive. Each change redraws the OLED: the big mm:ss text, a RUNNING or PAUSED status word, and a progress bar whose width is mapped from the remaining seconds. When the counter reaches zero the timer stops, the Serial Monitor prints TIME UP and the message blinks on the screen.
+ADVANTAGES:
+- Non-blocking millis() timing keeps the buttons and display responsive while counting.
+- The progress bar gives an instant visual idea of how much time is left.
+- Big 4x text is readable from across a room without any extra hardware.
+- Debounce code prevents one press from being counted several times.
+- Minutes can be set from 1 to 99 without changing or re-uploading the code.
+REAL-WORLD USES:
+- Kitchen timer for cooking and baking.
+- Classroom or presentation timer for speakers.
+- Workout and interval training timer.
+- Countdown for board games, quizzes and exam practice.
+- Turn-taking timer for board games or PC repair bench work.
+WHAT YOU LEARN:
+- Driving an SSD1306 OLED with the Adafruit SSD1306 and Adafruit GFX libraries.
+- Drawing text, rectangles and filled bars with GFX graphic commands.
+- Debouncing a push button in software with a stable-time check.
+- Non-blocking timing with millis() instead of delay().
+- Using INPUT_PULLUP so no external resistors are needed for the buttons.
+FUTURE SCOPE: Add an audible alarm with a buzzer and a "count up" stopwatch mode so the same display can serve as a clock, timer and stopwatch.
+POSSIBLE UPGRADES:
+- Add a buzzer that beeps when the countdown reaches zero.
+- Store the last used minutes in EEPROM so it survives a power cycle.
+- Add a fourth button for a second independent countdown.
+- Show a small icon or animated arrow while the timer is running.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- SSD1306 OLED display 128x64 (I2C)
+- 3 push buttons
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Adafruit SSD1306 and Adafruit GFX Library
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Adafruit SSD1306, Adafruit GFX Library

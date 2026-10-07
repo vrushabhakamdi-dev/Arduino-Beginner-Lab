@@ -1,0 +1,37 @@
+PROJECT NAME: 020 - Binary Counter with LEDs
+PROJECT IDEA: Watch eight LEDs count from 0 to 255 in binary while the Serial Monitor prints every number in both decimal and binary form.
+HOW IT WORKS: Each LED represents one binary digit, from the value 1 on pin 2 up to the value 128 on pin 9. The sketch loops through every number from 0 to 255, switches the LEDs to show that number in binary, prints both forms to the Serial Monitor and waits 300 milliseconds. After 255 the counter wraps around and starts again from 0.
+ADVANTAGES:
+- A very cheap way to see how numbers are stored inside digital systems.
+- Printing both forms side by side makes comparison effortless.
+- Counting speed and pin mapping are single constants to edit.
+- Reinforces bit shifting and masking using real hardware.
+- Runs forever without needing any input.
+REAL-WORLD USES:
+- Teaching binary and digital logic in schools and training courses.
+- Visual check of eight output lines on a control board.
+- Status displays that show a byte of data as lights.
+- Practice for stepper-motor step sequencing and relay patterns.
+- Starter block for larger LED matrix or bar-graph projects.
+WHAT YOU LEARN:
+- How decimal numbers map onto binary bit patterns.
+- How the >> and & operators extract a single bit.
+- How a base pin number plus an index drives a group of LEDs.
+- How to print formatted binary text with a loop.
+- Why eight bits make one byte with a range of 0 to 255.
+FUTURE SCOPE: The counter could count in other bases, respond to buttons that step up or down, or drive a seven-segment display to show the same value in decimal.
+POSSIBLE UPGRADES:
+- Add buttons to count up, count down or reset to zero.
+- Let a potentiometer set the delay instead of a fixed 300 ms.
+- Show the same value on a seven-segment display.
+- Set a target value and light a match LED when it is reached.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 8 LEDs (any color)
+- 8 x 220 ohm resistors
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

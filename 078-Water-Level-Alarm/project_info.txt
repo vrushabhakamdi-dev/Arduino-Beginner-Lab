@@ -1,0 +1,39 @@
+PROJECT NAME: 078 - Water Level Alarm
+PROJECT IDEA: Measure how full a water container is with a level sensor module, display the level on a four LED bar and sound an alarm once the level passes 80 percent.
+HOW IT WORKS: The water level sensor has several bare traces; the more of them the water touches, the higher the analog voltage on pin A0. The sketch converts that raw reading into a percentage using two calibration values, lights one LED for every 25 percent the container has reached, and starts a flashing buzzer above 80 percent. The Serial Monitor prints the percentage and a plain language state such as empty, half full or fill alarm every second.
+ADVANTAGES:
+- Gives an instant, easy to read picture of how full a tank is.
+- Two calibration constants make the 0-100% scale adapt to any container depth.
+- Four LEDs can be read from across the room without any display.
+- The buzzer warns before a container overflows, while there is still time to act.
+- Measurement only: there is no pump, so the circuit stays safe on a desk.
+REAL-WORLD USES:
+- Overflow warning for a water tank, bucket or reservoir in the home.
+- Level gauge for an aquarium, fountain or rain barrel project.
+- Laboratory beaker or flask filling monitor for school experiments.
+- Fuel or liquid level demonstration boards for technical classes.
+- Pre-alarm for any process where a container must not be filled too far.
+WHAT YOU LEARN:
+- Reading a resistive water level sensor with analogRead().
+- Converting raw counts into a percentage with map() and constrain().
+- Building a multi-LED bar gauge from thresholds.
+- Triggering an alarm output with hysteresis-free but clearly named limits.
+- Why calibration constants make a sensor reading meaningful.
+FUTURE SCOPE: The same percentage could be logged over time to plot how quickly a container fills, or compared with a set point in a separate controller project.
+POSSIBLE UPGRADES:
+- Show a text bar of the level, for example [#####-----], in the Serial Monitor.
+- Add a second threshold that warns softly at 60% before the 80% alarm.
+- Display the percentage on an LCD instead of the Serial Monitor.
+- Store the peak level reached in EEPROM with the EEPROM library (built-in).
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Water level sensor module (bare trace type)
+- 4 LEDs (any colour)
+- 4 x 220 ohm resistors
+- Piezo buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

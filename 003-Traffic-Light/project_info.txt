@@ -1,0 +1,39 @@
+PROJECT NAME: 003 - Traffic Light
+PROJECT IDEA: Three LEDs act as a miniature traffic signal that cycles red, yellow, and green with real-world style timing while the Serial Monitor reports the active light.
+HOW IT WORKS: A red, yellow, and green LED are connected to pins 2, 3, and 4 through 220 ohm resistors. A helper function named setLight() switches on the requested LED and switches the other two off, so only one light shines at a time. The loop() then holds red for 3 seconds, yellow for 2 seconds, and green for 5 seconds before repeating.
+ADVANTAGES:
+- Uses cheap parts to reproduce a familiar real-world system.
+- Timing lives in named constants, so retuning the cycle is trivial.
+- The helper function shows how to avoid repeating the same code three times.
+- Only one LED is ever lit, keeping current draw and power use low.
+- Serial messages make the state machine easy to follow while it runs.
+REAL-WORLD USES:
+- Actual road intersections, crosswalks, and pedestrian signals.
+- Factory floor and warehouse vehicle warning lights.
+- Miniature models, school projects, and dioramas.
+- Queue and status indicators in shops and service counters.
+- Test fixtures that signal pass/fail states on a workbench.
+WHAT YOU LEARN:
+- Coordinating several outputs from one program loop.
+- Writing a reusable helper function with a parameter.
+- Using timing constants for repeatable, adjustable delays.
+- Representing a simple state machine (red, yellow, green).
+- Reading program behaviour through Serial println() messages.
+FUTURE SCOPE: The same logic can grow into a pedestrian crossing button, a countdown timer, or a two-way intersection with opposing lights.
+POSSIBLE UPGRADES:
+- Add a push button that triggers a pedestrian crossing sequence.
+- Use a 7-segment display to show a countdown for each phase.
+- Add a second set of lights for an intersection running the other direction.
+- Replace delay() with millis() so a clock can keep running between phases.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- Red LED
+- Yellow LED
+- Green LED
+- 3x 220 ohm resistors
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

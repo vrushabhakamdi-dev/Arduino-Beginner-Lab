@@ -1,0 +1,31 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+1602 LCD WITH I2C BACKPACK (PCF8574, ADDR 0x27)
+VCC → Arduino 5V
+GND → Arduino GND
+SDA → Arduino A4
+SCL → Arduino A5
+
+PUSH BUTTON - ISSUE TOKEN
+leg 1 → Arduino D2
+leg 2 → Arduino GND
+
+PUSH BUTTON - CALL NEXT
+leg 1 → Arduino D3
+leg 2 → Arduino GND
+
+PASSIVE BUZZER
++ → Arduino D8   (100 ohm resistor in series)
+- → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- SDA = A4 and SCL = A5 on the Uno; only four wires go to the LCD.
+- If the screen stays dark, your backpack is probably address 0x3F - change
+  LCD_ADDRESS in the sketch.
+- Both buttons use INPUT_PULLUP, so no external resistors are needed.
+- Install "LiquidCrystal I2C" from the Library Manager before compiling.

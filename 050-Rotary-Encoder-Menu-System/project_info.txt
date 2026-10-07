@@ -1,0 +1,40 @@
+PROJECT NAME: 050 - Rotary Encoder Menu System
+PROJECT IDEA: A rotary encoder turns through a menu on a 16x2 I2C LCD to control LED brightness and buzzer tone, with an ABOUT page, using click and rotate as the only inputs.
+HOW IT WORKS: The encoder's CLK signal is wired to pin 2 and read through an interrupt, so every detent of the knob changes an encoder counter without polling. In the browse state, rotating moves the ">" cursor between LED BRIGHTNESS, BUZZER TONE and ABOUT, and pressing the knob selects the item. Inside the adjustment state the same rotation changes the value instead: brightness is sent to pin 5 with analogWrite() and the new tone frequency is played briefly on pin 6 for instant feedback. A second click saves the value and returns to the menu, and the ABOUT page just shows a short project description.
+ADVANTAGES:
+- An encoder gives infinite rotation in both directions with no end stops.
+- Interrupt driven counting means no rotation is ever missed.
+- One click/rotate interface scales to any number of menu items.
+- The buzzer beeps at the selected frequency, so changes are heard immediately.
+- Values are applied live, which makes tuning feel direct and satisfying.
+REAL-WORLD USES:
+- Settings menus on 3D printers, radios and audio equipment.
+- Dimmers and thermostat controls with a display.
+- Industrial panel parameter entry for machines and test rigs.
+- Navigation of screens on printers, photocopiers and meters.
+- Any device that needs a compact "turn and click" interface.
+WHAT YOU LEARN:
+- Reading a rotary encoder with quadrature signals and an interrupt.
+- Building a small state machine (browse, adjust, about) in code.
+- Showing a cursor driven menu on a 16x2 LCD.
+- Combining PWM output (analogWrite) and tone() with menu values.
+- Protecting a shared volatile variable by disabling interrupts briefly.
+FUTURE SCOPE: Add more menu pages such as a clock, a counter or a settings memory stored in EEPROM, and a "back" gesture for deeper submenus.
+POSSIBLE UPGRADES:
+- Show a small bar graph next to the brightness value.
+- Save the chosen values in EEPROM so they survive a power off.
+- Add a long press of the knob as a "back" or "exit" command.
+- Play a tick sound on the buzzer for every encoder detent.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- KY-040 rotary encoder module
+- LCD 1602 with I2C backpack (address 0x27)
+- LED (any colour)
+- 220 ohm resistor for the LED
+- Piezo buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: LiquidCrystal I2C
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: LiquidCrystal I2C

@@ -1,0 +1,38 @@
+PROJECT NAME: 026 - Humidity Monitor
+PROJECT IDEA: Measure room humidity with a DHT11 sensor and print the percentage together with a dry, comfortable or humid comfort message every two seconds.
+HOW IT WORKS: The DHT11 contains a resistive humidity element and a thermistor, and it returns a digital checksummed value on a single data wire. The Adafruit DHT library sends the request, reads the reply and checks the checksum, so a bad reading is reported instead of silently accepted. The sketch prints the humidity percentage and temperature, then passes the humidity through a simple three-way test to produce a comfort message such as DRY, COMFORTABLE or HUMID.
+ADVANTAGES:
+- One data pin plus a 10 kohm pull-up is all the extra wiring that is needed.
+- Digital output with checksum, so readings are reliable compared with a bare analogue sensor.
+- Comfort message makes the raw number immediately meaningful to a beginner.
+- Two-second interval respects the DHT11's own slow response time.
+- Same code works with a DHT22 by changing a single constant.
+REAL-WORLD USES:
+- Home and office climate comfort monitoring.
+- Greenhouse and terrarium humidity control.
+- Preventing condensation in cupboards, cellars and instrument cases.
+- Nursery, bedroom or museum display case climate logging.
+- Pre-check before choosing a humidifier or dehumidifier for a room.
+WHAT YOU LEARN:
+- Using a third-party sensor library built on the Adafruit Unified Sensor layer.
+- Wiring a single-bus digital sensor with an external pull-up resistor.
+- Handling invalid readings with isnan() instead of printing garbage values.
+- Turning numbers into human-readable messages with simple logic.
+- Why sensors need a realistic sampling interval rather than the fastest possible one.
+FUTURE SCOPE: Adding a display and a small fan or humidifier relay would turn the monitor into a simple automatic climate controller.
+POSSIBLE UPGRADES:
+- Draw a humidity bar graph in the Serial Monitor.
+- Log humidity and temperature pairs as CSV for later analysis.
+- Sound an alert when humidity leaves the comfortable band.
+- Show a comfort index combining both temperature and humidity.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- DHT11 temperature and humidity sensor module
+- 10 kohm resistor (pull-up; often already on the module)
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: DHT sensor library
+- Library: Adafruit Unified Sensor
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: DHT sensor library, Adafruit Unified Sensor

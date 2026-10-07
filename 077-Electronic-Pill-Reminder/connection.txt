@@ -1,0 +1,27 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+1602 LCD WITH I2C BACKPACK (PCF8574, ADDR 0x27)
+VCC  → Arduino 5V
+GND  → Arduino GND
+SDA  → Arduino A4
+SCL  → Arduino A5
+
+PUSH BUTTON
+leg 1 → Arduino D2
+leg 2 → Arduino GND
+
+PIEZO BUZZER
++    → Arduino D8
+-    → Arduino GND
+
+LED (dose waiting indicator)
+anode (+)   → Arduino D13   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+NOTES
+- LCD address is 0x27; if the screen stays dark, check the backpack solder jumpers and try 0x3F (LCD_ADDRESS in the code).
+- A4/A5 are the Uno's hardware I2C pins - leave them free for the LCD.
+- Button uses INPUT_PULLUP, so no external resistor is needed.
+- D13 also lights the Uno's built-in LED; the external LED is optional.

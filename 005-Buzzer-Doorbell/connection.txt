@@ -1,0 +1,17 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON (tactile)
+leg 1 → Arduino D2
+leg 2 → Arduino GND
+
+PASSIVE BUZZER (piezo)
++ → Arduino D8
+- → Arduino GND
+
+NOTES
+- The buzzer MUST be passive: tone() drives the element to make pitches.
+  An active buzzer will only beep at one fixed tone.
+- Button uses INPUT_PULLUP, so no external resistor is needed (pressed = LOW).
+- One chime per press; release the button to arm it again.

@@ -1,0 +1,36 @@
+PROJECT NAME: 023 - IR Object Counter
+PROJECT IDEA: Count objects one by one as they pass in front of an infrared obstacle sensor and show the running total in the Serial Monitor.
+HOW IT WORKS: The FC-51 IR module shines an infrared beam and watches for the reflection; its DOUT pin changes state whenever an object comes into range. The sketch reads that pin, detects the exact moment the level changes (a falling edge), and adds one to a counter. A short debounce window ignores the rapid on/off chatter a single object can produce, and typing 'r' in the Serial Monitor resets the total back to zero.
+ADVANTAGES:
+- Very cheap sensor and a handful of lines of code make it a quick build.
+- Contactless counting, so the objects are never touched or slowed down.
+- Debouncing ensures one object is counted exactly once.
+- Serial reset lets you start a new counting session without re-uploading.
+- Teaches edge detection, a skill used in almost every real sensor project.
+REAL-WORLD USES:
+- Counting bottles, boxes or parts moving along a conveyor belt.
+- Tallying people entering a room or customers through a doorway.
+- Counting laps of a model car or toy on a track.
+- Monitoring how many balls are fed into a dispenser or vending machine.
+- Recording rotations of a wheel or gear for a simple odometer.
+WHAT YOU LEARN:
+- How digital input pins are read with digitalRead().
+- How to detect a state change (edge) rather than just reading a level.
+- Why debouncing is needed and how millis() implements it without delay().
+- Handling Serial input so the program can react to the user.
+- Reading a sensor's datasheet to find whether output is active-HIGH or active-LOW.
+FUTURE SCOPE: The counter output could drive a display or be logged over time to give production statistics for a small simulated assembly line.
+POSSIBLE UPGRADES:
+- Show the count on a 7-segment display or LCD instead of Serial.
+- Add a reset button on a digital pin alongside the serial command.
+- Count up and down using two IR sensors placed side by side to detect direction.
+- Trigger a relay or buzzer every time a target count is reached.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- FC-51 IR obstacle avoidance sensor module
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

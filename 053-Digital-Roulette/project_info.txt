@@ -1,0 +1,39 @@
+PROJECT NAME: 053 - Digital Roulette
+PROJECT IDEA: A chase of eight LEDs spins like a roulette wheel with random, gradually slowing intervals, and the LED that is lit when you press the stop button becomes the winner.
+HOW IT WORKS: Eight LEDs are wired to pins 2 to 9 and are lit one after another in a loop, with each step waiting a randomized delay that gets a little longer every time so the wheel appears to slow down. Pressing the button on pin 10 stops the chase, and the code reports which LED (the winning pocket) is still lit while the buzzer gives a short blip. Pressing the button again starts a fresh spin and the whole process repeats.
+ADVANTAGES:
+- Purely visual game that needs no display or serial terminal to play.
+- Random delays make every spin different, so the result feels fair.
+- The slowing-down effect looks much more like a real mechanical wheel.
+- A single button controls both start and stop, keeping the wiring simple.
+- Serial output makes it easy to log results or use as a random picker.
+REAL-WORLD USES:
+- Random team or name pickers for classrooms and parties.
+- Prize draws and simple lottery-style number selectors.
+- Demonstration of chase patterns and variable-speed timing.
+- Turn indicators and scrolling status displays on control panels.
+- Entertainment features in arcade machines and LED art projects.
+WHAT YOU LEARN:
+- How to run an LED chase with an array and the modulo (%) operator.
+- How to combine random() with millis() for unpredictable timing.
+- How to make an animation accelerate or decelerate over time.
+- How to decide a result from the state of the program at the moment of a press.
+- How to debounce a button so one press never starts two spins.
+FUTURE SCOPE: Adding a second row of LEDs as "slots" and a small display could turn this into a full prize-draw machine that records the last several winners.
+POSSIBLE UPGRADES:
+- Assign a number to each LED and print a random number from 1 to 8 on a display.
+- Vary the speed of the wheel using a potentiometer instead of fixed limits.
+- Play a longer jingle when a special "jackpot" pocket lights up.
+- Keep a count of how often each pocket has won and print the statistics.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 8 LEDs (any colors)
+- 8 x 220 ohm resistors
+- 1 push button
+- Passive buzzer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

@@ -1,0 +1,28 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+POTENTIOMETER (10k)
+Left outer leg  → Arduino 5V
+Right outer leg → Arduino GND
+Wiper (middle)  → Arduino A0
+  Turning the knob sweeps the frequency from 100 Hz to 5000 Hz.
+
+PUSH BUTTON - TONE ON / OFF
+One leg   → Arduino D2
+Other leg → GND
+  Press once to mute, press again to sound the tone.
+
+PASSIVE BUZZER
++ → Arduino D8
+- → GND
+  Outputs the generated square-wave tone.
+
+NOTES
+- The potentiometer must be wired across 5V and GND with its wiper to A0.
+  Reversing the outer legs simply reverses the pitch direction.
+- tone() only produces a SQUARE wave - that is the normal Arduino limit, not a
+  wiring fault. An active buzzer will ignore the frequency and hum at its own
+  fixed pitch, so a PASSIVE buzzer is required.
+- Button uses the internal pull-up: wire it straight between D2 and GND.
+- Current status and frequency are printed in the Serial Monitor at 9600 baud.

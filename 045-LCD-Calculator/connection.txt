@@ -1,0 +1,45 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LCD 1602 (I2C BACKPACK, address 0x27)
+SDA → Arduino A4     I2C data
+SCL → Arduino A5     I2C clock
+VCC → Arduino 5V
+GND → Arduino GND
+
+POTENTIOMETER A (first number)
+outer leg → Arduino 5V
+wiper (middle leg) → Arduino A0    operand A, 0..99
+outer leg → Arduino GND
+
+POTENTIOMETER B (second number)
+outer leg → Arduino 5V
+wiper (middle leg) → Arduino A1    operand B, 0..99
+outer leg → Arduino GND
+
+PUSH BUTTON "+"
+pin 1 → Arduino D2
+pin 2 → Arduino GND
+
+PUSH BUTTON "-"
+pin 1 → Arduino D3
+pin 2 → Arduino GND
+
+PUSH BUTTON "*"
+pin 1 → Arduino D4
+pin 2 → Arduino GND
+
+PUSH BUTTON "/"
+pin 1 → Arduino D5
+pin 2 → Arduino GND
+
+NOTES
+- The four buttons use the internal pull-up (INPUT_PULLUP): one leg to the
+  pin, the other leg to GND. No external resistors needed. LOW = pressed.
+- Connect only the middle leg (wiper) of a potentiometer to the analog pin.
+  Wiring the wiper to 5V would short the pot when it is turned fully.
+- A0 and A1 stay analog inputs; do not use them for anything else here.
+- LCD blank? Try address 0x3F (LCD_ADDRESS in the sketch) or turn the contrast
+  trimmer on the backpack.
+- Breadboard, jumper wires and the USB cable complete the build.

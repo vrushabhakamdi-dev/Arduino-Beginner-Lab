@@ -1,0 +1,40 @@
+PROJECT NAME: 017 - Countdown Timer
+PROJECT IDEA: Pick a countdown between 10 and 120 seconds with a potentiometer, start it with a button, and get a buzzer alarm when the time runs out.
+HOW IT WORKS: While the timer is idle, the potentiometer on A0 selects the delay and the Serial Monitor shows the chosen number of seconds. Pressing the button freezes that value and starts the countdown, which is printed once every second. The LED blinks during the final five seconds, and when the counter reaches zero three beeps sound on the buzzer before the timer returns to the setup screen.
+ADVANTAGES:
+- Adjustable time without any extra display or menu buttons.
+- Clear feedback at every stage: setup, counting, warning and alarm.
+- The alarm uses three separate beeps so it is easy to hear.
+- Timing is based on millis(), so the countdown stays accurate.
+- Pressing the button again cancels the run and starts over.
+REAL-WORLD USES:
+- Kitchen, study and break timers built into appliances.
+- Round timers and buzzer systems for quiz games.
+- Interval trainers for workouts and fitness routines.
+- Industrial processes that must run for a fixed length of time.
+- Classroom activity timers used by teachers.
+WHAT YOU LEARN:
+- How to map a potentiometer onto a useful custom range.
+- How to organise a sketch with states (setting versus running).
+- How to print a value once per second without using delay().
+- How to blink an LED at its own rate while a timer keeps running.
+- How tone() creates beeps on a passive buzzer.
+FUTURE SCOPE: Adding a pause button, a buzzer-silencing button or an LCD showing the remaining time would turn it into a finished desk timer.
+POSSIBLE UPGRADES:
+- Add a pause button so the countdown can be stopped and resumed.
+- Play a different number of beeps for different time ranges.
+- Show the selected and remaining time on a 16x2 LCD.
+- Let the potentiometer choose minutes instead of seconds for long sessions.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- LED (any color)
+- 220 ohm resistor
+- Push button
+- Passive buzzer
+- 10 kOhm potentiometer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

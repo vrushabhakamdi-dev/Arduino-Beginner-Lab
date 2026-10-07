@@ -1,0 +1,27 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+POTENTIOMETER (10 kOhm)
+Outer pin 1 → 5V
+Outer pin 2 → GND
+Wiper (middle pin) → Arduino A0     (analog reading 0-1023)
+
+LED BAR (10 LEDs, 220 ohm resistor each)
+Anode (+) → Arduino D2     (1st LED, lowest level)
+Anode (+) → Arduino D3     (2nd LED)
+Anode (+) → Arduino D4     (3rd LED)
+Anode (+) → Arduino D5     (4th LED)
+Anode (+) → Arduino D6     (5th LED)
+Anode (+) → Arduino D7     (6th LED)
+Anode (+) → Arduino D8     (7th LED)
+Anode (+) → Arduino D9     (8th LED)
+Anode (+) → Arduino D10    (9th LED)
+Anode (+) → Arduino D11    (10th LED, highest level)
+Cathode (−) → GND          (all ten cathodes on the GND rail)
+
+NOTES
+- One 220 ohm resistor per LED; never drive an LED straight from a pin.
+- The two outer potentiometer pins can be swapped, the bar just reverses.
+- D12 and D13 stay free. USB cable powers everything, no external supply.
+- Breadboard and jumper wires for the rest.

@@ -1,0 +1,41 @@
+PROJECT NAME: 085 - Sumo Robot
+PROJECT IDEA: A mini-sumo robot that stays inside the ring border, sweeps the dohyo looking for an opponent and charges forward as soon as the ultrasonic sensor sees one.
+HOW IT WORKS: Two downward reflectance sensors on pins 2 and 3 watch the black border of the ring and have first priority, so the moment either one sees the line the robot arcs backwards away from that edge for 800 ms. While the border is clear the HC-SR04 on pins 11 and 12 looks for an opponent: anything within 100 cm triggers the ATTACK state at full motor speed. If nothing is seen the robot enters SEARCH and spins, flipping its sweep direction every 1.5 seconds so it covers the whole ring. The Serial Monitor prints the state name (SEARCH, ATTACK or EDGE AVOID) on every transition together with a heartbeat of the distance and both edge sensors.
+ADVANTAGES:
+- A three state priority machine always puts escaping the ring first, so the robot cannot fall out while chasing.
+- Alternating the search spin lets one robot cover the entire dohyo.
+- The edge and opponent thresholds are named constants for quick ring-side tuning.
+- Commented ring rules connect the code to real mini-sumo competition behaviour.
+- No library is needed for the whole robot.
+REAL-WORLD USES:
+- Mini-sumo and robot combat competition entries.
+- Teaching state machines where one input must always win.
+- Autonomous robots that must stay inside a marked work area.
+- Warehouse robots that follow a marked lane and stop at its edge.
+- Demo platform for sensor priority and arbitration logic.
+WHAT YOU LEARN:
+- Combining three different sensor inputs with a clear priority order.
+- Writing a state machine with named states and transition logging.
+- Arcing backwards to escape an edge instead of driving straight back.
+- Using an HC-SR04 to detect an "enemy" within a chosen range.
+- Keeping hardware and competition rules documented next to the code.
+FUTURE SCOPE: Adding a slow forward creep after the edge escape would let the robot push the instant it re-enters the ring, which is how real mini-sumo robots behave.
+POSSIBLE UPGRADES:
+- Start the match with a fixed delay to satisfy the ring's start-up rule.
+- Add a wheel-speed ramp so the charge hits harder.
+- Use three downward sensors for more accurate edge detection.
+- Show the state on an LCD mounted inside the chassis.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- L298N motor driver module
+- 2x DC gear motor with wheels
+- Robot chassis with caster wheel
+- 2x TCRT5000 reflectance sensor module (downward facing)
+- HC-SR04 ultrasonic sensor
+- 6-12V battery pack for the motors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Advanced Beginner
+LIBRARY REQUIRED: None

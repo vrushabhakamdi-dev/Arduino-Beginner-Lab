@@ -1,0 +1,16 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+SG90 MICRO SERVO
++ (red)          → Arduino 5V
+- (brown/black)  → Arduino GND
+S (orange)       → Arduino D9     PWM sweep signal
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- The servo signal must be on D9, the sketch does myServo.attach(9).
+- An SG90 can run from the Uno 5V pin; for a bigger servo use an external
+  5V supply and join that supply GND to Arduino GND.

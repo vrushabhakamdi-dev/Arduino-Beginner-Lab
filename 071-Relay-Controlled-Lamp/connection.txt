@@ -1,0 +1,24 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON
+leg 1       → Arduino D2
+leg 2       → Arduino GND
+
+RELAY MODULE (1 CHANNEL)
+VCC         → Arduino 5V
+GND         → Arduino GND
+IN          → Arduino D4
+COM         → demo lamp power supply (+)
+NO          → lamp (+)
+
+LED (indicator)
+anode (+)   → Arduino D13   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+NOTES
+- Relay switches low-voltage demo loads only (5V/12V bulb or LED strip). Never wire mains electricity to a breadboard circuit.
+- Button uses the internal pull-up (INPUT_PULLUP), so no external resistor is needed.
+- D13 also lights the Uno's built-in LED; the external LED is optional.
+- Code assumes an active-low relay (RELAY_ACTIVE_LOW = true). Flip that constant if your module is active-high.

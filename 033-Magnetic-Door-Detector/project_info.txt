@@ -1,0 +1,37 @@
+PROJECT NAME: 033 - Magnetic Door Detector
+PROJECT IDEA: Fit a reed switch beside a magnet on a door or window and let the Arduino report whenever the door is opened or closed, with an LED indicator and a timestamped Serial log.
+HOW IT WORKS: A reed switch is a glass tube whose two contacts are closed by a magnet sitting right next to it. The switch is wired between pin 2 and ground, and pin 2 uses the Arduino's internal pull-up resistor, so it reads LOW while the magnet holds the switch closed and HIGH once the door moves the magnet away. The code waits out contact bounce, then prints a message only when the state actually changes.
+ADVANTAGES:
+- Extremely simple circuit with no external resistor thanks to INPUT_PULLUP.
+- Reed switches draw almost no power and last for millions of cycles.
+- Reports only on change, so the Serial Monitor stays clean and readable.
+- The built-in LED gives an instant visual answer to "is it open?".
+- The magnet and switch are completely non-contact, so nothing wears out mechanically.
+REAL-WORLD USES:
+- Burglar alarms on home doors and windows.
+- Fridge and freezer door-open warnings.
+- Cabinet and medicine cupboard access logs.
+- Warehouse roller door open/closed monitoring.
+- Simple presence feedback for hobby robotics enclosures.
+WHAT YOU LEARN:
+- How INPUT_PULLUP removes the need for an external pull-up resistor.
+- Reading a switch with digitalRead() and interpreting active-LOW logic.
+- What contact bounce is and why a debounce delay is needed.
+- Printing only on state changes instead of flooding the Serial Monitor.
+- Using millis() to timestamp events.
+FUTURE SCOPE: Several reed switches could cover every window in a house and report which specific one was opened.
+POSSIBLE UPGRADES:
+- Add a piezo buzzer that beeps while the door stays open too long.
+- Store a count of how many times the door was opened today.
+- Drive a relay to switch on a light when the door opens.
+- Add a second reed switch for a second door on pin 3.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Reed switch
+- Small magnet (door magnet set)
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

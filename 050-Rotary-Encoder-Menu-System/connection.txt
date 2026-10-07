@@ -1,0 +1,41 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+KY-040 ROTARY ENCODER
+CLK → Arduino D2     clock channel, read by an interrupt (must be D2)
+DT  → Arduino D3     direction channel
+SW  → Arduino D4     push button, press shorts D4 to GND
++   → Arduino 5V
+-   → Arduino GND
+
+LED
++ (anode, long leg) → 220R → Arduino D5     PWM brightness output
+- (cathode, short leg) → Arduino GND
+
+PIEZO BUZZER
++ → Arduino D6     tone() output
+- → Arduino GND
+
+LCD 1602 (I2C BACKPACK, address 0x27)
+SDA → Arduino A4     I2C data
+SCL → Arduino A5     I2C clock
+VCC → Arduino 5V
+GND → Arduino GND
+
+NOTES
+- CLK must stay on D2: the sketch calls attachInterrupt() on that pin, and on
+  the Uno only D2 and D3 support external interrupts.
+- DT has to be on D3 (or any free digital pin) because the interrupt routine
+  reads it to decide the direction. If your knob turns the wrong way, swap the
+  two branches in encoderISR() - do not swap the wires first.
+- CLK, DT and SW all use the internal pull-ups (INPUT_PULLUP), so the encoder
+  needs no external resistors. The module's own "+" and "-" pins still have to
+  be wired to 5V and GND.
+- D5 must be a PWM pin (marked ~ on the Uno) because analogWrite() sets the
+  brightness there.
+- Use a passive piezo for the buzzer if you want the tone to really change
+  frequency; an active buzzer gives one fixed pitch.
+- LCD blank? Try address 0x3F (LCD_ADDRESS in the sketch) or adjust the
+  contrast trimmer on the backpack.
+- Breadboard, jumper wires and the USB cable complete the build.

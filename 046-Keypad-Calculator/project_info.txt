@@ -1,0 +1,37 @@
+PROJECT NAME: 046 - Keypad Calculator
+PROJECT IDEA: Type a full expression such as 12+34 with a 4x4 membrane keypad, press # to calculate, and read the answer on a 16x2 I2C LCD.
+HOW IT WORKS: The Keypad library scans four row pins and four column pins to find out which key is being pressed, and each key is translated into a digit, an operator (+ - * /), the equals sign or a clear command. While you type, the expression is stored in a character buffer and shown on the top LCD line, with simple checks that reject two operators in a row or more than four digits per number. Pressing # runs the validation routine, which locates the operator, converts both sides to integers, checks for division by zero and then prints "= result" on the second line. The * key always wipes the display so you can start again.
+ADVANTAGES:
+- A real keypad lets you type multi-digit numbers quickly and naturally.
+- Input is validated before any maths happens, so bad input never crashes the sketch.
+- Errors such as "TWO OPERATORS" or "DIV BY ZERO" are shown instead of nonsense results.
+- Key mapping is one small function, easy to change to another layout.
+- No moving parts and only eight digital pins are used.
+REAL-WORLD USES:
+- Handheld test calculators and field measurement tools.
+- PIN-style data entry panels on industrial equipment.
+- Menu and value entry for machines with a small display.
+- Teaching aid for arithmetic and string parsing.
+- Point-of-sale or canteen price entry panel with a display.
+WHAT YOU LEARN:
+- Scanning a matrix keypad with the Keypad library and a key map.
+- Building and updating a string buffer from user input.
+- Parsing a two-operand expression by locating the operator character.
+- Validating user input before doing any calculation.
+- Showing typed input and results together on a 16x2 LCD.
+FUTURE SCOPE: Support chained operations such as 12+34-5 by keeping a running total, or switch to floating point numbers for decimal answers.
+POSSIBLE UPGRADES:
+- Add a second LCD line that shows the last three results as a history.
+- Play a short beep with a buzzer on every key press.
+- Allow decimal numbers by adding a point key (for example the D key).
+- Add a memory key that stores and recalls the last result in EEPROM.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 4x4 membrane keypad
+- LCD 1602 with I2C backpack (address 0x27)
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Keypad and LiquidCrystal I2C
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Keypad, LiquidCrystal I2C

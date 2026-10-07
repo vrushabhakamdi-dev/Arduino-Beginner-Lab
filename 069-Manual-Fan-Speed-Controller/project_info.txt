@@ -1,0 +1,41 @@
+PROJECT NAME: 069 - Manual Fan Speed Controller
+PROJECT IDEA: Turn a potentiometer to control the speed of a small DC fan through an L298N driver, with a four-LED bar graph and a Serial percentage showing the chosen level.
+HOW IT WORKS: The potentiometer on A0 supplies an analogue voltage that is read as a value between 0 and 1023, then averaged over eight samples to keep the output steady. That value is mapped onto a PWM duty cycle from 0 to 255 and written to the L298N enable pin on digital pin 5, while IN1 stays HIGH and IN2 stays LOW so the fan always spins the same way. The same percentage is used to light one, two, three or four LEDs on pins 12 down to 9, giving an instant bar-graph readout. The speed is also printed at 9600 baud as "FAN SPEED: n%".
+ADVANTAGES:
+- Manual control lets the user choose exactly the airflow they want.
+- The LED bar gives a clear readout even without looking at a screen.
+- PWM is efficient, so very little energy is wasted as heat.
+- Averaged readings stop the fan from surging on a noisy input.
+- Works with a plain 5V DC fan, so no exotic parts are required.
+REAL-WORLD USES:
+- Desk fans and small cooling units with adjustable speed.
+- Extractor fans in cupboards, server cabinets or sheds.
+- Cooling for electronics projects and home-made amplifiers.
+- Fume extractors at a soldering bench.
+- Aquarium or terrarium air circulation systems.
+WHAT YOU LEARN:
+- How PWM duty cycle translates into average voltage and motor speed.
+- How to build a bar-graph display from several ordinary LEDs.
+- How map() converts an input range into a different output range.
+- How averaging analogue readings improves control stability.
+- How to wire and code the ENA, IN1 and IN2 pins of an L298N.
+FUTURE SCOPE: Adding a temperature sensor would turn this manual controller into the automatic one in project 070, where the Arduino chooses the speed itself.
+POSSIBLE UPGRADES:
+- Replace the LEDs with a single NeoPixel-style bar or a 10-segment bargraph part.
+- Add a button that switches the fan between manual and maximum speed.
+- Show a drawn bar of hash characters in the Serial Monitor.
+- Store the last chosen speed in EEPROM and restore it at power-up.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- L298N motor driver module
+- Small 5V DC fan (or 6-12V fan with external supply)
+- External DC power supply if the fan is not 5V
+- 10k potentiometer
+- 4 LEDs
+- 4 x 220 ohm resistors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

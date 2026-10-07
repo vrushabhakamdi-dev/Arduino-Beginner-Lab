@@ -1,0 +1,39 @@
+PROJECT NAME: 031 - Rain Detection Alarm
+PROJECT IDEA: Detect rain drops on a rain drop sensor plate and immediately sound a buzzer and light an LED as a warning, while showing the moisture level on the Serial Monitor.
+HOW IT WORKS: The rain sensor plate has two outputs: a digital pin that goes LOW the moment water is detected, and an analog pin that reports how wet the plate is as a value from 0 to 1023. The Arduino reads both pins, and as soon as rain is detected it switches on the LED and starts a beeping tone on the buzzer. The Serial Monitor prints RAINING or DRY together with the raw analog level so you can see the change happen live.
+ADVANTAGES:
+- Gives an instant audible and visual warning before clothes or equipment get soaked.
+- Needs only one sensor module, one LED, one buzzer and a few wires.
+- Both a quick digital signal and a detailed analog reading are available for tuning.
+- The analog value lets you adjust sensitivity for light drizzle versus heavy rain.
+- Serial output makes it easy to debug and calibrate without extra tools.
+REAL-WORLD USES:
+- Reminding you to bring laundry in when rain starts.
+- A simple indoor rain alert near a window or balcony door.
+- Protecting outdoor electronics, tools and garden furniture covers.
+- Weather stations that log when rainfall begins.
+- A teaching demo of analog versus digital sensor signals.
+WHAT YOU LEARN:
+- How to read a digital input with digitalRead().
+- How to read an analog input with analogRead() on pin A0.
+- How to drive a buzzer with tone() and stop it with noTone().
+- How to detect state changes and only print when something changes.
+- How a sensor module's on-board potentiometer sets its threshold.
+FUTURE SCOPE: The same sensor could log every rain event with a timestamp, or raise a louder multi-tone siren when rain is heavy.
+POSSIBLE UPGRADES:
+- Add a second buzzer tone pattern for light rain versus heavy rain.
+- Record each rain start time on an SD card or LCD display.
+- Add a mute button so the alarm can be silenced until reset.
+- Use the analog level to show a 0-100% wetness bar in the Serial Monitor.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Rain drop sensor module (with comparator board)
+- Piezo buzzer
+- LED (any color)
+- 220 ohm resistors (2)
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

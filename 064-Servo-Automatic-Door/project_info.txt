@@ -1,0 +1,41 @@
+PROJECT NAME: 064 - Servo Automatic Door
+PROJECT IDEA: Build an automatic sliding door that opens when a PIR sensor sees a person, beeps while it moves, stays open for five seconds, and then closes itself.
+HOW IT WORKS: The PIR sensor watches for the infrared heat that a moving person gives off and sets digital pin 2 HIGH when it detects motion. On that signal the Arduino drives the servo on pin 6 one degree at a time from 0 up to 90, swinging the door open while a passive buzzer on pin 8 beeps as a warning. The LED on pin 13 stays lit to show the door is open, and the code waits five seconds before stepping the servo back down to 0 to close the door. Serial prints at 9600 baud log every opening and closing so you can follow the state machine.
+ADVANTAGES:
+- Hands-free operation, which is ideal for hygiene and accessibility.
+- The beeper warns anyone standing nearby that the door is moving.
+- A status LED gives a clear visual signal that the doorway is open.
+- One-degree stepping produces smooth motion instead of a sudden jump.
+- Uses only common, inexpensive hobby parts and the built-in Servo library.
+REAL-WORLD USES:
+- Automatic doors in shops, hospitals and office buildings.
+- Doors for smart cabinets, incubators or 3D printer enclosures.
+- Access ways in home automation and hobby robotics projects.
+- Dust or light curtains that open only when someone approaches.
+- Props and set pieces for theatre and escape-room effects.
+WHAT YOU LEARN:
+- How a PIR sensor detects movement and how to debounce its output.
+- How to structure a small state machine: closed, opening, open, closing.
+- How tone() and noTone() create warning sounds on a passive buzzer.
+- How to break a motion sequence into a reusable moveDoor() function.
+- How to combine sensors, actuators, LEDs and Serial logging in one sketch.
+FUTURE SCOPE: Adding a second PIR on the inside of the door would let people exit as well, turning the build into a true two-way automatic door.
+POSSIBLE UPGRADES:
+- Reset the five second timer every time fresh motion is seen.
+- Drive the door from a real 12V DC motor with an L298N driver instead of a servo.
+- Add a keypad or push button for manual open and close.
+- Log the number of openings per day in a variable printed over Serial.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- SG90 micro servo motor
+- HC-SR501 PIR motion sensor module
+- Passive buzzer
+- 100 ohm resistor for the buzzer
+- 5mm LED (or use the built-in LED on pin 13)
+- 220 ohm resistor for the LED
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built-in)
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Servo (built-in)

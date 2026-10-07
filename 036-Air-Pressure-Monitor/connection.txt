@@ -1,0 +1,26 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+BMP280 PRESSURE AND TEMPERATURE SENSOR MODULE
+VIN → Arduino 5V
+GND → Arduino GND
+SDA → Arduino A4
+  SDA = I2C data line (some modules label it SDI)
+SCL → Arduino A5
+  SCL = I2C clock line (some modules label it SCK)
+
+  ARDUINO UNO           BMP280
+  -----------           ------
+  5V        -----------> VIN
+  GND       -----------> GND
+  A4 (SDA)  -----------> SDA / SDI
+  A5 (SCL)  -----------> SCL / SCK
+
+NOTES
+- On the Uno SDA = A4 and SCL = A5. The sketch halts with an error message if the sensor does not answer.
+- Use 3.3V instead of 5V if your module has no on-board regulator (look for a small regulator chip next to the pins).
+- The code first tries I2C address 0x76, then 0x77; on some boards the SDO pin level selects the address.
+- Altitude is computed against SEA_LEVEL_HPA = 1013.25 hPa - set it to your local sea-level pressure for better numbers.
+- Libraries to install from the Library Manager: "Adafruit BMP280" and "Adafruit BusIO".
+- Use jumper wires; upload with the USB cable and watch the Serial Monitor at 9600 baud.

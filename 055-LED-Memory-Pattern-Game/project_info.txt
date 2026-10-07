@@ -1,0 +1,39 @@
+PROJECT NAME: 055 - LED Memory Pattern Game
+PROJECT IDEA: A Simon-style memory game where the Arduino flashes a growing pattern of four LEDs with matching tones and you have to repeat it exactly.
+HOW IT WORKS: The sketch stores the pattern in an array and adds one random step after every correct round, then replays the whole sequence using LEDs on pins 4 to 7 and four different tones on the passive buzzer on pin 12. While it is your turn you press the buttons on pins 8 to 11, and each press flashes the LED and plays the tone so you can check your choice. A wrong press plays a descending losing jingle and ends the game, while a correct full repeat raises your level and score printed on the Serial Monitor.
+ADVANTAGES:
+- The pattern grows automatically, so the game gets harder without any extra hardware.
+- Each step has a unique tone, letting the player follow by ear as well as by sight.
+- Array-based storage means the level length is only limited by memory.
+- Serial shows the current level and final score, so progress is easy to track.
+- Only buttons, LEDs and a buzzer are needed - no libraries at all.
+REAL-WORLD USES:
+- Memory and concentration training toys for children and seniors.
+- Classroom tools for teaching sequences and pattern recognition.
+- Reaction and attention exercises in occupational therapy.
+- Entertainment features in handheld electronic games.
+- A template for any "watch and repeat" style training device.
+WHAT YOU LEARN:
+- How to build and grow a sequence array as the game progresses.
+- How tone() can play several different pitches on one buzzer.
+- How to separate the program into show, input and judging phases with flags.
+- How to debounce several buttons and detect a single press edge.
+- How to structure win / lose conditions and reset a game cleanly.
+FUTURE SCOPE: Adding a high-score table in EEPROM or a speed bonus per round could give the game long-term replay value on the same wiring.
+POSSIBLE UPGRADES:
+- Play the pattern using only tones (blind mode) for a harder challenge.
+- Save the highest level reached in EEPROM so it survives a reset.
+- Add a start button and a difficulty choice (short or long pattern).
+- Play a victory fanfare when a milestone level such as 10 or 20 is reached.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 4 push buttons
+- 4 LEDs (any colors)
+- 4 x 220 ohm resistors
+- Passive buzzer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

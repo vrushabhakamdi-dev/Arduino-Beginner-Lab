@@ -1,0 +1,51 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+L298N MOTOR DRIVER
+ENA  → Arduino D5     PWM fan speed (remove the ENA jumper cap)
+IN1  → Arduino D6     fan direction (held HIGH)
+IN2  → Arduino D7     fan direction (held LOW)
+OUT1 → DC fan terminal A
+OUT2 → DC fan terminal B
++12V → external supply (+) if the fan is not a 5V fan
+GND  → external supply (-) AND Arduino GND (common ground)
+
+DC FAN (5V, or 6-12V with external supply)
+terminal A → L298N OUT1
+terminal B → L298N OUT2
+
+10K POTENTIOMETER
+left leg  → Arduino 5V
+wiper     → Arduino A0     speed setpoint (0..1023)
+right leg → Arduino GND
+
+LED BAR - SPEED LEVEL (4 LEDs, each through its own 220 ohm resistor)
+level 1 (25%)   → Arduino D12  → 220 ohm → LED → GND
+level 2 (50%)   → Arduino D11  → 220 ohm → LED → GND
+level 3 (75%)   → Arduino D10  → 220 ohm → LED → GND
+level 4 (100%)  → Arduino D9   → 220 ohm → LED → GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+L298N WIRING OVERVIEW
+
+  ARDUINO UNO     L298N               FAN
+  ----------     -----               ---
+  D5  ---------> ENA
+  D6  ---------> IN1
+  D7  ---------> IN2
+  GND --------> GND  <--- external supply (-)
+                 +12V  <--- external supply (+)
+                 OUT1 ---> fan terminal A
+                 OUT2 ---> fan terminal B
+
+NOTES
+- Remove the ENA jumper cap so PWM on D5 actually sets the fan speed.
+- A plain 5V fan can run from the Uno 5V pin for testing; anything bigger
+  needs the external 6-12V supply on +12V, with its (-) tied to Arduino
+  GND (common ground). Never run a motor from the Arduino 5V pin in use.
+- The LED bar order in code is {12, 11, 10, 9} = lowest level first, so
+  D12 lights at 25% and D9 only at 100%.
+- Direction is fixed: IN1 HIGH, IN2 LOW.

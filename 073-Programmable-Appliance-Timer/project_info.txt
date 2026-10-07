@@ -1,0 +1,41 @@
+PROJECT NAME: 073 - Programmable Appliance Timer
+PROJECT IDEA: Set a run time of 1 to 60 minutes with a potentiometer, start or cancel it with one button, and let a relay keep an appliance powered until the countdown reaches zero.
+HOW IT WORKS: The potentiometer on pin A0 is converted into a whole number of minutes between 1 and 60, which the Serial Monitor shows as soon as you turn the knob. Pressing the button on pin 2 starts the countdown: the relay on pin 9 switches the appliance ON, four LEDs on pins 4 to 7 fill up one per completed quarter of the time, and every remaining second is printed as mm:ss. When the timer reaches zero the relay switches OFF and the buzzer on pin 8 gives three beeps; pressing the button during the countdown cancels everything.
+ADVANTAGES:
+- One knob and one button are enough to program any time from 1 to 60 minutes.
+- The relay keeps the electronics fully isolated from the switched load.
+- Four LEDs give an at-a-glance view of how much time is left.
+- The mm:ss countdown on the Serial Monitor removes any guesswork.
+- Cancellation at any moment makes the prototype safe and pleasant to test.
+REAL-WORLD USES:
+- Kitchen timers, study timers and simple egg-cooker style appliances.
+- Timed power sockets for battery chargers or hobby soldering stations.
+- Classroom demos of countdown timers and progress indication.
+- Timed exposure or stirring rigs in school science experiments.
+- Any low-power device that should run for a fixed period and then stop.
+WHAT YOU LEARN:
+- Converting an analogRead() value into real engineering units with map().
+- Managing a non-blocking countdown with millis() instead of delay().
+- Driving several LEDs as a cumulative progress bar.
+- Controlling a relay output together with a visual and audible indicator.
+- Formatting time values as mm:ss for the Serial Monitor.
+FUTURE SCOPE: Storing several preset times and recalling them with extra buttons would turn the project into a multi-program timer.
+POSSIBLE UPGRADES:
+- Add a buzzer warning that beeps faster during the last 30 seconds.
+- Show the selected minutes on the four LEDs while the timer is idle.
+- Add a second button to add or subtract one minute while counting down.
+- Save the last used time in EEPROM with the EEPROM library (built-in).
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Potentiometer (10k ohm)
+- Push button
+- 4 LEDs (any colour)
+- 4 x 220 ohm resistors
+- 5V relay module (1 channel)
+- Passive buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

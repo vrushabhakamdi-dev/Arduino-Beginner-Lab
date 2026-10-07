@@ -1,0 +1,38 @@
+PROJECT NAME: 054 - Rock Paper Scissors Game
+PROJECT IDEA: Play a best-of-five match of Rock Paper Scissors against the Arduino by pressing one of three buttons and watching the win, lose or draw LEDs.
+HOW IT WORKS: Three buttons on pins 2, 3 and 4 select Rock, Paper or Scissors, and the Arduino randomly generates its own move with random(0, 3). The judging logic compares the two moves, adds a point to the correct score and lights the win, lose or draw LED on pins 5, 6 or 7 for a moment and a half. The full battle log with both scores is printed to the Serial Monitor, and the first player to reach three points wins the match before a new one starts.
+ADVANTAGES:
+- Real buttons make the game playable without a computer terminal, while Serial keeps the score.
+- Random CPU moves mean no pattern to memorise, so every match feels fresh.
+- Dedicated win / lose / draw LEDs give instant visual feedback.
+- Running score and match reset are handled automatically by the program.
+- Uses only an Uno, three buttons and three LEDs - no extra modules.
+REAL-WORLD USES:
+- Quick decision-making tools such as picking who goes first.
+- Classroom demos of comparison logic and random number generation.
+- Entertainment modules inside handheld games and arcade machines.
+- Examples of judging algorithms and scoring systems.
+- Party gadgets that settle small disputes automatically.
+WHAT YOU LEARN:
+- How to convert button presses into a numbered choice.
+- How random() produces a computer-controlled opponent.
+- How to encode game rules inside a small judging function.
+- How to keep and display two running scores.
+- How to structure a match with a "first to N points" rule.
+FUTURE SCOPE: Multiple difficulty levels, a longer best-of-seven format or a match history log could all be added without changing the basic wiring.
+POSSIBLE UPGRADES:
+- Add a buzzer that plays a different sound for win, lose and draw.
+- Show the score on an LCD or seven-segment display.
+- Print the CPU's move symbols in ASCII art for a clearer battle screen.
+- Count how many matches each side has won overall.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 3 push buttons
+- 3 LEDs (any colors)
+- 3 x 220 ohm resistors
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

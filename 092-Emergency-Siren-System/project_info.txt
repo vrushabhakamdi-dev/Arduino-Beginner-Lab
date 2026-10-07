@@ -1,0 +1,40 @@
+PROJECT NAME: 092 - Emergency Siren System
+PROJECT IDEA: Generate three classic emergency siren patterns (WAIL, YELP and HI-LO) on a passive buzzer, selected by push buttons, with an LED flashing in sync.
+HOW IT WORKS: Each of the three buttons on pins 2, 3 and 4 selects one siren pattern, and pressing the button of the running pattern again switches the siren off. Instead of delay(), the sketch recalculates the tone frequency from millis() on every pass through loop(), which produces a smooth frequency sweep while the buttons stay fully responsive. The WAIL pattern slowly sweeps 600-1400 Hz over two seconds, YELP repeats the sweep four times faster, and HI-LO simply alternates between two fixed notes every 500 ms. The LED on pin 13 lights during the upper part of every sweep (and during the high note of HI-LO), and the Serial Monitor prints each mode change.
+ADVANTAGES:
+- Non-blocking millis() timing keeps buttons responsive during the tone sweep.
+- Three instantly selectable patterns cover the most common siren styles.
+- Pushing one button again stops the siren - no separate power switch needed.
+- LED and buzzer are driven from the same timing logic, so they always match.
+- Everything is built from core Arduino functions, so no library is needed.
+REAL-WORLD USES:
+- Alarm sound engine for a home or shop security prototype.
+- Warning siren for a model vehicle, boat or emergency diorama.
+- Audible alert for a workshop machine or hazard board.
+- Teaching aid for sound synthesis and non-blocking timing.
+- Sound effects in escape-room or science-fair installations.
+WHAT YOU LEARN:
+- Generating tones with tone() on a passive buzzer.
+- Building frequency sweeps with map() and modular arithmetic on millis().
+- Why delay() blocks a sketch and how millis() avoids that.
+- Debouncing push buttons with a stable-time rule.
+- Reading INPUT_PULLUP buttons wired straight to ground.
+FUTURE SCOPE: Adding a fourth button for a continuous air-horn tone, or a potentiometer to change the sweep speed live, would make the siren more flexible.
+POSSIBLE UPGRADES:
+- Add an air-horn mode that plays one steady high note.
+- Use a potentiometer to change the sweep period while running.
+- Drive a second, louder horn through a transistor from another pin.
+- Flash several LEDs in sequence for a light bar effect.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Passive buzzer
+- 3x push buttons
+- LED (any colour, or use the built-in LED on pin 13)
+- 220 ohm resistor for the LED
+- 100 ohm resistor for the buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

@@ -1,0 +1,26 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+RAIN DROP SENSOR MODULE (with comparator board)
+VCC → Arduino 5V
+GND → Arduino GND
+DO  → Arduino D2
+  DO = comparator output, goes LOW the moment rain is detected
+AO  → Arduino A0
+  AO = raw wetness level 0..1023, falls as the plate gets wetter
+
+PIEZO BUZZER
++   → Arduino D8   (through a 220 ohm resistor)
+-   → Arduino GND
+
+LED
++ (anode)   → Arduino D4   (through a 220 ohm resistor)
+- (cathode) → Arduino GND
+
+NOTES
+- Two 220 ohm resistors are needed: one in series with the buzzer (+) and one with the LED anode. The sensor module needs no resistor.
+- The sensing plate is bare metal: keep it well away from the Arduino board and dry the plate after use.
+- The alarm triggers when DO reads LOW or the analog level drops to 500 or below (DRY_THRESHOLD in the sketch) - tune the module potentiometer and the threshold for your plate.
+- This project is an alarm only: nothing here drives a pump or valve.
+- Built on a breadboard with jumper wires; upload with the USB cable and watch the Serial Monitor at 9600 baud.

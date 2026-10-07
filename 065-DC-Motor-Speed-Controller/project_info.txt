@@ -1,0 +1,39 @@
+PROJECT NAME: 065 - DC Motor Speed Controller
+PROJECT IDEA: Turn a potentiometer to smoothly vary the speed of a DC motor through an L298N driver, with the current speed printed as a percentage on the Serial Monitor.
+HOW IT WORKS: The potentiometer on A0 produces an analogue voltage that analogRead() converts into a number from 0 to 1023. The code averages eight of those readings and then uses map() to turn the value into a PWM duty cycle between 0 and 255, which is sent to the L298N enable pin on digital pin 5. IN1 is held HIGH and IN2 LOW, so the motor always turns in the same direction while the PWM signal controls how fast it spins. The duty cycle is also expressed as a percentage and printed at 9600 baud, giving clear feedback of the motor speed.
+ADVANTAGES:
+- Truly variable speed control rather than just on and off.
+- PWM is far more efficient than wasting energy in a series resistor.
+- Averaged readings stop the motor speed from twitching on noisy input.
+- The L298N keeps the high motor current safely away from the Arduino.
+- Percentage logging makes tuning and debugging straightforward.
+REAL-WORLD USES:
+- Speed control for small conveyor belts and roller feeds.
+- Drill presses, mixers and hobby machine tools.
+- Electric scooters, go-karts and robotics drive systems.
+- Fans and pumps where flow rate must be adjusted by hand.
+- Bench power supply prototypes for motor testing.
+WHAT YOU LEARN:
+- How PWM on an Arduino pin produces a variable average voltage.
+- How an L298N driver uses ENA, IN1 and IN2 to control a motor.
+- How to map an analogue sensor range onto a PWM range.
+- Why a separate motor supply and a common ground are essential.
+- How to average analogue readings for stable control output.
+FUTURE SCOPE: The same driver and speed loop can be extended into a closed-loop controller once an encoder is added to measure the actual RPM.
+POSSIBLE UPGRADES:
+- Add a forward/reverse push button that swaps IN1 and IN2.
+- Show a bar graph of speed in the Serial Monitor using dashes.
+- Drive a second motor on ENB so both wheels speed up together.
+- Fit a tachometer and display the measured RPM next to the set point.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- L298N motor driver module
+- Small 6-12V DC motor
+- External 6-12V DC power supply for the motor
+- 10k potentiometer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

@@ -1,0 +1,36 @@
+PROJECT NAME: 036 - Air Pressure Monitor
+PROJECT IDEA: Use a BMP280 sensor to measure atmospheric pressure and temperature, then calculate and display the approximate altitude of the board.
+HOW IT WORKS: The BMP280 measures absolute air pressure and temperature and sends the results to the Arduino over the I2C bus on pins A4 and A5. The library converts the raw pressure into hectopascals, and a standard barometric formula uses that pressure together with a sea-level reference constant to estimate altitude. Everything is printed once per second, and a small trend message shows whether the pressure is rising or falling.
+ADVANTAGES:
+- One small chip provides pressure, temperature and altitude at once.
+- Digital I2C output needs only two signal wires plus power.
+- High resolution allows detecting changes of less than a metre in height.
+- Non-mechanical sensing with no moving parts to wear out.
+- Sea-level constant is a single named constant that is easy to adjust.
+REAL-WORLD USES:
+- Weather stations that track pressure trends for forecasting.
+- Altimeters for model rockets, kites and hobby drones.
+- Floor detection inside buildings for multi-level navigation.
+- Altitude logging during hiking or cycling trips.
+- Quality checks in packaging and clean-room equipment.
+WHAT YOU LEARN:
+- Reading a pressure and temperature sensor over I2C.
+- Converting sensor units, such as Pascals into hectopascals.
+- How barometric pressure relates to altitude.
+- Why a sea-level reference constant matters in calculations.
+- Handling sensor start-up errors with begin() and a fallback address.
+FUTURE SCOPE: Logging pressure over days would let you draw a simple weather trend graph or predict short-term weather changes.
+POSSIBLE UPGRADES:
+- Show pressure in inches of mercury as well as hPa.
+- Store readings on an SD card to build a long term log.
+- Add a 16x2 LCD so the monitor works without a computer.
+- Calculate and display vertical speed while climbing.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- BMP280 pressure and temperature sensor module
+- Jumper wires
+- USB cable
+- Library: Adafruit BMP280
+- Library: Adafruit BusIO
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Adafruit BMP280, Adafruit BusIO

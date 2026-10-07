@@ -1,0 +1,41 @@
+PROJECT NAME: 089 - Motion Security Alarm
+PROJECT IDEA: A PIR based alarm armed and disarmed with a single button, which sounds a two tone siren and flashes an LED whenever motion is detected while the system is armed.
+HOW IT WORKS: The sketch boots in the DISARMED state, and pressing the button on pin 3 moves it to ARMED, which lights the indicator LED on pin 12 so the armed status is always visible. While armed, the PIR output on pin 2 must stay HIGH for at least 60 ms before the state changes to ALARM, which flips the buzzer on pin 8 between 800 Hz and 1200 Hz every 150 ms while blinking the LED on pin 13. Pressing the same button at any moment returns the system to DISARMED and silences the siren immediately. Every transition is written to the Serial Monitor with an HH:MM:SS timestamp together with a five second heartbeat showing the state and the live PIR reading.
+ADVANTAGES:
+- One button covers arm, disarm and silence, so operation is foolproof.
+- The 60 ms confirmation window filters out single noisy PIR pulses.
+- The siren and flashing LED run on millis(), so the loop never blocks.
+- Booting in the DISARMED state gives the PIR time to warm up correctly.
+- Timestamped Serial events make it easy to review exactly what happened.
+REAL-WORLD USES:
+- Entry alarm for a bedroom, shed or model display cabinet.
+- Motion alert block for a school or college security project.
+- Trigger for a doorbell, camera or lighting prototype.
+- Supervised alarm for a workshop or storage cupboard.
+- Learning platform for state machines with audible and visible output.
+WHAT YOU LEARN:
+- Wiring and configuring an HC-SR501 PIR sensor module.
+- Building a three state system controlled by a single debounced button.
+- Confirming a sensor reading with a time window before reacting.
+- Producing a two tone siren without blocking the main loop.
+- Logging state transitions with formatted timestamps over Serial.
+FUTURE SCOPE: Adding a 30 second exit delay after arming would let you leave the protected area before the sensor goes live, exactly like a domestic house alarm.
+POSSIBLE UPGRADES:
+- Add a 30 second exit delay after the arm button is pressed.
+- Flash the armed LED slowly to show the system is in its start-up period.
+- Add a second PIR for wider coverage of the protected space.
+- Record alarm events on an LCD with a real time clock module.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- HC-SR501 PIR motion sensor
+- Piezo buzzer
+- 2x LED (armed indicator and alarm indicator)
+- 2x 220 ohm resistor
+- Push button
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None
+SAFETY NOTE: This is an educational prototype only. It is not a certified safety-critical system and must not be relied upon for real-world safety.

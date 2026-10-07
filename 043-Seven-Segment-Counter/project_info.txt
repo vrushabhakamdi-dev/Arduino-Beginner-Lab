@@ -1,0 +1,39 @@
+PROJECT NAME: 043 - Seven Segment Counter
+PROJECT IDEA: Press a button and a single-digit 7-segment display counts from 0 to 9 and wraps back to 0, driven through a 74HC595 shift register that uses only three Arduino pins.
+HOW IT WORKS: A lookup table holds the segment pattern for every digit, where each bit of one byte lights one segment of the common-cathode display. On every debounced button press the counter increases by one and wraps from 9 back to 0, then the new pattern is shifted into the 74HC595 with shiftOut() and latched onto the outputs. Because the 74HC595 is a serial-in parallel-out chip, eight display segments are controlled with just three Arduino pins instead of eight. The current count is also printed to the Serial Monitor.
+ADVANTAGES:
+- Only three digital pins are needed to drive eight outputs thanks to the shift register.
+- The segment table shows beginners how binary patterns map to display segments.
+- Software debounce guarantees exactly one count per press.
+- The same code drives common-anode displays by inverting the table bytes.
+- Prints the count over Serial so the circuit can be checked without looking at it.
+REAL-WORLD USES:
+- Single-digit displays on microwaves, washing machines and coffee makers.
+- Lift floor indicators and simple counter panels.
+- Score counters for arcade machines and sports scoreboards.
+- Production line piece counters on factory equipment.
+- Digital panel meters and test equipment front panels.
+WHAT YOU LEARN:
+- Using the 74HC595 shift register with shiftOut() and a latch pin.
+- Reading a segment pattern table from flash memory.
+- Debouncing a mechanical push button in software.
+- Converting a binary number into the physical pattern of a display.
+- Modulo arithmetic (% 10) to create a wrap-around counter.
+FUTURE SCOPE: Chain several 74HC595 chips together to drive four or more digits, turning the project into a multi-digit counter or clock.
+POSSIBLE UPGRADES:
+- Count downwards as well by adding a second button on pin 3.
+- Add a long-press reset that returns the display to 0.
+- Show the decimal point as a units marker.
+- Use two chained 74HC595 chips for a two-digit 00-99 counter.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 74HC595 shift register IC
+- Common cathode 7-segment display (single digit)
+- Push button
+- 8 x 220 ohm resistors (segment current limiting)
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

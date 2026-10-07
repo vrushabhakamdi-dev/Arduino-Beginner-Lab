@@ -1,0 +1,43 @@
+PROJECT NAME: 090 - Laser Tripwire Alarm
+PROJECT IDEA: A laser beam stretched across a doorway onto an LDR triggers a latching buzzer and LED alarm the moment the beam is broken, until a reset button is pressed.
+HOW IT WORKS: The laser on pin 7 shines across the opening onto an LDR voltage divider on A0, and on start-up the sketch averages 100 readings with the beam intact to store a baseline, setting the trip threshold 25 percent below it. Because blocking the beam makes the analog reading collapse, any value under the threshold flips the system into the latched alarm state, where the buzzer on pin 8 sounds continuously and the LED on pin 13 stays lit. The button on pin 2 silences the alarm, and pressing it again while the system is quiet re-runs the calibration, which is also possible by sending 'c' over Serial. The Serial Monitor prints the live reading, baseline, threshold and beam status twice a second so the alignment and threshold can be tuned.
+ADVANTAGES:
+- Automatic start-up calibration adapts the threshold to the room's ambient light.
+- The alarm latches, so a short interruption cannot slip past unnoticed.
+- Continuous monitoring runs alongside the Serial output without blocking.
+- Recalibration needs one button press or a single Serial character.
+- Only cheap, common parts are used and no library is required.
+REAL-WORLD USES:
+- Doorway entry alert for a bedroom, workshop or shed.
+- Guard beam across a model runway or garage opening.
+- Counting people as they cross a doorway in a classroom demo.
+- Intrusion demo for a school physics or electronics exhibition.
+- Base for a beam-break counter or a visit logger.
+WHAT YOU LEARN:
+- Using an LDR divider as a threshold detector on an analog input.
+- Calibrating a sensor in software instead of with a trimmer pot.
+- Writing a latching alarm that stays active until explicitly reset.
+- Debouncing a reset button and adding a Serial control command.
+- Handling laser modules safely and documenting that handling in code.
+FUTURE SCOPE: Adding a counter and a small LCD would turn the tripwire into an entry logger that shows how many times the doorway was crossed.
+POSSIBLE UPGRADES:
+- Log every beam break with a timestamp on the Serial Monitor.
+- Add an exit delay so the owner can leave without setting off the alarm.
+- Use a mirror to fold the beam and cover a wider opening.
+- Add a second beam at a different height to detect adults and children.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Laser module (low power, class 2 or lower, under 1 mW)
+- LDR (light dependent resistor)
+- 10k ohm resistor
+- Piezo buzzer
+- LED (optional, the built-in LED on pin 13 also works)
+- 220 ohm resistor
+- Push button (reset)
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None
+SAFETY NOTE: This is an educational prototype only. It is not a certified safety-critical system and must not be relied upon for real-world safety.

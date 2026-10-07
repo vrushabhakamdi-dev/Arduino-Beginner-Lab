@@ -1,0 +1,15 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+HC-SR04 ULTRASONIC SENSOR
+VCC  → Arduino 5V
+GND  → Arduino GND
+TRIG → Arduino D9     output - the 10 us trigger pulse is sent from here
+ECHO → Arduino D10    input - the echo pulse length is measured on here
+
+NOTES
+- TRIG is an OUTPUT, ECHO is an INPUT. Swapping them gives "Out of range (no echo)" every time.
+- Power from 5V only; the module does not work reliably on 3.3V.
+- Readings are only trusted between 2 cm and 400 cm - outside that the sketch prints "Out of range".
+- pulseIn() waits a maximum of 30 ms, so "no echo" means nothing in range, a soft/angled surface, or a loose wire.

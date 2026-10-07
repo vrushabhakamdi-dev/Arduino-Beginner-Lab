@@ -1,0 +1,43 @@
+PROJECT NAME: 091 - Fingerprint Access System
+PROJECT IDEA: Unlock a door with your fingerprint using an R503/R303 sensor, a servo lock and green/red indicator LEDs that show whether access was granted or denied.
+HOW IT WORKS: The fingerprint sensor scans the placed finger and searches its internal database of enrolled templates; enrolled fingers are stored first with the example sketch File -> Examples -> Adafruit Fingerprint -> enroll using IDs 1, 2 and 3. When the scanned ID matches one of those accepted IDs, the servo on pin 6 swings 90 degrees to open the door for 4 seconds while the green LED on pin 4 lights up and the buzzer gives two short beeps. Any unknown finger triggers the red LED on pin 5 and a 1.5 second low buzz, and the door stays locked. Every grant, deny and sensor error is printed to the Serial Monitor together with running totals.
+ADVANTAGES:
+- No keys, PINs or cards to lose - the credential is your finger.
+- Three enrolled IDs let a small family or team share one door.
+- The servo lock returns to the locked position automatically after 4 seconds.
+- Green/red LEDs and buzzer give instant, obvious feedback to the user.
+- Serial totals make it easy to see how often the door was opened.
+REAL-WORLD USES:
+- Front door or room access control in a home or small office.
+- Locker, cabinet or drawer locks for personal belongings.
+- Time-and-attendance demo boards that record who entered.
+- Entry panels for makerspaces, labs or server cupboards.
+- Base unit for a bigger system that logs entries with an RTC.
+WHAT YOU LEARN:
+- Talking to a serial peripheral with SoftwareSerial at its own baud rate.
+- Why a 1k/2k voltage divider is needed when a 5 V Arduino drives a 3.3 V device.
+- Using the Adafruit Fingerprint Sensor Library API (getImage, image2Tz, fingerFastSearch).
+- Driving a servo lock with the built-in Servo library.
+- Designing a simple granted/denied decision with latched feedback outputs.
+FUTURE SCOPE: Adding an RTC or SD card module would turn the project into an entry log, and a second servo could control a second door from the same sensor.
+POSSIBLE UPGRADES:
+- Add an LCD that shows the granted ID and the total number of entries.
+- Store the grant/deny events with timestamps on an SD card.
+- Add a "door ajar" reed switch that warns if the door stays open too long.
+- Support a secret master ID that can delete or re-enroll other fingers.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- R503 or R303 fingerprint sensor module
+- Micro servo (SG90 or MG996R) for the door lock
+- Green LED
+- Red LED
+- Passive buzzer
+- 1k ohm resistor and 2k ohm resistor (TX voltage divider)
+- 3x 220 ohm resistors for the LEDs
+- 100 ohm resistor for the buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Adafruit Fingerprint Sensor Library
+DIFFICULTY: Advanced Beginner
+LIBRARY REQUIRED: Adafruit Fingerprint Sensor Library

@@ -1,0 +1,25 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+MQ-2 GAS SENSOR MODULE
+VCC → Arduino 5V
+GND → Arduino GND
+AO  → Arduino A0    analog output - gas level, 0 to 1023
+DO  → not connected (digital output not used by this sketch)
+
+PIEZO BUZZER
++ → Arduino D8
+- → Arduino GND
+
+RED LED
++ → 220 ohm resistor → Arduino D6
+- → Arduino GND
+
+NOTES
+- WARM-UP: the alarm is disabled for the first 60 seconds after power-up (WARMUP_MS); readings before that are meaningless.
+- A brand new MQ-2 needs 24 to 48 hours of continuous power to burn in, and 1-2 minutes of warm-up after every power cycle.
+- The internal heater makes the mesh hot - never touch it while powered.
+- Fresh air on a new sensor usually reads about 100-300; the alarm trips at GAS_THRESHOLD = 500. Watch your own baseline in Serial and adjust.
+- Only AO is wired; DO and its onboard trimmer are unused.
+- Educational prototype only - not a certified gas alarm.

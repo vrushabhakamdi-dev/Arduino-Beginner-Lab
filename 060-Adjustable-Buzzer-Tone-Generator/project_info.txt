@@ -1,0 +1,38 @@
+PROJECT NAME: 060 - Adjustable Buzzer Tone Generator
+PROJECT IDEA: A simple signal generator where a potentiometer sweeps a passive buzzer through frequencies from 100 Hz to 5000 Hz and a button switches the sound on and off.
+HOW IT WORKS: The potentiometer wired across 5V and GND feeds its wiper into analog pin A0, giving a voltage from 0 to 5V that analogRead() converts into a number from 0 to 1023. The sketch maps that number onto 100-5000 Hz, rounds it to 10 Hz steps to stop jitter and feeds it to the passive buzzer on pin 8 with tone(). The button on pin 2 toggles the output between tone() and noTone(), and the current status and frequency are printed to the Serial Monitor four times a second.
+ADVANTAGES:
+- Continuous, instant frequency control with one inexpensive potentiometer.
+- Rounding to 10 Hz steps removes the pitch wobble common with raw sensor data.
+- A single button gives a clean on/off without changing the set frequency.
+- Serial readout shows the exact frequency, turning sound into a measurement.
+- The frequency range is changed with two constants at the top of the sketch.
+REAL-WORLD USES:
+- Testing speakers, buzzers and audio circuits over a wide frequency range.
+- Calibrating hearing-test and alarm-tone equipment.
+- A reference tone source for tuning and audio experiments.
+- Classroom demonstrations of map() and the analog-to-digital converter.
+- Base module for alarms, alert sounds and industrial signalling.
+WHAT YOU LEARN:
+- How a potentiometer acts as a variable voltage divider for analogRead().
+- How map() converts a sensor range into a useful output range.
+- How to debounce a toggle button so one press makes exactly one change.
+- How tone() and noTone() control a passive buzzer.
+- Why rounding sensor data improves the stability of an output.
+FUTURE SCOPE: Storing several preset frequencies in memory and letting the button step through them would turn the generator into a fixed-frequency test instrument.
+POSSIBLE UPGRADES:
+- Add a second potentiometer to control the volume by PWM duty cycle.
+- Store preset frequencies (1 kHz, 440 Hz, 500 Hz) selectable with buttons.
+- Smooth the square wave with an RC filter to approximate a sine output.
+- Build a simple 8-step sequencer that sweeps through a list of frequencies.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 10k ohm potentiometer
+- Passive buzzer
+- 1 push button
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

@@ -1,0 +1,12 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LED (any color)
+A (+) → 220 ohm resistor → Arduino D13
+K (-) → Arduino GND
+
+NOTES
+- D13 also drives the Uno's built-in LED, so the sketch runs even with no external parts.
+- The 220 ohm resistor must stay in series with the LED or the LED can burn out.
+- Open the Serial Monitor at 9600 baud to see the LED ON / LED OFF messages.

@@ -1,0 +1,27 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+HC-SR04 ULTRASONIC SENSOR
+VCC          → Arduino 5V
+GND          → Arduino GND
+TRIG         → Arduino D9
+ECHO         → Arduino D10
+
+MICRO SERVO (SG90)
+signal       → Arduino D6
++            → Arduino 5V
+-            → Arduino GND
+
+LED BAR (distance)
+LED 100 cm   → Arduino D4
+LED 60 cm    → Arduino D5
+LED 30 cm    → Arduino D7
+LED 10 cm    → Arduino D8
+LED cathodes → Arduino GND
+  (220 ohm resistor in series with each anode)
+
+NOTES
+- LED bar order is D4, D5, D7, D8 - D6 is skipped because the servo uses it.
+- Point the sensor level at the approaching car; keep it away from soft/absorbing surfaces.
+- Power the servo from 5V with a common GND; use a separate 5V supply if the board resets.

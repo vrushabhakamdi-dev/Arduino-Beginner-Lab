@@ -1,0 +1,36 @@
+PROJECT NAME: 025 - Temperature Logger
+PROJECT IDEA: Log ambient temperature from a TMP36 sensor as timestamped CSV rows in the Serial Monitor so readings can be recorded and analysed.
+HOW IT WORKS: The TMP36 produces an analogue voltage that rises by 10 mV for every degree Celsius, starting at 0.5 V for 0 degrees. The Arduino reads that voltage on pin A0, converts the 0-1023 ADC value into volts, subtracts the 0.5 V offset and divides by 0.01 V per degree to get Celsius, then calculates Fahrenheit from it. Every two seconds a line containing the elapsed milliseconds, Celsius and Fahrenheit is printed in CSV format ready for a spreadsheet.
+ADVANTAGES:
+- Analogue sensor needs no library and no digital protocol to get started.
+- CSV output can be opened directly in Excel or Google Sheets for plotting.
+- millis() timestamps show exactly when each reading was taken.
+- The standard TMP36 formula is a clear, practical introduction to sensor calibration.
+- Shows how a raw ADC count becomes a real-world physical measurement.
+REAL-WORLD USES:
+- Room and greenhouse climate logging over time.
+- Fridge, freezer or incubator temperature monitoring.
+- Recording temperature during an experiment or school science project.
+- Server-room or equipment-cabinet heat logging.
+- Weather-station style diurnal temperature records.
+WHAT YOU LEARN:
+- Reading analogue voltages with analogRead() and the 10-bit ADC.
+- Converting ADC counts into volts and then into engineering units.
+- The TMP36 offset and sensitivity formula (0.5 V offset, 10 mV per degree).
+- Producing comma-separated output suitable for spreadsheets.
+- Scheduling periodic tasks with millis() instead of delay().
+FUTURE SCOPE: Storing readings in an SD card or sending them to a display would allow multi-day temperature studies without keeping a computer attached.
+POSSIBLE UPGRADES:
+- Add a minimum/maximum temperature tracker for each session.
+- Show an up/down arrow in Serial when the temperature is rising or falling.
+- Average several samples per row to reduce electrical noise.
+- Add an LCD so the current temperature is visible without a computer.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- TMP36 temperature sensor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

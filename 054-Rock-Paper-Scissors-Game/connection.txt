@@ -1,0 +1,41 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON - ROCK
+One leg   → Arduino D2
+Other leg → GND
+  Throw rock.
+
+PUSH BUTTON - PAPER
+One leg   → Arduino D3
+Other leg → GND
+  Throw paper.
+
+PUSH BUTTON - SCISSORS
+One leg   → Arduino D4
+Other leg → GND
+  Throw scissors.
+
+LED - WIN
+Anode (+)   → 220 ohm resistor → Arduino D5
+Cathode (-) → GND
+  On for 1.5 s when you win the round.
+
+LED - LOSE
+Anode (+)   → 220 ohm resistor → Arduino D6
+Cathode (-) → GND
+  On for 1.5 s when the CPU wins the round.
+
+LED - DRAW
+Anode (+)   → 220 ohm resistor → Arduino D7
+Cathode (-) → GND
+  On for 1.5 s when both moves are the same.
+
+NOTES
+- No buzzer in this build.
+- Buttons: internal pull-ups are enabled, so each button only shorts its pin
+  to GND. No external resistors.
+- LED long leg = anode (+), always in series with a 220 ohm resistor.
+- The battle log and running score are printed in the Serial Monitor at
+  9600 baud.

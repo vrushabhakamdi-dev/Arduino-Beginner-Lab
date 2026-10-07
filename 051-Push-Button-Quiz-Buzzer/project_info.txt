@@ -1,0 +1,39 @@
+PROJECT NAME: 051 - Push Button Quiz Buzzer
+PROJECT IDEA: Build a three-player quiz buzzer where the first player to press their button locks out the other two, lights their LED and sounds the winner beep.
+HOW IT WORKS: Each player has a push button on pins 2, 3 and 4 (using the internal pull-up) and an indicator LED on pins 6, 7 and 8. The loop debounces every button and, as soon as one is pressed while the round is active, it records the winner, lights that player's LED and plays a beep on the buzzer on pin 9. The round then stays locked so later presses are ignored and printed to the Serial Monitor, until the host presses the reset button on pin 5 to start a new round.
+ADVANTAGES:
+- Fair and instant judging: the first press wins, so there is no argument about who was quickest.
+- Internal pull-up resistors remove the need for any external button resistors.
+- Debouncing stops one physical press from being counted several times.
+- Serial output records the winner, acting as an impartial scorekeeper.
+- Needs only an Uno, four buttons, three LEDs and one buzzer.
+REAL-WORLD USES:
+- Quiz and quiz-show buzz-in systems for schools and clubs.
+- First-to-press trigger buttons on machines and control panels.
+- Reaction-time testers for sports and science experiments.
+- Turn-order selectors for board games and party games.
+- Priority inputs where only the first operator is allowed to act.
+WHAT YOU LEARN:
+- How to use INPUT_PULLUP so a button only needs to connect a pin to GND.
+- How to debounce a mechanical button using millis() timing.
+- How a simple state flag (roundActive) can lock out later inputs.
+- How to handle several pins at once with arrays and for loops.
+- How to play a tone with tone() and log events over Serial.
+FUTURE SCOPE: The same lockout logic can be extended to more players or paired with a scoreboard display that keeps a running tally of rounds won.
+POSSIBLE UPGRADES:
+- Add a seven-segment or LCD scoreboard that counts wins for each player.
+- Play a different tone for each player so the winner is audible as well as visible.
+- Flash a "wrong buzz" pattern when a late player presses after the lockout.
+- Store the match score in EEPROM so it survives a power cycle.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 4 push buttons
+- 3 LEDs (any colors)
+- 3 x 220 ohm resistors
+- Passive buzzer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

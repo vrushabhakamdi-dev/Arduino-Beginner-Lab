@@ -1,0 +1,25 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+BUILT-IN LED
+Anode → Arduino D13 (already on the board)
+  Blinks three times during the win celebration.
+
+PASSIVE BUZZER
++ → Arduino D8
+- → GND
+  Plays the rising win tune.
+
+A0 - RANDOM NOISE SEED
+Nothing connected → leave Arduino A0 open
+  The floating pin gives random noise for randomSeed().
+
+NOTES
+- The game is played by typing guesses in the Serial Monitor at 9600 baud.
+  Send a number and Enter, or the letter r to restart. No buttons to wire.
+- A0 is read on purpose with nothing attached - do NOT tie it to 5V or GND,
+  otherwise every game would pick the same secret number.
+- tone() needs a PASSIVE buzzer; an active buzzer cannot play the melody.
+- Optional external LED: Anode → 220 ohm resistor → D13, Cathode → GND
+  (only if you want a brighter light than the built-in LED).

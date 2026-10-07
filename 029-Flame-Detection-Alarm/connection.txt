@@ -1,0 +1,24 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+KY-026 FLAME SENSOR MODULE
++ → Arduino 5V
+- → Arduino GND
+S → Arduino D2    digital output - level changes when a flame is seen
+A → not connected (analog output not used by this sketch)
+
+PIEZO BUZZER
++ → Arduino D8
+- → Arduino GND
+
+LED (ALARM INDICATOR)
++ → 220 ohm resistor → Arduino D13
+- → Arduino GND
+
+NOTES
+- POLARITY VARIES between KY-026 boards: some pull S LOW on flame (active-LOW), others HIGH. Upload the sketch, bring a flame or bright IR source near, watch the Serial Monitor, then set FLAME_LEVEL (default LOW) to match your board.
+- Only the S pin is wired; leave A unconnected.
+- The built-in LED on D13 works too, so the external LED and its 220 ohm resistor are optional.
+- Buzzer polarity: + to D8, - to GND.
+- Educational prototype only - not a certified fire alarm.

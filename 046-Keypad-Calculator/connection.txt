@@ -1,0 +1,28 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+4x4 MEMBRANE KEYPAD
+ROW1 → Arduino D9    keypad row 1 (keys 1 2 3 A)
+ROW2 → Arduino D8    keypad row 2 (keys 4 5 6 B)
+ROW3 → Arduino D7    keypad row 3 (keys 7 8 9 C)
+ROW4 → Arduino D6    keypad row 4 (keys * 0 # D)
+COL1 → Arduino D5    keypad column 1
+COL2 → Arduino D4    keypad column 2
+COL3 → Arduino D3    keypad column 3
+COL4 → Arduino D2    keypad column 4
+
+LCD 1602 (I2C BACKPACK, address 0x27)
+SDA → Arduino A4     I2C data
+SCL → Arduino A5     I2C clock
+VCC → Arduino 5V
+GND → Arduino GND
+
+NOTES
+- The keypad has no power pins, only the eight row/column wires. Match the
+  printed ROW1..ROW4 / COL1..COL4 labels (some keypads say R1..R4 / C1..C4).
+- The Keypad library enables the internal pull-ups itself, so no external
+  resistors are required.
+- ROW pins and COL pins are different Arduino pins - do not swap the groups.
+- All of D2..D9 are used; A0..A3 and D10..D13 stay free.
+- Breadboard, jumper wires and the USB cable complete the build.

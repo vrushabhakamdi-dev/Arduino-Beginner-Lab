@@ -1,0 +1,40 @@
+PROJECT NAME: 024 - IR Remote LED Controller
+PROJECT IDEA: Turn an ordinary infrared TV remote into a wireless-by-light controller that switches three separate LEDs on and off with three different buttons.
+HOW IT WORKS: The VS1838 receiver demodulates the 38 kHz infrared flashes sent by the remote and passes the decoded signal to pin 2. The IRremote library decodes that pulse train into a hexadecimal code unique to each button. The sketch prints every code it sees, compares it against three stored codes, and toggles the matching LED whenever the right button is pressed.
+ADVANTAGES:
+- Uses a remote most households already own, so no extra transmitter is needed.
+- Three independent LEDs mean one remote can control three separate things.
+- Printing unknown codes makes adapting the sketch to any remote very easy.
+- A well-documented Library Manager library removes the hard signal-decoding work.
+- Shows the complete path from infrared pulses to a useful digital action.
+REAL-WORLD USES:
+- Remote controls for lamps, fans and small household appliances.
+- Simple wireless project selector in classroom or exhibition demonstrations.
+- Handheld controller for robot or model functions without any cable.
+- Turning devices on and off from across a room.
+- Bedside or accessibility switches that operate equipment remotely.
+WHAT YOU LEARN:
+- How infrared remote control signalling works at a practical level.
+- Installing and using a third-party library from the Arduino Library Manager.
+- Receiving and decoding external data with an input pin and an interrupt-driven library.
+- Comparing 32-bit codes and toggling an output with digitalWrite().
+- The habit of printing unknown inputs so hardware can be mapped quickly.
+FUTURE SCOPE: The same receiver and library can decode an entire remote keypad and use it to control motors, relays or a whole dashboard of indicators.
+POSSIBLE UPGRADES:
+- Map ten or more buttons to ten different outputs or project modes.
+- Add a buzzer that clicks on each received command for feedback.
+- Combine the LEDs with PWM to change brightness levels from the remote.
+- Remember the last LED states in EEPROM so they survive a power cycle.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- VS1838 infrared receiver module
+- A standard IR remote control (TV or DVD remote)
+- 3 x LEDs (any colors)
+- 3 x 220 ohm resistors
+- 10 uF electrolytic capacitor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: IRremote
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: IRremote

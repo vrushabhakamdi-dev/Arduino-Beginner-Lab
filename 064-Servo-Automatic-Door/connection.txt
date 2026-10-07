@@ -1,0 +1,31 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+HC-SR501 PIR MOTION SENSOR
+VCC  → Arduino 5V
+GND  → Arduino GND
+OUT  → Arduino D2     HIGH = motion detected
+
+SG90 MICRO SERVO
++ (red)         → Arduino 5V
+- (brown/black) → Arduino GND
+S (orange)      → Arduino D6     PWM door signal
+
+PASSIVE BUZZER
++ → Arduino D8     through 100 ohm resistor (warning beep)
+- → Arduino GND
+
+5MM LED (DOOR-OPEN STATUS)
++ (anode)   → Arduino D13   through 220 ohm resistor
+- (cathode) → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- The buzzer must be PASSIVE - the code uses tone()/noTone() on D8.
+- D13 has a built-in LED on the Uno, so the external LED and its
+  220 ohm resistor are optional.
+- Servo signal must be on D6, the sketch does doorServo.attach(6).
+- PIR needs a few seconds of warm-up after power-up before it settles.

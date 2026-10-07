@@ -1,0 +1,41 @@
+PROJECT NAME: 084 - Wired Controlled Robot Car
+PROJECT IDEA: A robot car driven from a hand controller connected by a long tether cable, with four buttons giving forward, backward, left and right and no wireless electronics at all.
+HOW IT WORKS: Four push buttons on pins 2 to 5 use the internal pull-up resistors, so each one simply shorts its pin to ground when held. Every pass through loop() reads the buttons and immediately drives the L298N accordingly, which means releasing all buttons stops the car in the same cycle, and if two buttons are held a fixed priority picks the winner. The tethered design is deliberate: a plain cable cannot suffer from dropped packets, pairing failures or a flat transmitter battery. Each new command is printed on the Serial Monitor together with the live button pattern.
+ADVANTAGES:
+- A plain cable gives a perfectly reliable link with no radio interference.
+- No wireless modules, antennas or pairing steps keep the project beginner friendly.
+- INPUT_PULLUP means the buttons need no external resistors.
+- Releasing the buttons always stops the car, which acts as a natural dead man switch.
+- Pin numbers, speeds and priorities are all named constants at the top.
+REAL-WORLD USES:
+- Tethered control of model cranes, trucks and forklifts.
+- Wired remotes for robots in labs, classrooms and workshops.
+- Inspection rovers on a cable where radio is not allowed.
+- simple remote control for robots inside metal enclosures or vehicles.
+- Teaching aid for showing how a push button and a motor driver interact.
+WHAT YOU LEARN:
+- Using INPUT_PULLUP buttons wired straight to ground.
+- Reading several buttons every loop to build a continuous control channel.
+- Driving a differential drive robot forwards, backwards and in pivots.
+- Why a tethered control link is chosen when reliability matters more than range.
+- Logging command changes over Serial for debugging a remote control.
+FUTURE SCOPE: Adding two more buttons for speed control or a horn would turn the simple tether into a full multi-function controller without changing the wiring style.
+POSSIBLE UPGRADES:
+- Add a speed slider potentiometer on the controller that sets the PWM level.
+- Add two LEDs on the car showing forward and reverse.
+- Add a buzzer that sounds while the BACKWARD button is held.
+- Use a multi-conductor cable with a proper plug so the controller can be unplugged.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- L298N motor driver module
+- 2x DC gear motor with wheels
+- Robot chassis with caster wheel
+- 4x push button
+- Long tether cable (5 conductors, e.g. ribbon or telephone cable)
+- 6-12V battery pack for the motors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

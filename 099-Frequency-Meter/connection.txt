@@ -1,0 +1,34 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+SIGNAL INPUT (0-5 V square wave)
+signal → Arduino D2     INT0 - must be pin 2 (pin 3 would be INT1)
+GND    → Arduino GND    signal source and Uno must share a ground
+
+SIGNAL SOURCE (second Arduino tone(), function generator, 555, PWM)
+output pin → Arduino D2
+GND       → Arduino GND
+
+OPTIONAL VOLTAGE DIVIDER - only for signals above 5 V:
+
+  signal ---[R1]---+--- Arduino D2
+                   |
+                  [R2]
+                   |
+                  GND
+
+  Example: R1 = 10k, R2 = 20k turns 12 V into 4 V.
+  10k/10k only halves the voltage, so pick a ratio that keeps D2 at or
+  below 5 V.
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- D2 must never see less than 0 V or more than 5 V, and never AC: scale or
+  clamp the signal first. The Uno pins are not 5 V-tolerant above 5 V.
+- Frequency = pulses counted in the 1 s gate / elapsed seconds;
+  period = 1 / frequency.
+- No signal on D2 is reported as 0.00 Hz (no-signal), not as an error.
+- No library required - attachInterrupt() does the counting.

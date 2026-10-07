@@ -1,0 +1,38 @@
+PROJECT NAME: 012 - Morse Code Flasher
+PROJECT IDEA: Type a message in the Serial Monitor and watch it blink out as Morse code on an LED while a buzzer plays the same dots and dashes as tones.
+HOW IT WORKS: The sketch reads characters arriving over Serial and looks each one up in Morse tables that cover A-Z and 0-9. A dot lights the LED and sounds the tone for one time unit, a dash for three units, with the standard gaps between elements, letters and words. Every character is also printed with its Morse pattern, so the code can be learned while it flashes.
+ADVANTAGES:
+- No extra input hardware is needed because the Serial Monitor acts as the keyboard.
+- Teaches a real communication protocol still used by pilots, sailors and radio operators.
+- All timing comes from named constants, so changing the speed is a single edit.
+- Works with an LED, a passive buzzer, or both at the same time.
+- Prints the mapping, which makes the project a Morse code teaching tool as well.
+REAL-WORLD USES:
+- Emergency signalling lamps and handheld flashlight signals.
+- Amateur (ham) radio practice and licence examinations.
+- Educational kits that teach coding and communication basics.
+- Light-based signalling where sound cannot travel, such as noisy or silent zones.
+- Props for theatre, escape rooms and science exhibitions.
+WHAT YOU LEARN:
+- How to store lookup tables in arrays of strings.
+- How to convert lower case input to upper case with simple arithmetic.
+- How to build timed signals from one reusable sendUnit() function.
+- How to parse characters with Serial.available() and Serial.read().
+- How proportional timing (1 unit dot, 3 units dash) creates readable Morse.
+FUTURE SCOPE: The flasher could buffer a whole line before sending, remember a short message in EEPROM, or decode Morse tapped on a key so one circuit works in both directions.
+POSSIBLE UPGRADES:
+- Add support for punctuation marks such as "." and "?".
+- Add a speed potentiometer that changes DOT_MS while the sketch runs.
+- Light one LED only for dots and a second LED only for dashes.
+- Build a decoder that listens to the tone and prints the letters back.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- LED (any color)
+- 220 ohm resistor
+- Passive buzzer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

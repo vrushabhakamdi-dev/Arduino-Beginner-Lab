@@ -1,0 +1,34 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+POTENTIOMETER 1 (Red)
++ (outer leg) → Arduino 5V
+S (wiper, middle leg) → Arduino A0
+- (outer leg) → Arduino GND
+
+POTENTIOMETER 2 (Green)
++ (outer leg) → Arduino 5V
+S (wiper, middle leg) → Arduino A1
+- (outer leg) → Arduino GND
+
+POTENTIOMETER 3 (Blue)
++ (outer leg) → Arduino 5V
+S (wiper, middle leg) → Arduino A2
+- (outer leg) → Arduino GND
+
+RGB LED (COMMON CATHODE)
+R → 220 ohm resistor → Arduino D9
+G → 220 ohm resistor → Arduino D10
+B → 220 ohm resistor → Arduino D11
+COM (longest pin) → Arduino GND
+
+   D9  --[220R]-- R \
+   D10 --[220R]-- G  +-- COM (longest pin) -- GND
+   D11 --[220R]-- B /
+
+NOTES
+- Common-CATHODE only: the longest pin is COM and goes to GND. A common-anode
+  LED will not light with this wiring.
+- 220 ohm resistor on every colour leg; never drive a colour pin directly.
+- D9, D10 and D11 are all PWM pins (~).

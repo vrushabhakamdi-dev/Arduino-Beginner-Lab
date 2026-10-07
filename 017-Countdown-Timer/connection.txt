@@ -1,0 +1,25 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+POTENTIOMETER (10 kOhm) - time selector
+Outer pin 1 → 5V
+Outer pin 2 → GND
+Wiper (middle pin) → Arduino A0     (selects 10 to 120 seconds)
+
+PUSH BUTTON - START / CANCEL
+Leg 1 → Arduino D2
+Leg 2 → GND
+
+LED
+Anode (+) → Arduino D13     (through 220 ohm resistor)
+Cathode (−) → GND
+
+PASSIVE BUZZER
++ → Arduino D8
+− → GND
+
+NOTES
+- Button uses the internal pull-up, so no external resistor is needed.
+- One 220 ohm resistor in series with the LED.
+- USB cable powers everything; breadboard and jumper wires for the connections.

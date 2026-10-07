@@ -1,0 +1,32 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+DS3231 RTC MODULE
+SDA → Arduino A4     I2C data
+SCL → Arduino A5     I2C clock
+VCC → Arduino 5V
+GND → Arduino GND
+
+LCD 1602 (I2C BACKPACK, address 0x27)
+SDA → Arduino A4     I2C data (shared with the RTC)
+SCL → Arduino A5     I2C clock (shared with the RTC)
+VCC → Arduino 5V
+GND → Arduino GND
+
+I2C BUS (both modules sit on the same two wires)
+
+  Arduino A4 (SDA) --+-- DS3231 SDA -- LCD SDA
+  Arduino A5 (SCL) --+-- DS3231 SCL -- LCD SCL
+  Arduino 5V  -------+-- DS3231 VCC -- LCD VCC
+  Arduino GND -------+-- DS3231 GND -- LCD GND
+
+NOTES
+- SDA/SCL are deliberately shared by the RTC and the LCD. That is normal I2C:
+  both devices answer on their own address (RTC 0x68, LCD 0x27).
+- Nothing else may be connected to A4 or A5 in this project.
+- Keep the CR2032 coin cell fitted so the time survives a power cut, and connect
+  VCC to 5V as well - the coin cell only backs up the clock, it does not run it.
+- LCD stays blank? Check the backpack contrast trimmer and try address 0x3F
+  (LCD_ADDRESS in the sketch) if your backpack is not 0x27.
+- Breadboard, jumper wires and the USB cable complete the build.

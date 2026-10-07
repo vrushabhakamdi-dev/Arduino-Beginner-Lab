@@ -1,0 +1,31 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+VS1838 INFRARED RECEIVER
+(looking at the lens side, pins left to right: OUT, GND, VCC)
+OUT / DATA → Arduino D2    input - demodulated signal from the remote
+GND        → Arduino GND
+VCC        → Arduino 5V
+
+LED 1
++ → Arduino D4     toggled by BUTTON_CODE_1
+- → 220 ohm resistor → Arduino GND
+
+LED 2
++ → Arduino D5     toggled by BUTTON_CODE_2
+- → 220 ohm resistor → Arduino GND
+
+LED 3
++ → Arduino D6     toggled by BUTTON_CODE_3
+- → 220 ohm resistor → Arduino GND
+
+10 uF ELECTROLYTIC CAPACITOR
++ → Arduino 5V (VS1838 VCC rail)
+- → Arduino GND (VS1838 GND rail)
+
+NOTES
+- Put the 10 uF cap across VS1838 VCC/GND, and add a 100 ohm resistor in series with VCC if your module has no on-board one - a noisy supply makes codes decode wrong.
+- Library required: "IRremote" by shirriff (install from the Library Manager). IRremote 4.x uses #include <IRremote.hpp>; 3.x uses IRremote.h.
+- The codes 0x45 / 0x46 / 0x47 are examples only. Open the Serial Monitor at 9600, press your remote's buttons, copy the printed hex codes into BUTTON_CODE_1/2/3 and re-upload.
+- Point the remote at the receiver dome from across the room; nothing happens if it is aimed away or too close.

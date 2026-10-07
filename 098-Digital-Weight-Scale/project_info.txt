@@ -1,0 +1,40 @@
+PROJECT NAME: 098 - Digital Weight Scale
+PROJECT IDEA: Build a digital scale with a load cell and HX711 amplifier that shows the weight in grams or kilograms on a 16x2 I2C LCD and can be zeroed with a tare button.
+HOW IT WORKS: The strain-gauge load cell bends very slightly under a weight and produces a tiny voltage, which the HX711 amplifier converts into a 24-bit digital reading sent to pins 4 (DT) and 5 (SCK). The HX711 library applies the CALIBRATION_FACTOR constant to turn that raw count into grams, and each sample is averaged over five readings to smooth out noise. The LCD shows the value in grams, or automatically in kilograms once the weight passes 1000 g, and the same reading is printed to the Serial Monitor as both grams and kilograms. Pressing the button on pin 2 runs a tare, so a container already on the scale becomes the new zero point.
+ADVANTAGES:
+- 24-bit resolution gives fine readings from a cheap load cell.
+- Automatic gram/kilogram switching keeps the display readable at any weight.
+- A tare button allows net weight measurements inside a container.
+- One calibration constant makes setup a simple trial-and-error procedure.
+- wait_ready_timeout() keeps the sketch running and reports wiring faults.
+REAL-WORLD USES:
+- Kitchen scale or postage scale for a desk or workshop.
+- Parts counter that weighs a batch of small items.
+- Soil or ingredient scale for science experiments.
+- Inventory check that weighs boxes instead of counting pieces.
+- Base for a compact embedded balance in a machine or dispenser.
+WHAT YOU LEARN:
+- Interfacing an HX711 ADC with its DOUT/SCK two-wire interface.
+- Why calibration factors are needed and how to calculate one.
+- Zeroing a measurement with a tare operation.
+- Displaying formatted numbers with dtostrf() on an I2C LCD.
+- Averaging several ADC readings to reduce noise.
+FUTURE SCOPE: Adding an SD card logger, a beeping "weight reached" alarm or a second load cell for higher capacity would extend the scale into a small weighing station.
+POSSIBLE UPGRADES:
+- Add a buzzer that beeps when a target weight is reached.
+- Store the calibration factor in EEPROM so it survives power-off.
+- Show a running total of several items weighed in a row.
+- Add a "stable reading" indicator that waits for the value to settle.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- HX711 load cell amplifier module
+- Strain-gauge load cell (5 kg or 10 kg, 4-wire)
+- LCD 1602 with I2C backpack (address 0x27)
+- Push button
+- Breadboard
+- Jumper wires (DT -> pin 4, SCK -> pin 5, SDA -> A4, SCL -> A5)
+- USB cable
+- Known calibration weight (for example a 100 g bag of sugar)
+- Library: HX711 (Bogdan Necula) and LiquidCrystal I2C
+DIFFICULTY: Advanced Beginner
+LIBRARY REQUIRED: HX711 (Bogdan Necula), LiquidCrystal I2C

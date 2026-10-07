@@ -1,0 +1,37 @@
+PROJECT NAME: 013 - LED Binary Clock
+PROJECT IDEA: Display the current time in binary on eleven LEDs, with five LEDs showing the hours and six LEDs showing the minutes.
+HOW IT WORKS: The hours (0-23) are shown on pins 2-6 and the minutes (0-59) on pins 7-12, where each lit LED adds its bit value to the total. The start hour and minute are held in two constants at the top of the sketch, and the time is advanced by adding the milliseconds counted by millis(). Whenever the minute changes, the readable time and both binary values are printed to the Serial Monitor.
+ADVANTAGES:
+- Needs no RTC module, display driver or library to get started.
+- Shows how numbers are really stored inside every computer.
+- The LED reading and the Serial output can be checked against each other.
+- The start time is changed in two clearly named constants.
+- A good stepping stone from blinking LEDs to working with modules.
+REAL-WORLD USES:
+- Binary watches and wearable electronics built by hobbyists.
+- Teaching aids for computer science and digital electronics classes.
+- Discreet status panels that only trained users can read at a glance.
+- Prototype indicators for machines that report status as bit patterns.
+- Decorative desk clocks and "geek" gift projects.
+WHAT YOU LEARN:
+- How binary bit positions map onto physical output pins.
+- How to split a number into bits with the >> and & operators.
+- How millis() can be used as a simple free-running clock.
+- How to print numbers with leading zeros on the Serial Monitor.
+- Why a real clock needs a battery-backed RTC to survive power cycles.
+FUTURE SCOPE: Adding a DS3231 real-time clock module makes the time accurate and keeps it through power cuts, while extra LEDs could show seconds or a day/night dimming mode.
+POSSIBLE UPGRADES:
+- Add a DS3231 RTC module and read the time from it instead of millis().
+- Add push buttons to set the hour and minute without recompiling.
+- Add six more LEDs to display the seconds in binary.
+- Use PWM on the LED pins to dim them at night.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 11 LEDs (any color)
+- 11 x 220 ohm resistors
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

@@ -1,0 +1,21 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+DHT11 TEMPERATURE AND HUMIDITY SENSOR
+(front face with the grille, pins left to right: VCC, DATA, NC, GND)
+VCC  → Arduino 5V
+DATA → Arduino D2    input - single-wire data line
+NC   → not connected
+GND  → Arduino GND
+
+10 KOHM PULL-UP RESISTOR
+one end → Arduino D2 (DHT11 DATA)
+other end → Arduino 5V
+
+NOTES
+- The 10 kohm pull-up between DATA and 5V is required. Omit it only if your DHT11 breakout already has one fitted.
+- "ERROR: could not read from DHT11" means a loose wire or a missing pull-up resistor.
+- NC really is not connected - some modules label it pin 3 or leave it out entirely.
+- Readings are taken every 2 s: the DHT11 ignores faster requests and returns stale data.
+- Libraries required: "DHT sensor library" and "Adafruit Unified Sensor" (Library Manager).

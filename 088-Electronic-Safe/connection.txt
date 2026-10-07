@@ -1,0 +1,37 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+4X4 KEYPAD (membrane matrix)
+ROW1 → Arduino D9     (row scan lines, driven by the Keypad library)
+ROW2 → Arduino D8     (row scan line - the buzzer also sits on D8)
+ROW3 → Arduino D7     (row scan line)
+ROW4 → Arduino D6     (row scan line)
+COL1 → Arduino D5     (column scan lines)
+COL2 → Arduino D4     (column scan line)
+COL3 → Arduino D3     (column scan line)
+COL4 → Arduino D2     (column scan line)
+
+SG90 MICRO SERVO - SAFE DOOR
+SIGNAL (orange) → Arduino D10    (0 deg = closed, 90 deg = open)
++5V (red) → Arduino 5V
+GND (brown) → Arduino GND
+
+PIEZO BUZZER
++ → Arduino D8       (shared with keypad ROW2)
+- → Arduino GND
+
+LCD 1602 WITH I2C BACKPACK (address 0x27)
+SDA → Arduino A4
+SCL → Arduino A5
+VCC → Arduino 5V
+GND → Arduino GND
+
+NOTES
+- PIN SHARED: the buzzer is on D8, which is also keypad ROW2. The code never
+  scans the keypad while a beep plays, so the two do not interfere - wire
+  exactly as coded.
+- The keypad rows/cols are driven directly by the Keypad library, no resistors.
+- Change the PIN from the Serial Monitor by sending N followed by four digits
+  (example: N5678); it is stored in EEPROM.
+- No signal wiring: safe enclosure/box, breadboard, jumper wires, USB cable.

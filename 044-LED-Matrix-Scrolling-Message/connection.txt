@@ -1,0 +1,24 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+MAX7219 8x8 LED MATRIX MODULE
+DIN → Arduino D11    SPI MOSI, serial data in
+CLK → Arduino D13    SPI SCK, serial clock
+CS  → Arduino D10    chip select (loads the data)
+VCC → Arduino 5V
+GND → Arduino GND
+
+NOTES
+- D11 (MOSI) and D13 (SCK) are the hardware SPI pins of the Uno and cannot be
+  moved; CS may use any free digital pin, the sketch uses D10.
+- MAX_DEVICES = 4 in the sketch, so it drives a chain of four matrices. For a
+  single module change that constant to 1.
+- Characters garbled or rotated? Set HARDWARE_TYPE to another module type
+  (FC16_HW, GENERIC_HW or PAROLA_HW) - this is a software setting, not wiring.
+- Each matrix can draw a lot of current. One module is fine on USB power; for
+  a long chain use a solid 5V supply and connect its GND to the Arduino GND.
+- If the chain does not light at all, check DIN/CS/CLK order - the modules are
+  often labelled DIN, CS, CLK, VCC, GND.
+- Jumper wires (and a breadboard if you want one) plus the USB cable finish
+  the build.

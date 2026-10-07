@@ -1,0 +1,48 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+74HC595 SHIFT REGISTER
+DS   → Arduino D4     serial data in
+SHCP → Arduino D5     shift clock
+STCP → Arduino D6     latch (storage clock)
+OE   → Arduino GND    output enable, LOW = outputs always on
+MR   → Arduino 5V     master reset, HIGH = inactive (not used)
+VCC  → Arduino 5V
+GND  → Arduino GND
+
+7-SEGMENT DISPLAY (COMMON CATHODE)
+COM (common cathode) → Arduino GND
+segments a-g and dp  → 74HC595 Q0..Q7 through 220R each (see diagram)
+
+PUSH BUTTON
+pin 1 → Arduino D2    count one step per press
+pin 2 → Arduino GND
+
+74HC595 / DISPLAY WIRING
+
+  Arduino                74HC595                 7-SEGMENT
+  D4 data -------------> DS  (14)
+  D5 shift clock -------> SHCP(11)
+  D6 latch -------------> STCP(12)
+  GND ------------------> OE  (13)
+  5V --------------------> MR  (10)
+  5V --------------------> VCC (16)
+  GND ------------------> GND (8)
+
+  Q0 -- 220R -- segment a      Q4 -- 220R -- segment e
+  Q1 -- 220R -- segment b      Q5 -- 220R -- segment f
+  Q2 -- 220R -- segment c      Q6 -- 220R -- segment g
+  Q3 -- 220R -- segment d      Q7 -- 220R -- segment dp
+                               display COM -- GND
+
+NOTES
+- The segment table in the sketch is for a COMMON CATHODE display. A common
+  anode display needs every byte inverted (the code comments explain this).
+- Every segment needs its own 220 ohm resistor in series - never connect a
+  segment directly to a 74HC595 output, the current would be too high.
+- The button uses the internal pull-up: no external resistor, pressing shorts
+  D2 to GND.
+- OE must stay at GND and MR at 5V, otherwise the outputs stay disabled or
+  randomly reset.
+- Breadboard, jumper wires and the USB cable complete the build.

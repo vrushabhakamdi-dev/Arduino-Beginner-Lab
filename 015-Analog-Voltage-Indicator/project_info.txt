@@ -1,0 +1,38 @@
+PROJECT NAME: 015 - Analog Voltage Indicator
+PROJECT IDEA: Build a simple voltmeter that prints the tested voltage on the Serial Monitor and lights one LED for every whole volt it reaches.
+HOW IT WORKS: A potentiometer on pin A0 provides an adjustable test voltage between 0 V and 5 V. The raw reading is scaled to a voltage with the formula reading multiplied by (5.0 / 1023.0) and printed as "Voltage: X.XX V". Five LEDs on pins 4 to 8 switch on at 1 V, 2 V, 3 V, 4 V and 5 V thresholds, exactly like the scale on a bar-graph voltmeter.
+ADVANTAGES:
+- Shows a precise number and a quick visual level at the same time.
+- Needs no external meter, display or library.
+- Demonstrates how the Uno's 10-bit converter maps onto a real voltage.
+- Threshold checks are simple comparisons, so the logic is easy to follow.
+- A useful starting point for reading real sensors later on.
+REAL-WORLD USES:
+- Battery voltage monitors for robots and model vehicles.
+- Panel meters on power supplies and charger circuits.
+- Over-voltage or low-voltage alarms on electronic equipment.
+- Teaching tools for electronics laboratories and school projects.
+- Quick sanity checks while building other Arduino circuits.
+WHAT YOU LEARN:
+- How the analog-to-digital converter turns voltage into a 0-1023 number.
+- How to convert ADC counts into volts using float arithmetic.
+- How to print floating point values with a chosen number of decimals.
+- How threshold comparisons drive indicator LEDs.
+- What the 5 V reference voltage of the Arduino Uno means.
+FUTURE SCOPE: With a resistor divider at the input the same sketch could measure voltages above 5 V, turning it into a genuinely useful multimeter-style tool.
+POSSIBLE UPGRADES:
+- Add a resistor divider so voltages up to 20 V can be measured safely.
+- Print a warning message when the voltage passes 4.5 V.
+- Add a buzzer alarm when the voltage goes above or below a set limit.
+- Record the minimum and maximum voltages and print them on demand.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 5 LEDs (any color)
+- 5 x 220 ohm resistors
+- 10 kOhm potentiometer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

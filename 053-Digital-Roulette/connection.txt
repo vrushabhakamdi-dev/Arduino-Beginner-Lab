@@ -1,0 +1,61 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LED ROW - 8 POCKETS (LED 1 to LED 8)
+
+  D2    D3    D4    D5    D6    D7    D8    D9
+  |     |     |     |     |     |     |     |
+[LED1][LED2][LED3][LED4][LED5][LED6][LED7][LED8]
+  |     |     |     |     |     |     |     |
+ GND   GND   GND   GND   GND   GND   GND   GND
+
+LED 1  (pocket 1)
+Anode (+)   → 220 ohm resistor → Arduino D2
+Cathode (-) → GND
+
+LED 2  (pocket 2)
+Anode (+)   → 220 ohm resistor → Arduino D3
+Cathode (-) → GND
+
+LED 3  (pocket 3)
+Anode (+)   → 220 ohm resistor → Arduino D4
+Cathode (-) → GND
+
+LED 4  (pocket 4)
+Anode (+)   → 220 ohm resistor → Arduino D5
+Cathode (-) → GND
+
+LED 5  (pocket 5)
+Anode (+)   → 220 ohm resistor → Arduino D6
+Cathode (-) → GND
+
+LED 6  (pocket 6)
+Anode (+)   → 220 ohm resistor → Arduino D7
+Cathode (-) → GND
+
+LED 7  (pocket 7)
+Anode (+)   → 220 ohm resistor → Arduino D8
+Cathode (-) → GND
+
+LED 8  (pocket 8)
+Anode (+)   → 220 ohm resistor → Arduino D9
+Cathode (-) → GND
+
+PUSH BUTTON - STOP / START
+One leg   → Arduino D10
+Other leg → GND
+  Press once to spin, press again to stop the wheel.
+
+PASSIVE BUZZER
++ → Arduino D11
+- → GND
+  Short blip when a winner is found.
+
+NOTES
+- Buzzer is on D11, NOT D8. D8 is already taken by LED 7 - the LEDs use
+  every pin from D2 to D9, so the buzzer moves to D11 and the button to D10.
+- Button uses the internal pull-up: wire it straight between D10 and GND.
+- tone() needs a PASSIVE buzzer. An active buzzer will not give the winner blip.
+- LED long leg = anode (+), always in series with a 220 ohm resistor.
+- The winning pocket (pin number) is printed in the Serial Monitor at 9600 baud.

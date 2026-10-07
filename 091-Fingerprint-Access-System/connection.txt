@@ -1,0 +1,50 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+R503 / R303 FINGERPRINT SENSOR MODULE
+VCC → Arduino 5V
+GND → Arduino GND
+TX  → Arduino D2     sensor transmits -> Arduino RX (SoftwareSerial)
+RX  → Arduino D3     Arduino transmits -> sensor RX, through the divider below
+
+TX → RX VOLTAGE DIVIDER (Arduino D3 -> sensor RX):
+
+  Arduino D3 ---[1k]---+--- sensor RX
+                       |
+                      [2k]
+                       |
+                      GND
+
+  5 V from the pin drops to about 3.3 V at sensor RX.
+  The sensor TX -> D2 line needs NO divider: 3.3 V still reads as HIGH
+  on the 5 V Arduino.
+
+MICRO SERVO (SG90 / MG996R) - door lock
+orange (signal) → Arduino D6
+red (+)         → Arduino 5V      separate 5 V supply for a big servo
+brown/black (-) → Arduino GND
+
+GREEN LED (access granted)
+anode (+)   → Arduino D4   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+RED LED (access denied)
+anode (+)   → Arduino D5   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+PASSIVE BUZZER
++ → Arduino D8   (100 ohm resistor in series)
+- → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- The 1k/2k divider is only needed on the Arduino -> sensor direction; the
+  Uno sends 5 V but the sensor input wants about 3.3 V.
+- Power the servo from a separate 5 V supply (or the barrel jack) if it
+  draws more than a few hundred mA, and keep a common ground.
+- Enroll fingers first: File -> Examples -> Adafruit Fingerprint -> enroll,
+  store IDs 1, 2 and 3, then upload this sketch.
+- Parts list has 3x 220 ohm resistors; the sketch lights 2 LEDs (D4, D5).

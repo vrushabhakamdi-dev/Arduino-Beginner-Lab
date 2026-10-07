@@ -1,0 +1,38 @@
+PROJECT NAME: 047 - Keypad Digital Lock
+PROJECT IDEA: A four-digit password lock built from a 4x4 keypad and an I2C LCD that opens when the PIN "1234" is typed and locks itself for 30 seconds after three wrong attempts.
+HOW IT WORKS: Every key press is scanned by the Keypad library, digits are appended to a buffer and shown as asterisks so nobody can read the code over your shoulder. Pressing # compares the buffer with the stored PIN using strcmp(); a match prints ACCESS GRANTED and sounds two high beeps, while a mismatch shows how many tries are left and gives a low error buzz. The third wrong attempt switches the program into a lockout state where all keys are ignored and a countdown from 30 seconds is refreshed on the LCD every second. When the time is up the counter resets and the keypad accepts input again.
+ADVANTAGES:
+- The PIN is stored in one constant, so changing the password needs no other edits.
+- Masking the digits with asterisks keeps the entered PIN private.
+- Three-strikes lockout discourages people from guessing the code.
+- Audible feedback from the buzzer confirms every action.
+- All state is handled with simple variables, easy for a beginner to follow.
+REAL-WORLD USES:
+- Door or cabinet access control panels.
+- Keypad entry for alarms, safes and gate controllers.
+- PIN unlock for a vending machine or toy box.
+- Login panel that guards a settings menu on a machine.
+- Locker or drawer locks in workshops and gyms.
+WHAT YOU LEARN:
+- Scanning a matrix keypad and translating the key map.
+- Storing and comparing a password string with strcmp().
+- Managing program states such as normal, granted and locked out.
+- Non-blocking countdown timing with millis() while still reading the keypad.
+- Giving audible feedback with tone() on a buzzer.
+FUTURE SCOPE: Add a master PIN that changes the user PIN, plus an EEPROM memory so the code survives a power cut.
+POSSIBLE UPGRADES:
+- Add a green and a red LED for open and denied status.
+- Log every attempt with a timestamp on the Serial Monitor.
+- Allow a longer or variable length PIN.
+- Add a master code that resets the wrong-attempt counter.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 4x4 membrane keypad
+- LCD 1602 with I2C backpack (address 0x27)
+- Piezo buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Keypad and LiquidCrystal I2C
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Keypad, LiquidCrystal I2C

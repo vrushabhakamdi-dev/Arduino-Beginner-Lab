@@ -1,0 +1,38 @@
+PROJECT NAME: 014 - LED Bar Graph
+PROJECT IDEA: Turn a potentiometer and watch ten LEDs light up progressively like a level meter while the Serial Monitor shows the value as a percentage.
+HOW IT WORKS: The potentiometer acts as a voltage divider on analog pin A0, so analogRead() returns a number between 0 and 1023. That value is mapped to 0-10 to decide how many LEDs to light, and also to 0-100 for the percentage shown on the Serial Monitor. The loop repeats every 100 milliseconds, so the bar follows the knob smoothly.
+ADVANTAGES:
+- Only one potentiometer and ten LEDs are required.
+- Gives immediate visual feedback of an analog reading.
+- Mapping a raw sensor value into a friendly range is a core Arduino skill.
+- Serial output lets you check the circuit without counting LEDs.
+- An ideal first project for learning analog inputs.
+REAL-WORLD USES:
+- Volume and brightness level indicators on audio equipment.
+- Battery charge gauges on portable devices.
+- Fuel, temperature and pressure gauges on machines.
+- Signal strength meters on radios and test instruments.
+- Fader-style level displays on mixing desks and control panels.
+WHAT YOU LEARN:
+- How to read an analog sensor with analogRead() on pin A0.
+- How map() rescales one range of values into another.
+- How to drive a group of outputs with a loop and a base pin number.
+- How to convert raw ADC counts into a percentage.
+- How a potentiometer works as a voltage divider.
+FUTURE SCOPE: The same bar could display data from any analog sensor, such as light level or temperature, instead of a potentiometer.
+POSSIBLE UPGRADES:
+- Replace the potentiometer with a light-dependent resistor (LDR).
+- Use analogWrite() so the level is shown by brightness instead of LED count.
+- Add a peak LED that stays lit until a reset button is pressed.
+- Feed the bar from an LM35 temperature sensor.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 10 LEDs (any color)
+- 10 x 220 ohm resistors
+- 10 kOhm potentiometer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

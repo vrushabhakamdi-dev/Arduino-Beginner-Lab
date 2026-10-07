@@ -1,0 +1,20 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON
+Leg 1 → Arduino D2
+Leg 2 → GND
+
+LED
+Anode (+) → Arduino D13     (through 220 ohm resistor)
+Cathode (−) → GND
+
+RANDOM SEED PIN
+A0 → not connected (leave floating)
+  The floating pin picks up electrical noise and seeds random() at start-up.
+
+NOTES
+- Internal pull-up on the button: press reads LOW, no external resistor.
+- One 220 ohm resistor in series with the LED.
+- Breadboard, jumper wires and USB cable only; no external supply.

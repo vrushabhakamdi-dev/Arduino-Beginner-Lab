@@ -1,0 +1,26 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+FC-51 IR OBSTACLE SENSOR
+VCC  → Arduino 5V
+GND  → Arduino GND
+OUT  → Arduino D2     active LOW = obstacle ("car") seen
+
+SG90 MICRO SERVO
++ (red)         → Arduino 5V
+- (brown/black) → Arduino GND
+S (orange)      → Arduino D6     PWM barrier arm signal
+
+5MM LED (WARNING LAMP)
++ (anode)   → Arduino D13   through 220 ohm resistor
+- (cathode) → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- The FC-51 output is LOW when it detects an obstacle (code: OBSTACLE_DETECTED = LOW).
+- D13 already has a built-in LED on the Uno, so the external LED and its
+  220 ohm resistor are optional.
+- Servo signal must be on D6, the sketch does barrier.attach(6).

@@ -1,0 +1,39 @@
+PROJECT NAME: 097 - Electronic Queue Token System
+PROJECT IDEA: A push-button token machine that issues numbered tickets and calls the next customer, showing the current token and the number being served on a 16x2 I2C LCD.
+HOW IT WORKS: Pressing the ISSUE button on pin 2 increments the token counter and the LCD first line shows the newest token as "TOKEN: 007". Pressing the CALL NEXT button on pin 3 advances the "NOW SERVING" counter and rings the buzzer on pin 8 three times so the waiting person knows to come forward; if nobody is waiting, the call is ignored with a short low tone. Both buttons are debounced, the LCD is only rewritten when a value actually changes (so it never flickers), and every issue or call event is written to the Serial Monitor with a [MM:SS] timestamp.
+ADVANTAGES:
+- Removes confusion about who is next in a busy waiting area.
+- Three-digit zero-padded display is instantly readable from a distance.
+- Timestamped Serial log records the whole serving session.
+- Buttons use internal pull-ups, so no external resistors are needed.
+- LCD refreshes only on change, which keeps the display steady and clean.
+REAL-WORLD USES:
+- Token counters for clinics, pharmacies or small service counters.
+- Queue display for a school office, lab booking desk or canteen.
+- Turn order controller for a competition or audition waiting room.
+- "Now serving" board for a bakery or takeaway counter.
+- Base for a multi-counter system with several serving windows.
+WHAT YOU LEARN:
+- Driving a 16x2 I2C LCD with the LiquidCrystal I2C library.
+- Formatting fixed-width, zero-padded numbers with snprintf() and %03d.
+- Debouncing two independent buttons with a shared helper.
+- Keeping counters consistent (never serving more than was issued).
+- Logging user actions with timestamps over Serial.
+FUTURE SCOPE: Adding a second display at the waiting end, or a buzzer sound that plays the token number in Morse code, would make the system complete for a real room.
+POSSIBLE UPGRADES:
+- Add a third button to reset both counters at the start of a shift.
+- Show how many people are still waiting on a second LCD line style.
+- Use a buzzer plus a blinking arrow to point to the service counter.
+- Store the number of customers served per hour for a daily report.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- LCD 1602 with I2C backpack (address 0x27)
+- 2x push buttons
+- Passive buzzer
+- 100 ohm resistor for the buzzer
+- Breadboard
+- Jumper wires (SDA -> A4, SCL -> A5)
+- USB cable
+- Library: LiquidCrystal I2C
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: LiquidCrystal I2C

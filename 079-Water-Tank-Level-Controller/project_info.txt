@@ -1,0 +1,41 @@
+PROJECT NAME: 079 - Water Tank Level Controller
+PROJECT IDEA: Measure the water level of a tank with a top-mounted ultrasonic sensor and switch a low-voltage demo pump through a relay so the tank automatically stays between 20 and 95 percent full.
+HOW IT WORKS: The HC-SR04 is fixed above the water looking down, so a short echo distance means a high water level; the sketch converts that distance into a percentage of the tank depth. A relay on pin 4 switches the pump ON whenever the level drops to 20 percent or below and switches it OFF again at 95 percent, and the gap between those two numbers is hysteresis that stops the pump chattering on and off. The LED on pin 13 shows whenever the pump is running, and the Serial Monitor keeps a fill cycle log with the level, pump state and number of completed cycles.
+ADVANTAGES:
+- Non-contact measurement keeps the electronics completely away from the water.
+- Hysteresis (20% to 95%) prevents rapid on/off cycling of the pump.
+- A relay keeps the Arduino isolated from the pump supply.
+- The fill cycle log makes it easy to verify the thresholds over time.
+- Everything runs without internet or any extra modules.
+REAL-WORLD USES:
+- Automatic refill control for a household or hobby water tank.
+- Sump and overhead tank pump controllers (in a properly enclosed, mains-safe version).
+- Water level maintenance for fountains, aquaria and model steam boilers.
+- Teaching hysteresis and feedback control in physics or engineering classes.
+- Base logic for a pump house or rainwater harvesting demonstration.
+WHAT YOU LEARN:
+- Mounting and interpreting an ultrasonic sensor for level instead of distance.
+- Converting distance into a percentage of a known tank depth.
+- Implementing hysteresis so a controller has two distinct switching points.
+- Driving a relay output safely with an active-low constant.
+- Logging state changes so a control loop can be inspected afterwards.
+FUTURE SCOPE: Adding a low-level warning buzzer, a second sensor for overflow protection, or an LCD status panel would make the controller more complete.
+POSSIBLE UPGRADES:
+- Add a buzzer that warns when the level stays below 20% for too long.
+- Show a filling progress bar of # characters on the Serial Monitor.
+- Add a manual override button to force the pump on or off.
+- Display the level on an LCD (see project 077 for an I2C LCD example).
+REQUIRED COMPONENTS:
+- Arduino Uno
+- HC-SR04 ultrasonic sensor
+- 5V relay module (1 channel)
+- Low-voltage DC demo pump (5-12 V) and its power supply
+- LED (any colour)
+- 220 ohm resistor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Advanced Beginner
+LIBRARY REQUIRED: None
+SAFETY NOTE: This is an educational prototype only. It is not a certified safety-critical system and must not be relied upon for real-world safety. Drive only low-voltage demo loads; mains electricity work must be done by a qualified professional.

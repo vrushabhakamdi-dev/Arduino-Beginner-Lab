@@ -1,0 +1,42 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+HX711 LOAD CELL AMPLIFIER
+VCC → Arduino 5V
+GND → Arduino GND
+DT  → Arduino D4    data out
+SCK → Arduino D5    clock
+
+LOAD CELL (4-WIRE STRAIN GAUGE) → HX711
+
+  LOAD CELL    HX711
+  red    ------→ E+
+  black  ------→ E-
+  white  ------→ A-
+  green  ------→ A+
+
+  All four cell wires go straight to the HX711 screw/pad terminals.
+
+PUSH BUTTON - TARE
+leg 1 → Arduino D2
+leg 2 → Arduino GND
+
+1602 LCD WITH I2C BACKPACK (PCF8574, ADDR 0x27)
+VCC → Arduino 5V
+GND → Arduino GND
+SDA → Arduino A4
+SCL → Arduino A5
+
+BREADBOARD / JUMPER WIRES / USB CABLE / KNOWN CALIBRATION WEIGHT
+no pin mapping - used for prototyping, power and calibration
+
+NOTES
+- The HX711 runs from 5 V; keep DT/SCK and the load-cell wires short and
+  away from motor or mains wiring so readings stay steady.
+- Load cell colours vary between makers - follow your cell's diagram. A
+  negative reading only means two wires are swapped.
+- Calibrate once: tare empty, weigh a known load, then
+  NEW = OLD * (shown / known) in CALIBRATION_FACTOR.
+- If the LCD/Serial says NO HX711, re-check DT -> D4 and SCK -> D5.
+- A4/A5 stay free for the LCD - the HX711 does not use I2C here.

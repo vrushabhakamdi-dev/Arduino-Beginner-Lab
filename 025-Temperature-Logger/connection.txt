@@ -1,0 +1,15 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+TMP36 TEMPERATURE SENSOR
+(flat face toward you, pins left to right: Vout, Vs, GND)
+Vout → Arduino A0    analog output - 0.5 V at 0 C, +10 mV per degree C
+Vs   → Arduino 5V
+GND  → Arduino GND
+
+NOTES
+- Orientation matters: flat face toward you, left pin = Vout (to A0), middle = Vs (to 5V), right = GND. Reversing Vs and GND can destroy the sensor.
+- Warm-up: wait about 30 seconds after power-up before trusting the numbers.
+- Do not touch the sensor body - body heat raises the reading by several degrees.
+- One CSV row (millis,degrees_c,degrees_f) is printed every 2 seconds at 9600 baud.

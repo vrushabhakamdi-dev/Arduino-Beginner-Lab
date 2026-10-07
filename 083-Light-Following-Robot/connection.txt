@@ -1,0 +1,34 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LDR VOLTAGE DIVIDER - LEFT
+5V → LDR → Arduino A0 → 10k → GND    (A0 = divider mid-point; brighter = higher reading)
+
+LDR VOLTAGE DIVIDER - RIGHT
+5V → LDR → Arduino A1 → 10k → GND    (A1 = divider mid-point; brighter = higher reading)
+
+L298N MOTOR DRIVER
+ENA → Arduino D5     (left motor speed, PWM - remove the ENA jumper cap)
+IN1 → Arduino D6     (left motor direction)
+IN2 → Arduino D7     (left motor direction)
+IN3 → Arduino D8     (right motor direction)
+IN4 → Arduino D9     (right motor direction)
+ENB → Arduino D10    (right motor speed, PWM - remove the ENB jumper cap)
++12V → 6-12V battery pack (+)
+GND → battery (-) AND Arduino GND (common ground)
+OUT1/OUT2 → left DC motor
+OUT3/OUT4 → right DC motor
+
+  battery (+) → L298N +12V
+  battery (-) → L298N GND → Arduino GND     (one joined ground)
+  L298N OUT1/OUT2 → left motor
+  L298N OUT3/OUT4 → right motor
+
+NOTES
+- Each LDR needs its own 10k resistor to GND - two dividers in total.
+- Power the motors from the separate 6-12V pack, never from the Arduino 5V pin.
+- Battery (-) must be joined to Arduino GND or the driver will not respond.
+- Take the ENA and ENB jumper caps off, otherwise PWM speed control is ignored.
+- If a wheel turns the wrong way, swap that motor's two wires - no code change.
+- No signal wiring: robot chassis with caster wheel, breadboard, jumper wires, USB cable.

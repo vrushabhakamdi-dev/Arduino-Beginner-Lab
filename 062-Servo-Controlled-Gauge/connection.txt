@@ -1,0 +1,22 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+10K POTENTIOMETER
+left leg   → Arduino 5V
+wiper      → Arduino A0     gauge input (0..1023)
+right leg  → Arduino GND
+
+SG90 MICRO SERVO
++ (red)         → Arduino 5V
+- (brown/black) → Arduino GND
+S (orange)      → Arduino D9     PWM needle signal
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- Only the middle leg (wiper) of the pot goes to A0; the two outer legs
+  are 5V and GND (they can be swapped).
+- The two outer legs of the pot and the servo share the Uno 5V/GND rail.
+- Servo signal must be on D9, the sketch does gaugeNeedle.attach(9).

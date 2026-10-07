@@ -1,0 +1,39 @@
+PROJECT NAME: 011 - Reaction Time Tester
+PROJECT IDEA: Measure how fast a person can press a button after an LED lights up, showing the reaction time in milliseconds and keeping the best score.
+HOW IT WORKS: The sketch waits a random 1 to 4 seconds with the LED off, then switches the LED on and starts timing with millis(). A press before the LED lights is a false start and triggers a buzz on the buzzer; a press after the LED lights stops the timer and prints the reaction time. Each result is compared with the stored best score, so the player always knows whether they beat their record.
+ADVANTAGES:
+- Uses only an LED, a button and a buzzer, so the circuit is very cheap.
+- Turns a simple circuit into a game that keeps learners motivated.
+- Demonstrates millis()-based timing instead of blocking delay() timing.
+- The best score is stored automatically, so no extra display is needed.
+- Serial output makes every round easy to record and compare.
+REAL-WORLD USES:
+- Psychology and sports laboratories that measure human reaction time.
+- Driver alertness and fatigue testing equipment.
+- Training tools for gamers, athletes and pilots.
+- Operator response checks on industrial control panels.
+- Classroom demonstrations of the limits of human perception.
+WHAT YOU LEARN:
+- How to read a button with INPUT_PULLUP and why it reads LOW when pressed.
+- How to measure elapsed time with millis() instead of delay().
+- How random() makes a project unpredictable and why randomSeed() is needed.
+- How to detect a false start by checking the button during the waiting phase.
+- How a variable survives across loop() runs to keep a best score.
+FUTURE SCOPE: The tester could store several top scores, compare an average of recent rounds, or drive a 7-segment display so the Serial Monitor is no longer needed.
+POSSIBLE UPGRADES:
+- Add a second LED that lights up whenever a new best score is reached.
+- Print the average of the last ten attempts after each round.
+- Play a happy beep when the reaction time is faster than 250 ms.
+- Count the remaining attempts out of ten and end the game when they run out.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- LED (any color)
+- 220 ohm resistor
+- Push button
+- Passive buzzer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

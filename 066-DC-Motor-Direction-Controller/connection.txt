@@ -1,0 +1,56 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+L298N MOTOR DRIVER
+ENA  → Arduino D5     PWM speed control (remove the ENA jumper cap)
+IN1  → Arduino D6     motor direction (HIGH = forward)
+IN2  → Arduino D7     motor direction (HIGH = reverse)
+OUT1 → DC motor terminal A
+OUT2 → DC motor terminal B
++12V → external 6-12V supply (+)
+GND  → external supply (-) AND Arduino GND (common ground)
+
+DC MOTOR (6-12V)
+terminal A → L298N OUT1
+terminal B → L298N OUT2
+
+PUSH BUTTON - FORWARD
+pin → Arduino D2, other side → Arduino GND     (INPUT_PULLUP)
+
+PUSH BUTTON - REVERSE
+pin → Arduino D3, other side → Arduino GND     (INPUT_PULLUP)
+
+PUSH BUTTON - STOP
+pin → Arduino D4, other side → Arduino GND     (INPUT_PULLUP)
+
+LED - FORWARD INDICATOR
++ (anode)   → Arduino D9   through 220 ohm resistor
+- (cathode) → Arduino GND
+
+LED - REVERSE INDICATOR
++ (anode)   → Arduino D10  through 220 ohm resistor
+- (cathode) → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+L298N WIRING OVERVIEW
+
+  ARDUINO UNO     L298N               MOTOR
+  ----------     -----               -----
+  D5  ---------> ENA
+  D6  ---------> IN1
+  D7  ---------> IN2
+  GND --------> GND  <--- external supply (-)
+                 +12V  <--- external supply (+)
+                 OUT1 ---> motor terminal A
+                 OUT2 ---> motor terminal B
+
+NOTES
+- Buttons use INPUT_PULLUP: one leg to the pin, the other leg straight to
+  GND, no external resistors needed. Pressed = LOW.
+- Remove the ENA jumper cap so PWM on D5 actually sets the speed.
+- Use a separate 6-12V supply for the motor (never the Arduino 5V pin) and
+  tie the supply (-) to Arduino GND (common ground).
+- STOP is done by dropping the ENA PWM to 0 and setting IN1/IN2 LOW.

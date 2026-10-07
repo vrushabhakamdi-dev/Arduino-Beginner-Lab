@@ -1,0 +1,24 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+TCS3200 COLOR SENSOR MODULE (with illuminating LED)
+VCC → Arduino 5V
+GND → Arduino GND
+S0  → Arduino D4
+  S0 = frequency scaling select (code sets S0=HIGH, S1=LOW = 20% output)
+S1  → Arduino D5
+  S1 = frequency scaling select, used together with S0
+S2  → Arduino D6
+  S2 = photodiode colour filter select, used together with S3
+S3  → Arduino D7
+  S3 = photodiode colour filter select, used together with S2
+OUT → Arduino D8
+  OUT = square wave whose frequency is proportional to the light of the selected colour
+
+NOTES
+- Calibration: at start-up the sketch counts down 5 seconds, so hold a plain WHITE card about 2 cm above the sensor. Re-run it whenever the lighting or the working distance changes.
+- Keep the distance and lighting constant, otherwise the colour names will drift.
+- If calibration reads zero the sketch falls back to default reference values and prints a warning - colours will be less accurate.
+- If all frequencies print as 0 Hz, check VCC/GND and the OUT wire first: no light reaches the photodiodes or the module is unpowered.
+- Built on a breadboard with jumper wires; upload with the USB cable and watch the Serial Monitor at 9600 baud.

@@ -1,0 +1,21 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON (tactile)
+leg 1 → Arduino D2
+leg 2 → Arduino GND
+
+GREEN LED (HEADS)
+A (+) → 220 ohm resistor → Arduino D5
+K (-) → Arduino GND
+
+RED LED (TAILS)
+A (+) → 220 ohm resistor → Arduino D6
+K (-) → Arduino GND
+
+NOTES
+- Button uses INPUT_PULLUP, so no external resistor (pressed = LOW).
+- One press = one flip; release the button to arm it again.
+- A0 is left UNCONNECTED on purpose: its noise seeds random() at start-up,
+  otherwise every power cycle would give the same sequence of flips.

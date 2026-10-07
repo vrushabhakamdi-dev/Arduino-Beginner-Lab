@@ -1,0 +1,38 @@
+PROJECT NAME: 057 - Electronic Theremin
+PROJECT IDEA: A light-controlled instrument where moving your hand over an LDR changes the pitch of a continuous tone, imitating the famous touch-free theremin.
+HOW IT WORKS: An LDR and a 10k ohm resistor make a voltage divider on analog pin A0, so more light raises the voltage and covering the LDR with your hand lowers it. The sketch averages ten recent readings to smooth out noise, maps the value to a range of 200 to 4000 Hz, rounds it to 5 Hz steps and feeds it to a passive buzzer on pin 8 with tone(). The current pitch is printed to the Serial Monitor, so you can watch the exact frequency while you play.
+ADVANTAGES:
+- Truly contact-free control: the player never touches the instrument.
+- Rolling-average smoothing gives a stable, musical tone instead of a shaky one.
+- The whole range is adjustable with two constants at the top of the sketch.
+- Serial output shows the exact Hz, which is a great way to learn about the ADC.
+- Uses only an LDR, one resistor and a buzzer - no libraries required.
+REAL-WORLD USES:
+- Electronic music instruments and sound art installations.
+- Dimmer-style light sensors for lamps and decorative lighting.
+- Non-contact hand gestures for simple control panels.
+- Educational demos of analog sensors and the analogRead() function.
+- Sound effects in haunted houses, museums and interactive exhibits.
+WHAT YOU LEARN:
+- How a voltage divider with an LDR produces a changing analog voltage.
+- How analogRead() converts 0-5V into a number from 0 to 1023.
+- How map() scales one range of values onto another.
+- How averaging several samples (smoothing) stabilises a noisy sensor.
+- How tone() plays arbitrary frequencies on a passive buzzer.
+FUTURE SCOPE: Adding a second LDR on another analog pin would give two-dimensional control, one hand for pitch and one for volume, much like a real theremin.
+POSSIBLE UPGRADES:
+- Use a second LDR to control volume or waveform instead of pitch.
+- Quantise the output to a musical scale so every note sounds in tune.
+- Add a distance sensor (HC-SR04) so the control is by hand distance, not light.
+- Save the lowest and highest readings once at start-up for automatic calibration.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- Light dependent resistor (LDR)
+- 10k ohm resistor
+- Passive buzzer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

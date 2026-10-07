@@ -1,0 +1,38 @@
+PROJECT NAME: 045 - LCD Calculator
+PROJECT IDEA: A simple integer calculator where two potentiometers set the two numbers and four push buttons choose +, -, * or /, with the full equation shown on a 16x2 I2C LCD.
+HOW IT WORKS: The two potentiometers are read with analogRead() on pins A0 and A1 and mapped from 0-1023 into the range 0 to 99, so they become the two operands. As soon as one of the four operator buttons is pressed, the sketch runs the chosen integer calculation and prints the whole equation such as "12 + 34 = 46" on the top LCD line. The bottom line always shows the live values of A and B, and a division by zero is caught and reported instead of crashing the program. Every button press is debounced so one press gives exactly one result.
+ADVANTAGES:
+- No keypad needed: two cheap potentiometers and four buttons are enough.
+- The full equation is shown, not only the answer, which helps learners check the maths.
+- Integer math keeps the code simple and the results easy to verify by hand.
+- Division by zero is detected and displayed as a friendly message.
+- Potentiometer values are averaged, so the display does not flicker.
+REAL-WORLD USES:
+- Learning tool for practising arithmetic with physical controls.
+- Quick desktop calculator for workshop or lab values.
+- Panel-mounted process calculator (setting two values and combining them).
+- Base unit for a grading, pricing or unit-conversion display.
+- Demo board for teaching buttons, analog inputs and LCD output together.
+WHAT YOU LEARN:
+- Reading and smoothing analog inputs with analogRead() and averaging.
+- Mapping an analog range to a useful number range with map().
+- Handling four buttons at once with an array and shared debounce code.
+- Formatting equations with snprintf() and showing them on an I2C LCD.
+- Switch/case selection of an operator and guarding against division by zero.
+FUTURE SCOPE: Replace the two potentiometers with typed numbers, which leads directly into the keypad version of the same calculator.
+POSSIBLE UPGRADES:
+- Add a fifth button that clears the display and starts a new calculation.
+- Show the remainder after division, for example "7 / 2 = 3 r1".
+- Store the last result and use it as the first operand of the next sum.
+- Allow negative results by displaying a minus sign properly.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- LCD 1602 with I2C backpack (address 0x27)
+- 2 potentiometers (10k ohm)
+- 4 push buttons
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: LiquidCrystal I2C
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: LiquidCrystal I2C

@@ -1,0 +1,36 @@
+PROJECT NAME: 016 - Digital Stopwatch
+PROJECT IDEA: A stopwatch controlled by two buttons that shows minutes, seconds and hundredths of a second live in the Serial Monitor.
+HOW IT WORKS: One button starts and stops the stopwatch while the other resets it to zero. The sketch stores the time already accumulated and adds the milliseconds counted by millis() since the last start, so no blocking delay() is used anywhere in loop(). While it runs, the display line is refreshed often with a carriage return, giving a rolling mm:ss:cs readout.
+ADVANTAGES:
+- Runs without delay(), so the buttons always respond instantly.
+- Hundredths-of-a-second resolution is possible with nothing but millis().
+- Two buttons give full start, stop, resume and reset control.
+- The rolling display updates centiseconds in real time.
+- No display hardware is needed beyond the Serial Monitor.
+REAL-WORLD USES:
+- Timing races, laps and sports practice sessions.
+- Measuring how long a machine cycle or process takes.
+- Laboratory experiments that need elapsed time logging.
+- Cooking, study (pomodoro) and classroom activity timers.
+- Benchmarking how long other Arduino sketches take to run.
+WHAT YOU LEARN:
+- How to accumulate elapsed time across several start and stop cycles.
+- How to write a non-blocking debounce routine for push buttons.
+- How to split milliseconds into minutes, seconds and hundredths.
+- How a carriage return redraws one line in the Serial Monitor.
+- Why delay() would make a stopwatch unresponsive.
+FUTURE SCOPE: The stopwatch could record lap times, keep the top results in EEPROM, or show the time on an LCD instead of the Serial Monitor.
+POSSIBLE UPGRADES:
+- Add a third button that records and prints lap times.
+- Save the best lap in EEPROM so it survives a power cycle.
+- Display the time on a 16x2 LCD or a seven-segment display.
+- Switch to micros() for even finer resolution than hundredths.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 2 push buttons
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

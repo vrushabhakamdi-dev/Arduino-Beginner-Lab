@@ -1,0 +1,26 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON (tactile)
+leg 1 → Arduino D3
+leg 2 → Arduino GND
+
+LED 1 (top-left)    A (+) → 220 ohm resistor → Arduino D2   K (-) → GND
+LED 2 (top-right)   A (+) → 220 ohm resistor → Arduino D4   K (-) → GND
+LED 3 (mid-left)    A (+) → 220 ohm resistor → Arduino D5   K (-) → GND
+LED 4 (centre)      A (+) → 220 ohm resistor → Arduino D6   K (-) → GND
+LED 5 (mid-right)   A (+) → 220 ohm resistor → Arduino D7   K (-) → GND
+LED 6 (bottom-left) A (+) → 220 ohm resistor → Arduino D8   K (-) → GND
+LED 7 (bottom-right)A (+) → 220 ohm resistor → Arduino D9   K (-) → GND
+
+  [D2]  [D4]
+  [D5] [D6] [D7]
+  [D8]  [D9]
+
+NOTES
+- D3 belongs to the BUTTON, so there is no LED on D3: the LED chain runs
+  D2, then skips D3 and continues D4 → D9.
+- Button uses INPUT_PULLUP, so no external resistor (pressed = LOW).
+- A0 is left UNCONNECTED on purpose: the code reads its electrical noise
+  with analogRead(A0) to seed random() so every roll differs.

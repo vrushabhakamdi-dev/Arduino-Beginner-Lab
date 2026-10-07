@@ -1,0 +1,37 @@
+PROJECT NAME: 059 - Digital Metronome
+PROJECT IDEA: A digital metronome that produces an accurate beat on a buzzer, with buttons to raise or lower the tempo in BPM and a start/stop switch, plus an accent every fourth beat.
+HOW IT WORKS: Buttons on pins 2 and 3 add or subtract 5 BPM from the tempo, while the button on pin 4 starts and stops the beat, and each change is printed to the Serial Monitor. The beat interval is calculated as 60000 divided by the BPM, and the loop compares millis() against the next scheduled beat time so timing never blocks the program. Every tick sounds on the buzzer on pin 8 and flashes the LED on pin 13, with a higher accent pitch on beat four to mark the start of each bar.
+ADVANTAGES:
+- millis() timing keeps the beat accurate while the buttons remain instantly responsive.
+- An accent every fourth beat makes counting bars natural for musicians.
+- Tempo can be changed on the fly while the metronome keeps running.
+- Serial output shows the BPM and the exact beat interval in milliseconds.
+- Needs only three buttons, a buzzer and the built-in LED.
+REAL-WORLD USES:
+- Practice companion for any instrumentalist or singer.
+- Timing reference in recording and rehearsal studios.
+- Base for drum machines, sequencers and rhythm trainers.
+- Cadence keeper for marching, exercise and physiotherapy routines.
+- Demonstrates non-blocking timing, a key skill in Arduino programming.
+WHAT YOU LEARN:
+- Why delay() is unsuitable for accurate timing and how millis() replaces it.
+- How to convert a tempo in BPM into a period in milliseconds.
+- How to schedule repeating events with a "next time" variable.
+- How to handle several buttons and change settings while a task runs.
+- How to accent beats using a simple counter and modulo-style logic.
+FUTURE SCOPE: Adding a time-signature selector, a tap-tempo button or a silent visual-only mode would make it usable on stage as well as in the practice room.
+POSSIBLE UPGRADES:
+- Add a tap-tempo button that measures the time between your taps.
+- Choose 3/4, 4/4 or 6/8 time so the accent falls on the right beat.
+- Show the BPM on a small LCD or seven-segment display.
+- Add a quiet mode where only the LED flashes instead of sounding.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 3 push buttons
+- Passive buzzer
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

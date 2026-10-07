@@ -1,0 +1,38 @@
+PROJECT NAME: 037 - Digital Tilt Detector
+PROJECT IDEA: Use an SW-520D tilt ball switch to notice when a device is tipped off level, then light an LED and sound a buzzer while printing TILTED or LEVEL.
+HOW IT WORKS: Inside the SW-520D a loose metal ball rolls between two contacts as the module is rotated. When the board is roughly level the ball sits on one side and the digital output stays LOW, and when it tips the ball rolls over and the output goes HIGH. The Arduino watches pin 2, and whenever the reading settles on a new state it updates the LED and buzzer and prints the change to the Serial Monitor.
+ADVANTAGES:
+- Very cheap and rugged sensor with no calibration required.
+- Gives a clean digital signal, so the code stays simple.
+- Works as a basic safety cut-off that needs no software at all in other designs.
+- Immediate audible and visual feedback when the device is no longer level.
+- Status is printed only on change, so the Serial Monitor stays readable.
+REAL-WORLD USES:
+- Tilt alarms on tool boxes, freezers and storage bins.
+- Safety switches that stop a machine if it tips over.
+- Anti-theft alarms for laptops, tablets and display models.
+- Detecting if a fridge, freezer or shelf has been knocked.
+- Level and orientation feedback for hobby robots and models.
+WHAT YOU LEARN:
+- How a mechanical tilt ball switch produces a digital signal.
+- Using debounce to stop a bouncing mechanical contact from causing false events.
+- Controlling a buzzer with tone() based on a sensor state.
+- Printing only on state changes instead of flooding the Serial Monitor.
+- Tracking how long a condition lasts using millis().
+FUTURE SCOPE: Several tilt switches could watch multiple axes and give a specific warning for each direction of tip-over.
+POSSIBLE UPGRADES:
+- Latch the alarm until a push button resets it.
+- Add a second tilt switch on another pin for a second axis.
+- Sound a rising siren instead of a steady tone.
+- Log each tilt event with its duration to an SD card.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- SW-520D tilt ball switch module
+- Piezo buzzer
+- 220 ohm resistor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

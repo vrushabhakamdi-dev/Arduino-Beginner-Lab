@@ -1,0 +1,52 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+TMP36 TEMPERATURE SENSOR
+VCC (left)  → Arduino 5V      flat face pointing left
+Vout (middle) → Arduino A0    temperature analogue output
+GND (right) → Arduino GND
+
+L298N MOTOR DRIVER
+ENA  → Arduino D5     PWM fan speed (remove the ENA jumper cap)
+IN1  → Arduino D6     fan direction - ALSO feeds the red hot-zone LED
+IN2  → Arduino D7     fan direction (held LOW)
+OUT1 → DC fan terminal A
+OUT2 → DC fan terminal B
++12V → external supply (+) if the fan is not a 5V fan
+GND  → external supply (-) AND Arduino GND (common ground)
+
+DC FAN (5V, or 6-12V with external supply)
+terminal A → L298N OUT1
+terminal B → L298N OUT2
+
+RED LED (HOT ZONE, 27 degC and above)
++ (anode)   → Arduino D6   through 220 ohm resistor  (shared with IN1)
+- (cathode) → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+L298N WIRING OVERVIEW
+
+  ARDUINO UNO     L298N               FAN
+  ----------     -----               ---
+  D5  ---------> ENA
+  D6  ---------> IN1  <--- red LED + 220 ohm --> GND
+  D7  ---------> IN2
+  GND --------> GND  <--- external supply (-)
+                 +12V  <--- external supply (+)
+                 OUT1 ---> fan terminal A
+                 OUT2 ---> fan terminal B
+
+NOTES
+- SHARED PIN (as coded): D6 is both L298N IN1 and the red LED anode.
+  IN1 only goes HIGH while the fan runs, so the LED lights in the hot
+  zone; the Arduino output drives the LED and the high-impedance L298N
+  logic input at the same time. Wire it exactly like that.
+- Remove the ENA jumper cap so PWM on D5 sets the two fan speeds
+  (LOW = 110, HIGH = 255, off = 0).
+- TMP36 pinout: flat face left, left→right = VCC(5V), Vout(A0), GND.
+- A 5V fan can run from the Uno 5V pin for testing; otherwise use the
+  external 6-12V supply on +12V and tie its (-) to Arduino GND
+  (common ground). Never power a motor from the Arduino 5V pin in use.

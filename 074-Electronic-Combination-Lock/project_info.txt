@@ -1,0 +1,38 @@
+PROJECT NAME: 074 - Electronic Combination Lock
+PROJECT IDEA: Open a servo driven lock by typing a four digit PIN on a 4x4 keypad, with a changeable PIN kept in EEPROM and an alarm after three wrong attempts.
+HOW IT WORKS: The keypad rows are on pins 9 to 6 and the columns on pins 5 to 2, and the Keypad library turns the pressed keys into characters. As you type, the code masks your entry with asterisks and checks it automatically after the fourth digit; a correct PIN moves the servo on pin 10 to 90 degrees to open the lock, while a wrong one raises the attempt counter. Three wrong PINs start a 30 second siren on pin 11, and a correct PIN resets the counter. The PIN itself can be changed from the Serial Monitor by sending a line such as PIN=1379, and the EEPROM library stores it so it survives a power cut.
+ADVANTAGES:
+- The PIN is stored in EEPROM, so it is not lost when the board is switched off.
+- Masked feedback on the Serial Monitor keeps the PIN from being shouted out loud.
+- Three-strike lockout with a 30 second alarm discourages guessing.
+- One constant selects the servo angles, so different lock mechanisms are easy to adapt.
+- The keypad uses only eight digital pins and needs no external resistors.
+REAL-WORLD USES:
+- Electronic door latches for lockers, cabinets and jewellery boxes.
+- Keypad entry pads for hobby safe and secret drawer projects.
+- PIN style access control for gates, alarm systems and vending machines.
+- Classroom example of combining a keypad, a servo and non-volatile memory.
+- A starting point for multi-user systems where each user has a code.
+WHAT YOU LEARN:
+- Wiring and programming a 4x4 membrane keypad with the Keypad library.
+- Reading and writing bytes with the EEPROM library (built-in).
+- Driving a servo to two fixed angles to represent locked and unlocked.
+- Managing a small state machine: locked, opened and alarming.
+- Parsing simple text commands received over the Serial Monitor.
+FUTURE SCOPE: Multiple PINs for different users, or a log of every unlock attempt with timestamps, would extend the same design.
+POSSIBLE UPGRADES:
+- Store a 6 digit PIN instead of 4 by enlarging the buffers and EEPROM block.
+- Add an LCD (see project 088 for an LCD safe) to show LOCKED or OPENED locally.
+- Unlock automatically when a correct RFID tag is added later.
+- Blink an LED while the lock is open and sound a warning beep before relocking.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 4x4 membrane keypad
+- Micro servo motor (SG90 or similar)
+- Piezo buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Keypad
+DIFFICULTY: Advanced Beginner
+LIBRARY REQUIRED: Keypad, EEPROM (built-in)

@@ -1,0 +1,41 @@
+PROJECT NAME: 094 - Accident Impact Detector
+PROJECT IDEA: Detect a sudden crash or heavy knock with an MPU6050 accelerometer and raise a latched alarm with an LED, a buzzer and a timestamped Serial message.
+HOW IT WORKS: The MPU6050 on the I2C bus (SDA A4, SCL A5) delivers the acceleration on all three axes about 100 times per second, and the sketch combines them into one vector magnitude with Pythagoras' theorem. At rest the magnitude sits near 9.81 m/s^2 because of gravity, so whenever it jumps more than 30 m/s^2 away from that value the sketch decides an impact happened. The alarm then latches: the LED on pin 13 and the buzzer on pin 8 stay active and a line such as "[00:12.450] IMPACT DETECTED - magnitude 47.2 m/s^2" is printed. Sending the letter r in the Serial Monitor clears the alarm, and a live magnitude reading is printed twice a second to help tune the threshold.
+ADVANTAGES:
+- Three-axis measurement means the impact is caught from any direction.
+- A latched alarm cannot be silenced by the shock fading away.
+- Timestamped Serial messages give a clear record of when events happened.
+- The threshold is a single named constant, easy to tune for each build.
+- Purely logic-based detection - no extra trigger hardware is needed.
+REAL-WORLD USES:
+- Crash detector for a model car or robot test rig.
+- Shock logger on a package during transport demonstrations.
+- Impact alarm for a helmet, toolbox or equipment case prototype.
+- Trigger for a camera or buzzer when a stand is knocked over.
+- Teaching aid for vector quantities and acceleration in physics class.
+WHAT YOU LEARN:
+- Reading an MPU6050 accelerometer over I2C with the Adafruit library.
+- Combining X, Y and Z acceleration into a vector magnitude.
+- Setting sensor range and filter bandwidth for a given application.
+- Latching an alarm and resetting it from the Serial Monitor.
+- Formatting a millisecond timestamp for event logging.
+FUTURE SCOPE: Storing the last 30 seconds of acceleration in memory and dumping the crash trace after an event would make the project behave like a miniature flight recorder.
+POSSIBLE UPGRADES:
+- Show the live magnitude on a 16x2 I2C LCD.
+- Add a button next to the Serial 'r' command to clear the alarm.
+- Record the peak acceleration of every impact for later analysis.
+- Use the MPU6050 interrupt pin to wake the sketch instead of polling.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- MPU6050 accelerometer module (GY-521)
+- LED (any colour, or use the built-in LED on pin 13)
+- Passive buzzer
+- 220 ohm resistor for the LED
+- 100 ohm resistor for the buzzer
+- Breadboard
+- Jumper wires (SDA -> A4, SCL -> A5)
+- USB cable
+- Library: Adafruit MPU6050, Adafruit Unified Sensor, Adafruit BusIO
+DIFFICULTY: Advanced Beginner
+LIBRARY REQUIRED: Adafruit MPU6050, Adafruit Unified Sensor, Adafruit BusIO
+SAFETY NOTE: This is an educational prototype only. It is not a certified safety-critical system and must not be relied upon for real-world safety.

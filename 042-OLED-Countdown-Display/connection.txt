@@ -1,0 +1,30 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+SSD1306 OLED DISPLAY 128x64 (I2C, address 0x3C)
+SDA → Arduino A4     I2C data
+SCL → Arduino A5     I2C clock
+VCC → Arduino 5V
+GND → Arduino GND
+
+PUSH BUTTON "MIN +" (add one minute)
+pin 1 → Arduino D2
+pin 2 → Arduino GND
+
+PUSH BUTTON "MIN -" (remove one minute)
+pin 1 → Arduino D3
+pin 2 → Arduino GND
+
+PUSH BUTTON "START/STOP"
+pin 1 → Arduino D4
+pin 2 → Arduino GND
+
+NOTES
+- The three buttons use the internal pull-up (INPUT_PULLUP): one leg to the
+  pin, the other leg straight to GND. No external resistors are needed.
+- Pressing a button shorts the pin to GND, so the sketch sees LOW = pressed.
+- A0..A3 and D5..D13 stay free for future upgrades.
+- If the OLED is not found, check SDA/SCL and that the module really is 0x3C
+  (OLED_ADDRESS in the sketch).
+- Breadboard, jumper wires and the USB cable complete the build.

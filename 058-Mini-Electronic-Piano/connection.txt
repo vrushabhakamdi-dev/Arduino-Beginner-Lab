@@ -1,0 +1,58 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON 1 - C4
+One leg   → Arduino D2
+Other leg → GND
+  262 Hz.
+
+PUSH BUTTON 2 - D4
+One leg   → Arduino D3
+Other leg → GND
+  294 Hz.
+
+PUSH BUTTON 3 - E4
+One leg   → Arduino D4
+Other leg → GND
+  330 Hz.
+
+PUSH BUTTON 4 - F4
+One leg   → Arduino D5
+Other leg → GND
+  349 Hz.
+
+PUSH BUTTON 5 - G4
+One leg   → Arduino D6
+Other leg → GND
+  392 Hz.
+
+PUSH BUTTON 6 - A4
+One leg   → Arduino D7
+Other leg → GND
+  440 Hz.
+
+PUSH BUTTON 7 - B4
+One leg   → Arduino D8
+Other leg → GND
+  494 Hz.
+
+PUSH BUTTON 8 - C5
+One leg   → Arduino D9
+Other leg → GND
+  523 Hz.
+
+PASSIVE BUZZER
++ → Arduino D10
+- → GND
+  Sounds while a key is held.
+
+NOTES
+- Keep the keys in order left to right: D2 = C4 up to D9 = C5.
+- Buttons: internal pull-ups are enabled, so each button only shorts its pin
+  to GND. No external resistors - just 8 buttons, 8 jumpers to GND and one
+  common GND rail.
+- tone() needs a PASSIVE buzzer; an active buzzer cannot play the eight
+  different notes.
+- The buzzer is on D10 because every pin from D2 to D9 belongs to a key.
+- Note name and frequency appear in the Serial Monitor at 9600 baud.

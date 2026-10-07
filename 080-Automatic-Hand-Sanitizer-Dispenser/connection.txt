@@ -1,0 +1,35 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+FC-51 IR OBSTACLE SENSOR
+VCC    → Arduino 5V
+GND    → Arduino GND
+OUT    → Arduino D2
+
+PUMP DRIVER (NPN 2N2222 / TIP120 or logic-level NMOS)
+base/gate → Arduino D6   (1k ohm resistor in series)
+emitter   → Arduino GND
+collector → pump (-)
+
+LOW-VOLTAGE DC PUMP (5 V)
+pump (+) → external supply (+)
+pump (-) → transistor collector
+
+FLYBACK DIODE (1N4007) across the pump
+anode    → pump (-)
+cathode  → pump (+)      (stripe/band to +V)
+
+EXTERNAL PUMP SUPPLY (4 x AA or 5 V adapter)
++ → pump (+)
+- → Arduino GND          (common ground is required)
+
+LED (dispense indicator)
+anode   (+) → Arduino D13   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+NOTES
+- Power the pump from its own supply, never from the Arduino 5V pin, and always share a common ground.
+- Keep the reservoir, tubing and liquid well away from the Arduino, breadboard and USB cable.
+- Code assumes the FC-51 OUT is active-low (OBSTACLE_ACTIVE_LOW = true).
+- One hand in front of the sensor = one 1200 ms dose; remove the hand to re-arm.

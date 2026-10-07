@@ -1,0 +1,16 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LED
+Anode (+) → Arduino D13     (through 220 ohm resistor)
+Cathode (−) → GND
+
+PASSIVE BUZZER
++ → Arduino D8
+− → GND
+
+NOTES
+- One 220 ohm resistor in series with the LED.
+- Use a passive buzzer: tone() has to set its pitch itself.
+- Powered from the USB cable only; breadboard and jumper wires complete the circuit.

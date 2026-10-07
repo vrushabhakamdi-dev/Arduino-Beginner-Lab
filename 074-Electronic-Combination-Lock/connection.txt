@@ -1,0 +1,28 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+4X4 MEMBRANE KEYPAD
+R1        → Arduino D9
+R2        → Arduino D8
+R3        → Arduino D7
+R4        → Arduino D6
+C1        → Arduino D5
+C2        → Arduino D4
+C3        → Arduino D3
+C4        → Arduino D2
+
+MICRO SERVO (SG90)
+signal    → Arduino D10
++         → Arduino 5V
+-         → Arduino GND
+
+PIEZO BUZZER
++         → Arduino D11
+-         → Arduino GND
+
+NOTES
+- Keypad is non-polarised; only the row/column order matters. If the keys read wrong, reverse or swap the ribbon rows/columns.
+- Servo: 0 deg = locked, 90 deg = open. Power it from 5V with common GND (separate 5V supply if the board resets).
+- Default PIN is 2580. Change it from the Serial Monitor with PIN=1379; it is stored in EEPROM.
+- Keypad occupies D2-D9, servo D10, buzzer D11 - no pins left free for extra inputs.

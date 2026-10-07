@@ -1,0 +1,40 @@
+PROJECT NAME: 030 - Gas Leak Alarm
+PROJECT IDEA: Monitor an MQ-2 gas sensor continuously and sound a buzzer with a red LED whenever the analog reading passes a warning threshold.
+HOW IT WORKS: The MQ-2's sensing element changes resistance in the presence of gases such as LPG, propane and smoke, and the module converts that change into an analog voltage on pin A0. The Arduino reads the value every 250 milliseconds, compares it with a threshold, and keeps the alarm quiet during a one-minute warm-up period while the sensor stabilises. When the threshold is crossed, the red LED and buzzer flash together and the Serial Monitor reports ALARM, otherwise it prints OK with the raw reading.
+ADVANTAGES:
+- Continuous analogue monitoring shows trends, not just a single yes/no result.
+- Warm-up timer prevents false alarms right after power-up.
+- Serial logging of raw values makes it easy to find the right threshold.
+- Visual and audible warning together works in noisy or dark conditions.
+- Threshold, timing and pins are all named constants, so tuning is simple.
+REAL-WORLD USES:
+- Kitchen gas leak awareness projects and stove safety demos.
+- Workshop monitoring for propane, butane or solvent vapours.
+- Garage and boiler-room gas level indicators.
+- Fire and smoke detection companion panels.
+- Electronics labs learning exercise for analogue gas sensing.
+WHAT YOU LEARN:
+- How metal-oxide gas sensors such as the MQ-2 behave and why they need warm-up.
+- Reading and interpreting raw analogue sensor values over time.
+- Setting a data-driven alarm threshold from observed readings.
+- Coordinating two warning outputs with a non-blocking flashing pattern.
+- Understanding sensor burn-in, drift and calibration limitations.
+FUTURE SCOPE: Adding a second threshold for a pre-alarm stage and a display would produce a graduated leak warning panel suitable for wider classroom experiments.
+POSSIBLE UPGRADES:
+- Show the reading as a percentage of a calibrated baseline in Serial.
+- Add a pre-alarm level that only lights the LED before the buzzer sounds.
+- Log readings to an SD card or print them as CSV for later analysis.
+- Add a reset or acknowledge button that silences the buzzer for a period.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- MQ-2 gas sensor module
+- Piezo buzzer
+- Red LED
+- 220 ohm resistor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None
+SAFETY NOTE: This is an educational prototype only. It is not a certified safety-critical system and must not be relied upon for real-world safety.

@@ -1,0 +1,32 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LED 1
+A (+) → 220 ohm resistor → Arduino D2
+K (-) → Arduino GND
+
+LED 2
+A (+) → 220 ohm resistor → Arduino D3
+K (-) → Arduino GND
+
+LED 3
+A (+) → 220 ohm resistor → Arduino D4
+K (-) → Arduino GND
+
+LED 4
+A (+) → 220 ohm resistor → Arduino D5
+K (-) → Arduino GND
+
+LED 5
+A (+) → 220 ohm resistor → Arduino D6
+K (-) → Arduino GND
+
+LED 6
+A (+) → 220 ohm resistor → Arduino D7
+K (-) → Arduino GND
+
+NOTES
+- Each LED needs its own 220 ohm resistor; never share one resistor between LEDs.
+- LEDs are polarised: long leg (+) to the resistor, short leg (-) to GND.
+- Chase order is D2 → D3 → D4 → D5 → D6 → D7, then back again.

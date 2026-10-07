@@ -1,0 +1,43 @@
+PROJECT NAME: 087 - Automatic Object Sorting Machine
+PROJECT IDEA: A conveyor belt that measures how tall each object passing the station is and sorts it automatically, pushing tall items into bin A and letting short items continue to bin B.
+HOW IT WORKS: The conveyor DC motor driven by the L298N on pins 5, 6 and 7 runs constantly, while the HC-SR04 on pins 9 and 10 looks straight down at the belt from about 35 cm above. A reading of 10 cm or less means a tall object is underneath, so the servo on pin 11 swings the gate to bin A and the LED on pin 12 lights up; anything taller is classed as short, so the gate stays in its neutral position and the object rolls on to bin B. A small state machine holds the gate for 1.2 seconds, waits until the belt is clear again and then counts the next object, with every sort decision printed as a line in the Serial log.
+ADVANTAGES:
+- One ultrasonic sensor gives the height of the object, so no scale or camera is needed.
+- The conveyor runs continuously while the sorting logic runs alongside it.
+- Waiting for a clear belt stops the same object being counted twice.
+- The LED gives an instant tall or short indication without reading the Serial Monitor.
+- All angles, distances and timings are named constants at the top of the sketch.
+REAL-WORLD USES:
+- Recycling lines that separate bottles by size.
+- Parcel stations that route small and large packages to different chutes.
+- Food packaging lines sorting products into different cartons.
+- Workshop feeders that split components into two bins.
+- Teaching example of an automated quality gate on a production line.
+WHAT YOU LEARN:
+- Using an ultrasonic sensor in a "looking down" height measurement setup.
+- Running a motor constantly while other timed logic happens in the same loop.
+- Writing a three state machine for a mechanical sequence.
+- Driving a servo gate with the built-in Servo library.
+- Logging production counts over the Serial Monitor.
+FUTURE SCOPE: Adding a second sensor after the gate would confirm that each object actually landed in the right bin and raise an alarm when one is rejected.
+POSSIBLE UPGRADES:
+- Add a buzzer that beeps every time an object is sorted.
+- Count tall and short objects separately and show the totals.
+- Use PWM on the conveyor to slow it down while an object is measured.
+- Add a third bin with a second servo for a medium size class.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- L298N motor driver module
+- DC gear motor for the conveyor
+- Conveyor belt and roller set (model or DIY)
+- HC-SR04 ultrasonic sensor
+- SG90 micro servo for the sorting gate
+- LED (any colour)
+- 220 ohm resistor
+- 6-12V battery pack for the motors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built-in)
+DIFFICULTY: Advanced Beginner
+LIBRARY REQUIRED: Servo (built-in)

@@ -1,0 +1,31 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+MPU6050 ACCELEROMETER MODULE (GY-521)
+VCC → Arduino 5V      check your board - some are 3.3 V only
+GND → Arduino GND
+SDA → Arduino A4
+SCL → Arduino A5
+INT → not connected   unused by this sketch
+
+LED (impact indicator)
+anode (+)   → Arduino D13   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+PASSIVE BUZZER
++ → Arduino D8   (100 ohm resistor in series)
+- → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- SDA = A4 and SCL = A5 are the Uno's fixed hardware I2C pins; only four
+  wires go to the module.
+- Bolt the sensor rigidly to the object you want to monitor - a loose board
+  cannot show a clean impact spike.
+- The alarm latches on impact; type r in the Serial Monitor (9600 baud) to
+  clear it.
+- Educational prototype only - it is not a vehicle event recorder or an
+  airbag trigger.

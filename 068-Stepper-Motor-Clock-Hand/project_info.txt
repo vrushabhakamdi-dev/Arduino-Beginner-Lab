@@ -1,0 +1,37 @@
+PROJECT NAME: 068 - Stepper Motor Clock Hand
+PROJECT IDEA: Use a 28BYJ-48 stepper motor as the minute hand of a clock, advancing six degrees per minute while the Serial Monitor prints a simulated HH:MM time.
+HOW IT WORKS: The Stepper library drives the ULN2003 board on pins 8 to 11, and because a clock face has 360 degrees in 60 minutes, each simulated minute rotates the hand exactly 6 degrees. Instead of using delay(), the sketch stores the previous millis() timestamp and only moves the motor once the required number of milliseconds has elapsed, which keeps the timing accurate and leaves the processor free. Each tick increments a minutes counter and prints the time with leading zeros, so 09:05 shows correctly. Setting DEMO_MODE to true divides the minute interval by 60 so a full simulated hour goes past in one real minute for easy demonstration.
+ADVANTAGES:
+- Non-blocking millis() timing means no jitter from other work in loop().
+- A demo constant lets a teacher show an hour of movement in one minute.
+- Stepper motors hold the hand exactly where it stops, with no spring-back.
+- Leading-zero Serial output gives a proper digital clock display.
+- Accurate 6 degree steps match the real geometry of a clock face.
+REAL-WORLD USES:
+- Building a physical analog clock or desk ornament.
+- Driving timers, countdown displays and schedule indicators.
+- Slow rotation stages for photography or time-lapse rigs.
+- Teaching non-blocking timing in embedded programming classes.
+- Animating props that must move a set amount at set intervals.
+WHAT YOU LEARN:
+- How to convert clock minutes into degrees and then into motor steps.
+- How millis()-based scheduling replaces blocking delay() calls.
+- How to format time values with leading zeros for display.
+- Why stepper accuracy matters over long running periods.
+- How a constant such as DEMO_MODE can change program behaviour.
+FUTURE SCOPE: Adding an hour hand on a second stepper and a real-time clock module would turn this sketch into a complete working clock.
+POSSIBLE UPGRADES:
+- Add a push button that resynchronises the hand to the top of the hour.
+- Drive an hour hand as well, moving it only when simMinutes reaches 60.
+- Fit a DS1307 real-time clock module so the time survives a power cut.
+- Print the time on a 16x2 LCD instead of, or as well as, the Serial Monitor.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 28BYJ-48 stepper motor
+- ULN2003 stepper driver board
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Stepper (built-in)
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: Stepper (built-in)

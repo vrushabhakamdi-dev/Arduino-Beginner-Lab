@@ -1,0 +1,40 @@
+PROJECT NAME: 029 - Flame Detection Alarm
+PROJECT IDEA: Detect the infrared light emitted by a flame with a KY-026 sensor and raise a flashing LED and buzzer alarm while the flame is present.
+HOW IT WORKS: A flame gives off strong infrared radiation, and the KY-026's IR-sensitive photodiode turns that radiation into a change on its digital output pin. The Arduino reads pin 2, compares it against the level that means "flame" on that particular board, and switches on a fast-flashing buzzer and LED as soon as a match occurs. The Serial Monitor shows a FLAME DETECTED message at the moment of detection and a regular status line when the sensor is clear, which also helps you confirm whether your board is active-LOW or active-HIGH.
+ADVANTAGES:
+- Fast, non-contact detection of a fire's infrared signature.
+- Digital output means no library and no analogue calibration to worry about.
+- Serial status lines let a beginner verify wiring and polarity immediately.
+- Flashing and beeping together alert people who cannot see the display.
+- All timing is done with millis(), so the alarm reacts without lag.
+REAL-WORLD USES:
+- Early warning in kitchens, workshops and laboratories.
+- Flame presence checks on burners, boilers and furnace pilot lights.
+- Fire-severity hobby projects and science fair demonstrations.
+- Monitoring candles, gas fires or model rocket test stands.
+- Companion sensor alongside smoke detectors in a wider alarm system.
+WHAT YOU LEARN:
+- How infrared flame sensors detect a fire's emission spectrum.
+- Why sensor polarity differs between boards and how to test for it.
+- Using digitalRead() for alarm conditions with clear Serial feedback.
+- Creating a non-blocking flashing pattern with millis().
+- Writing the enter/exit logic that gives one-shot alarm messages.
+FUTURE SCOPE: Combining this sensor with a smoke or gas sensor would allow a multi-input fire alarm with different alerts for different hazards.
+POSSIBLE UPGRADES:
+- Add a second flame sensor facing another direction for wider coverage.
+- Latch the alarm so it keeps sounding until a reset button is pressed.
+- Drive a relay to cut power or switch on an extractor fan.
+- Send a timestamped alarm log over Serial for later review.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- KY-026 flame sensor module
+- Piezo buzzer
+- LED (the built-in LED on pin 13 can be used)
+- 220 ohm resistor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None
+SAFETY NOTE: This is an educational prototype only. It is not a certified safety-critical system and must not be relied upon for real-world safety.

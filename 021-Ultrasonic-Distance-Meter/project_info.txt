@@ -1,0 +1,36 @@
+PROJECT NAME: 021 - Ultrasonic Distance Meter
+PROJECT IDEA: Measure the distance to a nearby object with an HC-SR04 ultrasonic sensor and display the result in centimetres on the Serial Monitor.
+HOW IT WORKS: The Arduino sends a short 10 microsecond pulse on the Trig pin, which makes the HC-SR04 emit a burst of ultrasonic sound. The sensor's Echo pin then stays HIGH for exactly as long as the sound takes to travel to the object and bounce back. The code measures that time with pulseIn() and multiplies it by the speed of sound (divided by two, because the sound travels to the object and back), giving a distance in centimetres that is printed every 200 milliseconds.
+ADVANTAGES:
+- Non-contact measurement, so nothing needs to touch the object being measured.
+- Cheap, widely available module that works from about 2 cm up to 400 cm.
+- No extra library is required, so the sketch runs straight after upload.
+- Two-decimal Serial output makes it easy to see small changes in position.
+- Gives real practice with timing, pulse measurement and unit conversion.
+REAL-WORLD USES:
+- Reversing sensors and parking aids on cars.
+- Liquid level measurement in tanks and reservoirs.
+- Robot obstacle avoidance and wall-following on mobile robots.
+- Conveyor belts and production lines checking part presence or position.
+- Automatic doors that open when a person walks close to them.
+WHAT YOU LEARN:
+- How ultrasonic ranging works using trigger pulses and echo timing.
+- How to use pinMode(), digitalWrite() and pulseIn() together.
+- How to convert a time measurement into a physical distance in centimetres.
+- How to use millis() to schedule periodic output without blocking with delay().
+- How to add range limits and timeouts so the program handles bad readings.
+FUTURE SCOPE: The same sensor and code can drive a live distance display or a simple parking gauge once an output device such as an LCD or buzzer is added.
+POSSIBLE UPGRADES:
+- Show a bar graph of distance using LEDs or a string of dashes in Serial.
+- Add a buzzer that beeps faster as the object comes closer.
+- Display the distance on a 16x2 LCD instead of the Serial Monitor.
+- Average several readings in a row to smooth out noisy measurements.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- HC-SR04 ultrasonic sensor module
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

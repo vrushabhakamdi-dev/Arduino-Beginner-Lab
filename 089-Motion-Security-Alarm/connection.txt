@@ -1,0 +1,34 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+HC-SR501 PIR MOTION SENSOR
+OUT → Arduino D2
+VCC → Arduino 5V
+GND → Arduino GND
+(set the module delay pot to minimum and the mode jumper to H = repeat)
+
+ARM / DISARM PUSH BUTTON
+LEG → Arduino D3      (INPUT_PULLUP, no external resistor needed)
+other LEG → Arduino GND
+
+ARMED LED
+Arduino D12 → 220 ohm → LED anode (+)
+LED cathode (-) → Arduino GND
+
+ALARM LED
+Arduino D13 → 220 ohm → LED anode (+)
+LED cathode (-) → Arduino GND    (the Uno's built-in LED on D13 works too)
+
+PIEZO BUZZER
++ → Arduino D8
+- → Arduino GND
+
+NOTES
+- Let the PIR settle 30-60 seconds after power-up before the first arm;
+  the sketch boots DISARMED so you have time to leave the room.
+- All four parts (PIR, button, LEDs, buzzer) run from the Arduino - no
+  separate supply is needed.
+- No signal wiring: breadboard, jumper wires, USB cable.
+- SAFETY: educational prototype only - never wire it to anything that could
+  harm a person or an animal; it is not a certified security system.

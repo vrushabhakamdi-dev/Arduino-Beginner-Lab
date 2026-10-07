@@ -1,0 +1,41 @@
+PROJECT NAME: 066 - DC Motor Direction Controller
+PROJECT IDEA: Control a DC motor with three push buttons that select forward, reverse or stop, while LEDs and the Serial Monitor clearly show which command is active.
+HOW IT WORKS: Each button is wired between a digital pin and GND and uses the Arduino's internal pull-up resistor, so an unpressed button reads HIGH and a pressed one reads LOW. A small debounce routine makes sure one physical press registers as exactly one command. Choosing FORWARD sets IN1 HIGH and IN2 LOW on the L298N, choosing REVERSE swaps those two signals, and STOP drops the enable PWM to zero so the motor coasts to a halt. The matching LED on pin 9 or pin 10 lights up, and every accepted command is printed over Serial at 9600 baud.
+ADVANTAGES:
+- Direct, intuitive manual control with no code changes needed to reverse.
+- Internal pull-ups remove the need for three external resistors.
+- Debouncing stops a single press from being counted several times.
+- Direction LEDs give immediate visual confirmation of the motor state.
+- The separate L298N driver protects the Arduino from motor current.
+REAL-WORLD USES:
+- Hoists, winches and small cranes that must raise and lower a load.
+- Motorised trolleys, robots and conveyor lines on a factory floor.
+- Motorised curtains, shutters and sliding mechanisms at home.
+- Model railway points and scenic accessories.
+- Test jigs that run a motor forwards and backwards during testing.
+WHAT YOU LEARN:
+- How H-bridge inputs IN1 and IN2 reverse the current through a motor.
+- How INPUT_PULLUP wiring simplifies push button circuits.
+- Why debouncing is needed and how millis() implements it.
+- How to organise code into small functions such as runForward() and stopMotor().
+- How to map physical button presses to serial command logging.
+FUTURE SCOPE: The same button set can become a serial command parser, where characters typed in the Serial Monitor also change the motor direction.
+POSSIBLE UPGRADES:
+- Add a potentiometer on A0 to set the running speed as well as direction.
+- Print "FORWARD", "REVERSE" and "STOP" as a live status line instead of separate lines.
+- Add a fourth button that switches between fast and slow speeds.
+- Record the total forward and reverse running time in variables.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- L298N motor driver module
+- Small 6-12V DC motor
+- External 6-12V DC power supply for the motor
+- 3 push buttons
+- 2 LEDs (any colour)
+- 2 x 220 ohm resistors
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

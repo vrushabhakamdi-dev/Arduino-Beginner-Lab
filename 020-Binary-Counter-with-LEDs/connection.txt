@@ -1,0 +1,19 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+LED BYTE (8 LEDs, 220 ohm resistor each)
+Anode (+) → Arduino D2     (bit 0, value   1, least significant bit)
+Anode (+) → Arduino D3     (bit 1, value   2)
+Anode (+) → Arduino D4     (bit 2, value   4)
+Anode (+) → Arduino D5     (bit 3, value   8)
+Anode (+) → Arduino D6     (bit 4, value  16)
+Anode (+) → Arduino D7     (bit 5, value  32)
+Anode (+) → Arduino D8     (bit 6, value  64)
+Anode (+) → Arduino D9     (bit 7, value 128, most significant bit)
+Cathode (−) → GND          (all eight cathodes on the GND rail)
+
+NOTES
+- Value 0 lights no LED, value 255 lights all eight.
+- One 220 ohm resistor per LED. D10-D13 stay free.
+- USB cable powers the board; breadboard and jumper wires for the rest.

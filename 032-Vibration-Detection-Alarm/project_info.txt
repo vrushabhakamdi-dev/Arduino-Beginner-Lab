@@ -1,0 +1,38 @@
+PROJECT NAME: 032 - Vibration Detection Alarm
+PROJECT IDEA: Use an SW-420 vibration sensor to detect a knock or bump on a surface and sound a buzzer alarm with an LED, logging each event with a millisecond timestamp.
+HOW IT WORKS: The SW-420 module contains a spring inside a metal cylinder that briefly touches a contact whenever it is shaken, pulling its digital output HIGH. The Arduino reads pin 2 and, once vibration is seen, lights the LED and plays a tone on the buzzer. A debounce timer of 300 ms stops one physical knock from being counted many times, and the Serial Monitor prints a timestamped event for every accepted trigger.
+ADVANTAGES:
+- Detects impacts and tampering that a simple switch could never notice.
+- Cheap module with an on-board potentiometer so sensitivity is adjustable.
+- Debounce logic keeps the alarm clean instead of chattering wildly.
+- Timestamps in the Serial log make it easy to study real vibration patterns.
+- Runs entirely offline with no network or account needed.
+REAL-WORLD USES:
+- Theft or tamper alarms on boxes, cabinets and drawers.
+- Shock sensors on windows and display cases.
+- Vibration monitoring for small motors or hobby machines.
+- Knock-activated switches for interactive art and props.
+- Intruder alerts for sheds and storage rooms.
+WHAT YOU LEARN:
+- How a vibration / tilt ball style digital sensor works.
+- Why debounce matters and how millis() implements it without delay().
+- How to use millis() timestamps to log events.
+- Driving a buzzer with tone() and a LED with digitalWrite().
+- Separating an "armed" heartbeat message from real alarm events.
+FUTURE SCOPE: Multiple sensors could be placed around a room and the Arduino could report which zone was disturbed.
+POSSIBLE UPGRADES:
+- Add a latch so the alarm keeps sounding until a reset button is pressed.
+- Change the alarm to a rising and falling siren tone.
+- Count vibrations per minute and warn when activity gets high.
+- Add a second LED that shows the system is armed and ready.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- SW-420 vibration sensor module
+- Piezo buzzer
+- 220 ohm resistor
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None

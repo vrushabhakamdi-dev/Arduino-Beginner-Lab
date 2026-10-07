@@ -1,0 +1,42 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+FC-51 IR OBSTACLE SENSOR - "train approaching"
+VCC → Arduino 5V
+GND → Arduino GND
+OUT → Arduino D2
+
+FC-51 IR OBSTACLE SENSOR - "train leaving"
+VCC → Arduino 5V
+GND → Arduino GND
+OUT → Arduino D3
+
+CROSSING LED 1
+anode (+)   → Arduino D4   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+CROSSING LED 2
+anode (+)   → Arduino D5   (220 ohm resistor in series)
+cathode (-) → Arduino GND
+
+MICRO SERVO (SG90) - barrier
+orange (signal) → Arduino D6
+red (+)         → Arduino 5V
+brown/black (-) → Arduino GND
+
+PASSIVE BUZZER (crossing bell)
++ → Arduino D8   (100 ohm resistor in series)
+- → Arduino GND
+
+BREADBOARD / JUMPER WIRES / USB CABLE
+no pin mapping - used for prototyping and power
+
+NOTES
+- Most FC-51 modules output LOW when they see the train
+  (IR_ACTIVE_LOW = true); flip the constant if yours is inverted.
+- Aim sensor 1 at the approaching track and sensor 2 at the departing end;
+  each needs 150 ms of stable detection before the state changes.
+- Power the servo from 5V with a common ground; use a separate supply if
+  the Arduino resets while the barrier moves.
+- Educational prototype only - it is not real railway equipment.

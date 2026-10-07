@@ -1,0 +1,39 @@
+PROJECT NAME: 022 - Parking Distance Assistant
+PROJECT IDEA: Build a car-style parking aid that lights up a row of LEDs and speeds up a buzzer beep as an obstacle gets closer to an ultrasonic sensor.
+HOW IT WORKS: An HC-SR04 continuously measures the distance to whatever is in front of it, and the sketch compares that value against four thresholds of 50, 35, 20 and 10 centimetres. Each threshold switches on another LED, so the display grows from one light when far away to all four lights when very close. At the same time the buzzer's beep period shrinks from 800 ms down to 100 ms, so the beeping gets faster the nearer the object becomes, and the distance is also printed to the Serial Monitor.
+ADVANTAGES:
+- Gives both visual and audible warning, so the driver can keep eyes on the manoeuvre.
+- Beep rate scales with distance, which is far more intuitive than a single on/off alarm.
+- Uses non-blocking millis() timing, so the sensor keeps sampling while the buzzer beeps.
+- Thresholds are named constants, so they can be tuned for a different vehicle in seconds.
+- No LCD or extra display needed, keeping the part count and cost very low.
+REAL-WORLD USES:
+- Reversing and parking sensors on cars, vans and trucks.
+- Garage and wall proximity warnings for vehicles and robots.
+- Crane, forklift and warehouse vehicle personnel detection.
+- Level gauges that warn before a tank or hopper overfills.
+- Hobby RC car and robot obstacle distance indicators.
+WHAT YOU LEARN:
+- Comparing one sensor reading against several thresholds to build a step display.
+- Driving LEDs and a buzzer from digital outputs.
+- Using millis() for two independent timers (sampling and beeping) in one loop.
+- Writing small helper functions such as readDistanceCm() to keep code tidy.
+- Handling a "no echo" sensor result safely instead of showing a wrong value.
+FUTURE SCOPE: Adding a distance display would turn the sketch into a complete parking console, and a relay output could eventually trigger braking or a horn.
+POSSIBLE UPGRADES:
+- Show the exact distance on a 16x2 LCD or a 7-segment display.
+- Vary the beep volume with PWM on the buzzer pin instead of on/off beeping.
+- Add a switch to turn the assistant on and off like a real parking button.
+- Store a per-vehicle threshold table in EEPROM for different mounting positions.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- HC-SR04 ultrasonic sensor module
+- 4 x LEDs (any colors)
+- 4 x 220 ohm resistors
+- Piezo buzzer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Intermediate
+LIBRARY REQUIRED: None

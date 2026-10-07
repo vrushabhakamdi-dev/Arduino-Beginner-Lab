@@ -1,0 +1,41 @@
+PROJECT NAME: 071 - Relay Controlled Lamp
+PROJECT IDEA: Toggle a lamp on and off with a push button through a relay module, while an LED and the Serial Monitor mirror the relay state.
+HOW IT WORKS: The push button on pin 2 is read with the Arduino's internal pull-up, and a short debounce routine filters out contact bounce. Every press toggles a software flag that drives the relay module input on pin 4, so the relay coil either energises or releases and switches the lamp circuit. An LED on pin 13 mirrors the same state, and the Serial Monitor prints RELAY ON or RELAY OFF after every press.
+ADVANTAGES:
+- Shows how a tiny 5V signal can safely switch a separate, higher-power load.
+- Uses only one button, one relay module, one LED and a few wires.
+- The active-low versus active-high relay logic is handled by a single constant, so different modules work with the same sketch.
+- Button debounce makes the toggle reliable instead of flipping twice per press.
+- Serial feedback makes it obvious what the code is doing while you test.
+REAL-WORLD USES:
+- Switching a desk lamp or night light from a microcontroller project.
+- Basic home-automation style lighting control without any mains wiring on the board.
+- Classroom demos of electromechanical relays and isolated load switching.
+- Adding on/off control to fans, small pumps or heaters in later projects.
+- A building block for timers, alarms and sensor-triggered switches.
+WHAT YOU LEARN:
+- How to read a button with INPUT_PULLUP and why the pin reads LOW when pressed.
+- How to debounce a mechanical button with millis().
+- What a relay does and the difference between active-low and active-high modules.
+- How to keep pin assignments and timing values as named constants.
+- How to mirror a digital output on an LED and report it over Serial.
+FUTURE SCOPE: The same relay output could be driven by a timer, a sensor threshold or multiple buttons instead of a single toggle.
+POSSIBLE UPGRADES:
+- Add a second button that only turns the lamp ON and a third that only turns it OFF.
+- Let an LDR switch the lamp automatically at sunset, with the button as manual override.
+- Print an ON/OFF counter on the Serial Monitor to count how often the lamp was used.
+- Replace the toggle with a hold-to-run behaviour (lamp only on while the button is held).
+REQUIRED COMPONENTS:
+- Arduino Uno
+- 5V relay module (1 channel, optocoupler type)
+- Push button
+- LED (any colour)
+- 220 ohm resistor
+- Low-voltage demo lamp or LED strip (5V/12V) and its power supply
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None
+SAFETY NOTE: This is an educational prototype only. It is not a certified safety-critical system and must not be relied upon for real-world safety. Drive only low-voltage demo loads; mains electricity work must be done by a qualified professional.

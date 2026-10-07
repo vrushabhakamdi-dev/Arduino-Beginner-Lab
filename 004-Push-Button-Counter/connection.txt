@@ -1,0 +1,12 @@
+CONNECTIONS
+
+BOARD: Arduino Uno
+
+PUSH BUTTON (tactile)
+leg 1 → Arduino D2
+leg 2 → Arduino GND
+
+NOTES
+- INPUT_PULLUP is used in the code, so NO external resistor is needed.
+- Active-low input: pressed = LOW, released = HIGH.
+- A 4-pin tactile switch has two legs per side; use one leg from each side.

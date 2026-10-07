@@ -1,0 +1,37 @@
+PROJECT NAME: 062 - Servo Controlled Gauge
+PROJECT IDEA: Turn a potentiometer to swing a servo that acts as the needle of a dashboard gauge, while the Serial Monitor reports the reading as a percentage.
+HOW IT WORKS: The potentiometer forms a voltage divider, so analog pin A0 reads a value between 0 and 1023 as you rotate the knob. The code averages ten of these readings to stop the needle from jittering, then maps the value onto 0 to 180 degrees and sends that angle to the servo on pin 9. The same raw value is also converted to 0 to 100 percent and printed over Serial at 9600 baud. Because the servo holds its last commanded angle, the needle stays exactly where you leave the knob.
+ADVANTAGES:
+- Gives an instant, physical readout without needing an LCD or meter.
+- Reading ten samples in a row filters out noise for a steady needle.
+- Potentiometers and servos are cheap, common and easy to wire.
+- Percentage output is a useful habit for any sensor project.
+- Runs entirely on the built-in Servo library with no downloads.
+REAL-WORLD USES:
+- Car dashboard gauges for fuel, temperature or battery level.
+- Panel meters and test instruments in a workshop.
+- Volume or level indicators on homemade audio equipment.
+- Industrial control panels showing tank fill or pressure.
+- Educational demos that link an analogue input to a physical output.
+WHAT YOU LEARN:
+- How a potentiometer produces a variable analogue voltage.
+- How to read analogue inputs with analogRead() on pins A0 to A5.
+- How to use map() to convert one range into another.
+- Why averaging several sensor samples gives smoother results.
+- How a servo can imitate the pointer of a traditional gauge.
+FUTURE SCOPE: The same input-to-needle path can be fed by any sensor instead of a pot, so the gauge could show temperature, light level or distance.
+POSSIBLE UPGRADES:
+- Swap the servo for a 28BYJ-48 stepper on a ULN2003 driver for a full 360 degree dial.
+- Add coloured LEDs that light up above 80 percent as a warning zone.
+- Display the raw value and percent together on a 16x2 LCD.
+- Smooth the movement with a ramp so the needle glides instead of jumping.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- SG90 micro servo motor
+- 10k potentiometer
+- Breadboard
+- Jumper wires
+- USB cable
+- Library: Servo (built-in)
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: Servo (built-in)

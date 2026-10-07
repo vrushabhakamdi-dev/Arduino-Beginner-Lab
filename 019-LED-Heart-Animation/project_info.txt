@@ -1,0 +1,37 @@
+PROJECT NAME: 019 - LED Heart Animation
+PROJECT IDEA: Arrange ten LEDs in a heart shape and play a beating-heart animation that is stored as a series of frames inside the code.
+HOW IT WORKS: The sketch keeps a two-dimensional array where every row is one frame of ten values, one for each LED from pin 2 to pin 11. loop() walks through the frames, switches the LEDs on and off to match, and holds each frame for the time given in a matching delay array. Changing the 0s and 1s, or the hold times, completely changes the animation.
+ADVANTAGES:
+- Pure hardware and code: no libraries, sensors or displays required.
+- Frames are editable text, so the pattern can be redesigned in seconds.
+- Teaches arrays, loops and timing inside one small project.
+- The heart shape makes a nice gift, badge or decoration.
+- Shows how classic frame-by-frame animation works.
+REAL-WORLD USES:
+- Decorative light-up cards, gifts and wearable badges.
+- Animated status indicators on hobby projects and robots.
+- Scrolling signs and marquee-style light displays.
+- Museum and classroom demonstrations of simple animation.
+- Holiday lights and decorative strings with custom patterns.
+WHAT YOU LEARN:
+- How to store animation frames in a two-dimensional array.
+- How a parallel array of hold times controls the pacing.
+- How to map array positions onto physical pins with an offset.
+- How frame-by-frame images create the illusion of motion.
+- How to document a wiring layout in comments so others can rebuild it.
+FUTURE SCOPE: The same frame engine could animate arrows, smileys or scrolling text, and a button could let the user switch between several stored animations.
+POSSIBLE UPGRADES:
+- Design more frames for a longer or faster heartbeat.
+- Add a button that pauses and resumes the animation.
+- Use PWM pins so the LEDs fade in and out instead of snapping on.
+- Move the frames into PROGMEM to leave more program space for extra patterns.
+REQUIRED COMPONENTS:
+- Arduino Uno
+- Breadboard
+- 10 LEDs (any color)
+- 10 x 220 ohm resistors
+- Jumper wires
+- USB cable
+- Library: None
+DIFFICULTY: Beginner
+LIBRARY REQUIRED: None
